@@ -1,0 +1,185 @@
+{
+  "main": {
+    "id": "883524b5d5ffb01c",
+    "type": "split",
+    "children": [
+      {
+        "id": "246f4bdf6efa1d4c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "907e5993fbba22a6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dijstra.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2bada73a840ced11",
+            "type": "leaf",
+            "state": {
+              "type": "database-plugin",
+              "state": {
+                "file": "Problems/Untitled database.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c5d4cdf1da1f2902",
+    "type": "split",
+    "children": [
+      {
+        "id": "7db86988fe64c904",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "91308e98f5a3edf7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "73d1b1071f679a68",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "bd0ba40cd77a71b2",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "021ba2dea9d52d85",
+    "type": "split",
+    "children": [
+      {
+        "id": "dda45c19fc8ad143",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "32c5c64b30aeca34",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Problems/Untitled database.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "bf35dd5608a375fc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Problems/Untitled database.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "dc79275fab1e3ba4",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "5d27211c1cfa0774",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Problems/Untitled database.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "dbfolder:Create a new database table": false
+    }
+  },
+  "active": "2bada73a840ced11",
+  "lastOpenFiles": [
+    "README.md",
+    "Problems/1234.cpp",
+    "Problems/1234.md",
+    "Problems/temple.md",
+    "Problems/Untitled database.md",
+    "Problems/1234.cpp~",
+    "Problems/kk.sh~",
+    "Problems/temple.cpp~",
+    "Problems/178.cpp",
+    "Problems/178.md",
+    "Problems/temple.cpp",
+    "Problems/kk.sh",
+    "Problems/temple.md~",
+    "Problems/1985E.md",
+    "Dijstra.md",
+    "Problems/1985E.md~",
+    "Problems/temp",
+    "Problems/2001C.md",
+    "Problems/778.md",
+    "Problems/99.md",
+    "Metacoginicion.md"
+  ]
+}

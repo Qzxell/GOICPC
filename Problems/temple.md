@@ -1,0 +1,15 @@
+---
+tags:
+Level: 1000
+Solved: false 
+Idea_clave: 
+Mistakes: 
+resolve_again_obligatory: false
+URL: 
+---
+
+## De que va el problema
+
+- 
+
+### Posibles solucion
