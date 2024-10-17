@@ -67,7 +67,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "021ba2dea9d52d85",
@@ -147,6 +148,7 @@
   },
   "active": "5e838b0d69ff4ce8",
   "lastOpenFiles": [
+<<<<<<< HEAD
     "Problems/1993C.md~",
     "2024-10-11.md",
     "Problems/Data.md",
@@ -168,6 +170,30 @@
     "Problems/178.md",
     "Problems/temple.cpp",
     "Problems/kk.sh",
+=======
+    "Problems/E.cpp~",
+    "Problems/in~",
+    "Problems/E.cpp",
+    "Problems/F.cpp~",
+    "Problems/a",
+    "Problems/F.cpp",
+    "Problems/C_paradox.cpp~",
+    "Problems/C_paradox.cpp",
+    "Problems/B_paradox.cpp~",
+    "Problems/B_paradox.cpp",
+    "Problems/F_Double.cpp~",
+    "Problems/temple.md",
+    "Problems/Untitled database.md",
+    "Problems/Eprof.md",
+    "Problems/F_Double.md",
+    "Problems/1985E.md",
+    "Dynamic Programing.md",
+    "method of practice ThemeCP.md",
+    "README.md",
+    "Problems/1234.md",
+    "Problems/178.md",
+    "Dijstra.md",
+>>>>>>> 276027829d6c9043cd8f8288f49f4e0f890e709d
     "Problems/2001C.md",
     "Problems/778.md",
     "Problems/99.md"
