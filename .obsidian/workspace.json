@@ -16,21 +16,12 @@
                 "file": "Dijstra.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "2bada73a840ced11",
-            "type": "leaf",
-            "state": {
-              "type": "database-plugin",
-              "state": {
-                "file": "Problems/Untitled database.md"
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Dijstra"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -50,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -65,7 +58,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -73,15 +68,16 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "021ba2dea9d52d85",
@@ -97,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Problems/Untitled database.md",
+                "file": "Dijstra.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +101,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Dijstra"
             }
           },
           {
@@ -114,10 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Problems/Untitled database.md",
+                "file": "Dijstra.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Dijstra"
             }
           },
           {
@@ -128,7 +128,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -137,8 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Problems/Untitled database.md"
-              }
+                "file": "Dijstra.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Dijstra"
             }
           }
         ]
@@ -159,8 +163,9 @@
       "dbfolder:Create a new database table": false
     }
   },
-  "active": "2bada73a840ced11",
+  "active": "907e5993fbba22a6",
   "lastOpenFiles": [
+    "Problems/Untitled database.md",
     "Problems/E.cpp~",
     "Problems/in~",
     "Problems/E.cpp",
@@ -171,9 +176,7 @@
     "Problems/C_paradox.cpp",
     "Problems/B_paradox.cpp~",
     "Problems/B_paradox.cpp",
-    "Problems/F_Double.cpp~",
     "Problems/temple.md",
-    "Problems/Untitled database.md",
     "Problems/Eprof.md",
     "Problems/F_Double.md",
     "Problems/1985E.md",
