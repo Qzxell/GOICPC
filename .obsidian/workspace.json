@@ -8,29 +8,16 @@
         "type": "tabs",
         "children": [
           {
-            "id": "907e5993fbba22a6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Dijstra.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2bada73a840ced11",
+            "id": "5e838b0d69ff4ce8",
             "type": "leaf",
             "state": {
               "type": "database-plugin",
               "state": {
-                "file": "Problems/Untitled database.md"
+                "file": "Problems/Data.md"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Problems/Untitled database.md",
+                "file": "Problems/Data.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Problems/Untitled database.md",
+                "file": "Problems/Data.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Problems/Untitled database.md"
+                "file": "Problems/Data.md"
               }
             }
           }
@@ -158,13 +145,22 @@
       "dbfolder:Create a new database table": false
     }
   },
-  "active": "2bada73a840ced11",
+  "active": "5e838b0d69ff4ce8",
   "lastOpenFiles": [
+    "Problems/1993C.md~",
+    "2024-10-11.md",
+    "Problems/Data.md",
+    "Metacoginicion.md",
+    "Problems/kk~",
+    "Problems/1985E.md",
+    "Problems/abc366c.md",
+    "Problems/temple.md",
+    "Problems/temple.md~",
+    "Dijstra.md",
+    "Problems/kk",
     "README.md",
     "Problems/1234.cpp",
     "Problems/1234.md",
-    "Problems/temple.md",
-    "Problems/Untitled database.md",
     "Problems/1234.cpp~",
     "Problems/kk.sh~",
     "Problems/temple.cpp~",
@@ -172,14 +168,8 @@
     "Problems/178.md",
     "Problems/temple.cpp",
     "Problems/kk.sh",
-    "Problems/temple.md~",
-    "Problems/1985E.md",
-    "Dijstra.md",
-    "Problems/1985E.md~",
-    "Problems/temp",
     "Problems/2001C.md",
     "Problems/778.md",
-    "Problems/99.md",
-    "Metacoginicion.md"
+    "Problems/99.md"
   ]
 }

@@ -45,6 +45,7 @@ columns:
       - { label: "asds", value: "asds", color: "hsl(120, 95%, 90%)"}
       - { label: "combinatorics", value: "combinatorics", color: "hsl(239, 95%, 90%)"}
       - { label: "1200", value: "1200", color: "hsl(98, 95%, 90%)"}
+      - { label: "atcoder", value: "atcoder", color: "hsl(329, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true
