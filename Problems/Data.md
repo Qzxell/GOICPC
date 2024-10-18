@@ -40,12 +40,15 @@ columns:
     skipPersist: false
     isHidden: false
     sortIndex: -1
+    width: 207
     options:
       - { label: "asdf", value: "asdf", color: "hsl(167, 95%, 90%)"}
       - { label: "asds", value: "asds", color: "hsl(120, 95%, 90%)"}
       - { label: "combinatorics", value: "combinatorics", color: "hsl(239, 95%, 90%)"}
       - { label: "1200", value: "1200", color: "hsl(98, 95%, 90%)"}
       - { label: "atcoder", value: "atcoder", color: "hsl(329, 95%, 90%)"}
+      - { label: "math", value: "math", color: "hsl(95, 95%, 90%)"}
+      - { label: "implementation", value: "implementation", color: "hsl(316, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true
@@ -84,6 +87,7 @@ columns:
     skipPersist: false
     isHidden: false
     sortIndex: -1
+    width: 263
     config:
       enable_media_view: true
       link_alias_enabled: true

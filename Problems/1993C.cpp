@@ -14,8 +14,55 @@ using namespace std;
 #define se second
 
 
-void so(){
+void so(int test){
+    int n,k;
+    cin >> n >> k;
+    vi inv_p(2*k + 2, 0) ;
+    int ma = 0;
+    for(int i =0 ; i < n ;i++){
+        int x;
+        cin >> x;
+        ma = max(ma,x);
+        int res = x % k;
+        int odd = ((x/k)&1);
+        if(odd == 0){
+            inv_p[res]++;
+            inv_p[res + k]--;
+        }else{
+            inv_p[res+k]++;
+            inv_p[k+k]--;
+            inv_p[0]++;
+            inv_p[res]--;
 
+        }
+    }
+    for(int i = 1 ; i < 2*k+2; i++)inv_p[i] += inv_p[i-1];
+    bool yes = 0;
+    int mod_a = -1;
+    int pari = 0;
+    int paru = 0;
+
+    for(int i = 0 ; i < 2*k; i++) if( n == inv_p[i]){
+        yes = 1;
+        mod_a = i%k;
+        pari = (i <= k-1 ? 0 : 1);
+    }
+    if(!yes){
+        cout << -1 << ln;
+        return;
+    }
+    while(true){
+        int pos = ma%k;
+        if ((ma/k)&1) {
+            pos += k; 
+        }
+        if(inv_p[pos] == n ) {
+            cout << ma  << ln;
+            return;
+        }else ma++;
+    }
+
+    
 }
 
 int main() {
@@ -24,8 +71,9 @@ int main() {
 
     int tt = 1;
     cin >> tt;
+    int test = 1;
     while (tt--){
-        so();
+        so(test++);
     }
     return 0;
 }

@@ -14,7 +14,7 @@ using namespace std;
 #define se second
 
 
-void so(){
+void so(int test){
 
 }
 
@@ -24,8 +24,9 @@ int main() {
 
     int tt = 1;
     cin >> tt;
+    int test = 1;
     while (tt--){
-        so();
+        so(test++);
     }
     return 0;
 }
