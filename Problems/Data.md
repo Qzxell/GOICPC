@@ -49,6 +49,9 @@ columns:
       - { label: "atcoder", value: "atcoder", color: "hsl(329, 95%, 90%)"}
       - { label: "math", value: "math", color: "hsl(95, 95%, 90%)"}
       - { label: "implementation", value: "implementation", color: "hsl(316, 95%, 90%)"}
+      - { label: "constructive algorithm", value: "constructive algorithm", color: "hsl(72, 95%, 90%)"}
+      - { label: "force brute", value: "force brute", color: "hsl(307, 95%, 90%)"}
+      - { label: "greedy", value: "greedy", color: "hsl(87, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true

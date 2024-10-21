@@ -1,16 +1,38 @@
-
-
-distance   nodo actual     caballo?
-0 1 0
-distance   nodo actual     caballo?
-4 2 1
-distance   nodo actual     caballo?
-16 3 0
-distance   nodo actual     caballo?
-0 3 0
-distance   nodo actual     caballo?
-16 1 0
-distance   nodo actual     caballo?
-20 2 1
-0 4 16 
-2147483647
+0 2 4 6 
+-1 1 5 
+-1 3 
+=====================
+ans :  1
+0 7 
+-1 2 
+-1 3 8 
+-1 4 
+-1 1 5 
+-1 6 
+-1 9 
+=====================
+ans :  3
+0 2 4 6 
+=====================
+ans :  1
+0 
+-1 1 
+-1 2 
+-1 3 
+-1 4 
+-1 5 
+=====================
+ans :  2
+-1 10 17 
+-1 1 4 8 
+-1 3 14 
+-1 6 15 
+-1 13 20 
+0 
+-1 5 
+-1 11 18 
+-1 7 
+-1 12 19 
+-1 2 
+=====================
+ans :  4
