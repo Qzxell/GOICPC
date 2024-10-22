@@ -12,10 +12,41 @@ using namespace std;
 #define vi vector<int>  
 #define fi first
 #define se second
-
+#define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
+#define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
+    int n;
+    cin >> n;
+    vi v(n);
+    ll su = 0;
+    f(i,0,n){
+        cin >> v[i];
+        su += v[i];
+    }
+    auto  fu  = [](int x) {
+        int c =0 ;
+        ll te = x;
+        while(x){
+            c++;
+            x>>=1;
+        }
+        if(te - (1ll<<(c-1)) > (1ll<<(c)) - te) return c;
+        else return c-1;
+    };
+    ll sum = 0;
+    f(i,0,n){
+        ll k = fu(v[i]);
+        k = (1ll<<k);
+        if(k > 1e9) k >>= 1;
+        sum += abs(1ll*v[i] - k);
+        cout << k  << ' ';
+    }
+    cout << ln;
+    //cout << sum << ' ' << su;
+    //cout <<"####################" <<ln;
     
+
 }
 
 int main() {
