@@ -12,11 +12,10 @@ using namespace std;
 #define vi vector<int>  
 #define fi first
 #define se second
-#define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
-#define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
+
 
 void so(int test){
-
+    
 }
 
 int main() {
