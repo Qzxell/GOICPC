@@ -16,7 +16,6 @@ using namespace std;
 #define fer(i, a, b) for(ll i = (ll)a ; i >= (ll)b; i--)
 
 void so(int test){
-    cout << " test "<< test << ":\n";
     ll a,b,r;
     cin >> a >> b >> r;
     ll mas = (a^b);
@@ -30,7 +29,7 @@ void so(int test){
     ll mas_b = (mas & b);
     int point = -1;
     for(int i = 0 ; i < 62 ; i++){
-        if ((mas >> i)&1 and (1<<i) <= r) {
+        if ((mas >> i)&1 and (1ll<<i) <= r) {
             point = i; 
         }
     }
@@ -43,48 +42,69 @@ void so(int test){
     for(int i = 0 ; i < 63 ; i++) if ((mas>>i)&1) pos = i;
 
     ll ans = 1e18;
+    ll mask;
     if((a>>(point+1)) == (b>>(point+1))) {
-        ll x =0 ;
-        int cda = ( 1&(mas_a >> point) > 1&(mas_b >>point)? 1 :0);
-        if(cda == 0) x = (1ll<<point);
-        fer(i, point-1,0) if( (mas_a>>i)&1 and x + (1<<i) <= r){
-            x += (1<<i);
-        }
-        ans = min(ans, abs((a^x)-(b^x) ));
-        cout << (a^x)-(b^x) << ln;
-        x = 0;
-        if(cda == 1) x = (1ll<<point);
-        fer(i, point-1,0) if( (mas_b>>i)&1 and x + (1<<i) <= r){
-            x += (1<<i);
-        }
+        // caso a = 1 b = 0 en el point 
+        if (1&(a >> point) ) {
+            // a mayor
+            ll x = 0;
+            fer(i, point-1,0) if( (mas_a>>i)&1 and x + (1ll<<i) <= r){
+                x += (1ll<<i);
+            }
+            if (abs((a^x)-(b^x)) < ans) {
+                mask = x; 
+            }
+            ans = min(ans, abs((a^x)-(b^x) ));
 
-        ans = min(ans, abs((a^x)-(b^x) ));
-        cout << (a>>(point+1)) << " " << (b>>(point+1)) << ln;
-        fu(a);
-        fu(mas);
-        fu( (1ll<<(point)) );
-        fu(b);
-        cout << ans;
-        cout << "===================\n";
+            // b mayor
+            x = (1ll<<point);
+            fer(i, point-1,0) if( (mas_b>>i)&1 and x + (1ll<<i) <= r){
+                x += (1ll<<i);
+            }
+            if (abs((a^x)-(b^x) )< ans) {
+                mask = x; 
+            }
+            ans = min(ans, abs((a^x)-(b^x) ));
+        }else{
+        // caso b = 1 a= 0 en el point
+            // a mayor
+            ll x = (1ll<<point);
+            fer(i, point-1,0) if( (mas_a>>i)&1 and x + (1ll<<i) <= r){
+                x += (1ll<<i);
+            }
+            if (abs((a^x)-(b^x) )< ans) {
+                mask = x; 
+            }
+            ans = min(ans, abs((a^x)-(b^x) ));
+
+            // b mayor
+            x = 0;
+            fer(i, point-1,0) if( (mas_b>>i)&1 and x + (1ll<<i) <= r){
+                x += (1ll<<i);
+            }
+            if (abs((a^x)-(b^x)) < ans) {
+                mask = x; 
+            }
+            ans = min(ans, abs((a^x)-(b^x) ));
+        }
+        cout << ans << ln;
 
     }else if((a>>(point+1)) < (b>>(point+1))){
         ll x = 0;
         // case : b mayor -> b cede todos sus 1 (bits prendidos)
-        fer(i,point,0)if((mas_b>>i)&1 and x + (1<<i) <= r ){
-            x += (1<<i) ;
+        fer(i,point,0)if((mas_b>>i)&1 and x + (1ll<<i) <= r ){
+            x += (1ll<<i) ;
         }
         ans = min(ans, abs((a^x)-(b^x) ));
         cout << ans << ln;
-        cout << "===================\n";
     }else {
         ll x = 0;
         // case a mayor -> a cede todos sus 1 (bits prendidos), sin que pierda la caracteristica de ser mayor
-        fer(i,point,0)if((mas_a>>i)&1 and x + (1<<i) <= r ){
-            x += (1<<i) ;
+        fer(i,point,0)if((mas_a>>i)&1 and x + (1ll<<i) <= r ){
+            x += (1ll<<i) ;
         }
         ans = min(ans, abs((a^x)-(b^x) ));
         cout << ans << ln;
-        cout << "===================\n";
     }
 }
 
