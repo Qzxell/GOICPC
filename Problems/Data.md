@@ -53,6 +53,8 @@ columns:
       - { label: "force brute", value: "force brute", color: "hsl(307, 95%, 90%)"}
       - { label: "greedy", value: "greedy", color: "hsl(87, 95%, 90%)"}
       - { label: "bitmask", value: "bitmask", color: "hsl(195, 95%, 90%)"}
+      - { label: "STL", value: "STL", color: "hsl(196, 95%, 90%)"}
+      - { label: "DP", value: "DP", color: "hsl(125, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true

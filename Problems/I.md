@@ -1,9 +1,10 @@
 ---
 tags:
+  - STL
 Level: 1000
-Solved: false 
+Solved: false
 Idea_clave: 
-MIstakes: 
+MIstakes: Problema de racso (I) de la IEEE
 resolve_again_obligatory: false
 URL: 
 ---
