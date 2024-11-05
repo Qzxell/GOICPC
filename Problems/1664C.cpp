@@ -15,18 +15,26 @@ using namespace std;
 #define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-int fu(int l, int r){
-    if (l > r ) {
-        return 0; 
+void so(int test){
+    int n,x;
+    cin >> n >> x;
+    vi v(n);
+    vector<ll> p(n+1,0);
+    vi ans(n+1,0);
+    f(i, 0 , n) cin >> v[i];
+
+    f(i, 1 , n+1) p[i] = p[i-1] + v[i-1];
+
+    f(i, 0 , n){
+        f(j, i+1 , n){
+            int l = i-j+1; 
+            ll su = p[j+1] - p[i];
+            su += x*l;
+            ans[l] 
+
+        }
     }
 
-}
-void so(int test){
-    int n,k;
-    cin >> n >> k;
-    vi v(n);
-
-    f(i,0,n)cin >> v[i];
 
 }
 
