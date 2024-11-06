@@ -15,6 +15,55 @@ using namespace std;
 #define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
+<<<<<<< HEAD
+void so(int test){
+    int n;
+    cin>> n;
+    vi v(n);
+    f(i,0,n){
+        cin >> v[i];
+    }
+    int c = 1;
+    int def = 0;
+    v.pb(1e8);
+    f(i,0,n){
+        if (v[i] == v[i+1]) {
+            c++; 
+        }else{
+            def = max(def,c);
+            c = 1;
+        }
+    }
+    v.pop_back();;
+
+    int p = (n-1)/2;
+    vi vv(p);
+    int dis = 1e6;
+    f(i,0,p){
+        vv[i] = (v[i] == v[n-i-1] ? v[i] : dis ) ;
+    }
+    int ans = 1;
+    f(i,0,p-1){
+        if (vv[i] == dis) {
+            continue; 
+        }
+        int co = 1;
+        if (vv[i] == vv[i+1]) {
+            if (co == 1 and i > 0 and (vv[i] == v[i-1] or vv[i] == v[n-i] )  ) {
+                co++; 
+            }
+            co++; 
+        }else {
+            if (vv[i + 1] == v[i] or vv[i] == v[n-i-1]) {
+                co++; 
+            }
+            ans= max(ans,co);
+            co = 1;
+        }
+    }
+    cout << ans << ln;
+
+=======
 const int maf = 1e5 +1;
 int n;
 vi v(maf);
@@ -48,6 +97,7 @@ void so(int test){
 
     int ans = min(fu(0,1), fu(0,0));
     cout << ans << ln;
+>>>>>>> 11fe0ff045cfacda49c33365d2347a76ff289c81
 }
 
 int main() {

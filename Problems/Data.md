@@ -55,6 +55,9 @@ columns:
       - { label: "bitmask", value: "bitmask", color: "hsl(195, 95%, 90%)"}
       - { label: "STL", value: "STL", color: "hsl(196, 95%, 90%)"}
       - { label: "DP", value: "DP", color: "hsl(125, 95%, 90%)"}
+      - { label: "Binary Search", value: "Binary Search", color: "hsl(6, 95%, 90%)"}
+      - { label: "two pointers", value: "two pointers", color: "hsl(108, 95%, 90%)"}
+      - { label: "-DP", value: "-DP", color: "hsl(61, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true
@@ -199,7 +202,7 @@ config:
   source_destination_path: /
   row_templates_folder: /
   current_row_template: 
-  pagination_size: 10
+  pagination_size: 65
   font_size: 16
   enable_js_formulas: false
   formula_folder_path: /
