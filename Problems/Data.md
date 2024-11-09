@@ -57,6 +57,8 @@ columns:
       - { label: "DP", value: "DP", color: "hsl(125, 95%, 90%)"}
       - { label: "Binary Search", value: "Binary Search", color: "hsl(6, 95%, 90%)"}
       - { label: "two pointers", value: "two pointers", color: "hsl(108, 95%, 90%)"}
+      - { label: "-DP", value: "-DP", color: "hsl(61, 95%, 90%)"}
+      - { label: "CSES", value: "CSES", color: "hsl(123, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true
@@ -75,7 +77,9 @@ columns:
     position: 4
     skipPersist: false
     isHidden: false
-    sortIndex: -1
+    sortIndex: 1
+    isSorted: true
+    isSortedDesc: true
     config:
       enable_media_view: true
       link_alias_enabled: true
