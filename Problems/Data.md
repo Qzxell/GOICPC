@@ -59,6 +59,17 @@ columns:
       - { label: "two pointers", value: "two pointers", color: "hsl(108, 95%, 90%)"}
       - { label: "-DP", value: "-DP", color: "hsl(61, 95%, 90%)"}
       - { label: "CSES", value: "CSES", color: "hsl(123, 95%, 90%)"}
+      - { label: "greddy", value: "greddy", color: "hsl(172, 95%, 90%)"}
+      - { label: "constructive algorithms", value: "constructive algorithms", color: "hsl(191, 95%, 90%)"}
+      - { label: "Force Brute", value: "Force Brute", color: "hsl(299, 95%, 90%)"}
+      - { label: "Graphs", value: "Graphs", color: "hsl(128, 95%, 90%)"}
+      - { label: "bfs", value: "bfs", color: "hsl(171, 95%, 90%)"}
+      - { label: "brute force", value: "brute force", color: "hsl(179, 95%, 90%)"}
+      - { label: "data structures", value: "data structures", color: "hsl(305, 95%, 90%)"}
+      - { label: "dfs and similars", value: "dfs and similars", color: "hsl(226, 95%, 90%)"}
+      - { label: "dsu", value: "dsu", color: "hsl(235, 95%, 90%)"}
+      - { label: "trees", value: "trees", color: "hsl(184, 95%, 90%)"}
+      - { label: "graphs", value: "graphs", color: "hsl(7, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true
@@ -74,7 +85,7 @@ columns:
     key: Level
     id: Level
     label: Level
-    position: 4
+    position: 5
     skipPersist: false
     isHidden: false
     sortIndex: 1
@@ -95,7 +106,7 @@ columns:
     key: Idea_clave
     id: Idea_clave
     label: Idea clave
-    position: 5
+    position: 6
     skipPersist: false
     isHidden: false
     sortIndex: -1
@@ -115,7 +126,7 @@ columns:
     key: MIstakes
     id: MIstakes
     label: Mistakes
-    position: 6
+    position: 7
     skipPersist: false
     isHidden: false
     sortIndex: -1
@@ -154,7 +165,7 @@ columns:
     key: resolve_again_obligatory
     id: resolve_again_obligatory
     label: resolve again obligatory
-    position: 100
+    position: 4
     skipPersist: false
     isHidden: false
     sortIndex: -1
@@ -173,7 +184,7 @@ columns:
     key: URL
     id: URL
     label: URL
-    position: 100
+    position: 8
     skipPersist: false
     isHidden: false
     sortIndex: -1
