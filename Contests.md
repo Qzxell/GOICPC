@@ -1,0 +1,39 @@
+- monotonic queue/stack (bardenr) :
+	- https://vjudge.net/contest/636979
+	-  passw: 1234
+-  Programación dinámica: modelando con dp(bashca) :
+	- https://vjudge.net/contest/628372
+	- [link de youtubre](https://youtu.be/OtyTrDoHLFI?si=bYXQfSxqoPetfQK6 "https://youtu.be/OtyTrDoHLFI?si=bYXQfSxqoPetfQK6")
+-   Graph Theory: modeling with graphs (Bashca) :
+	- https://vjudge.net/contest/626986
+- Force Brute (bashca) :
+	- https://docs.google.com/spreadsheets/d/1Etu51wXEEmoZ1bKsKhwuyVEgZx1rbC1zZVqy7trb9jo/edit
+- MinIEExtre(Racso):
+	- https://www.youtube.com/playlist?list=PLE-jk85G54lVMTFl9HQhVGZOhvaHt_SyV
+- Hong Kong
+	- https://hkoi.org/en/training-materials/2023/
+- Competencias de programacion (racso):
+	- https://www.youtube.com/watch?v=rPMoR4XFfl8&list=PLE-jk85G54lU5DmKr-lBokXhJqRYvpQQa
+- Clases GPC:
+	- https://www.youtube.com/watch?v=r9JSBhxjSF0&list=PLE-jk85G54lXzHH09BAyKahXEa1ns8unZ&index=4
+- Contest Fenwick Tree:
+	- https://vjudge.net/contest/630509
+-  Combinatorics: basic counting(Bashca):
+	- https://vjudge.net/contest/633287#google_vignette
+	- [https://www.acmicpc.net/problem/15439](https://www.acmicpc.net/problem/15439 "https://www.acmicpc.net/problem/15439")
+	- [https://www.acmicpc.net/problem/16561](https://www.acmicpc.net/problem/16561 "https://www.acmicpc.net/problem/16561")
+	- [https://www.acmicpc.net/problem/12866](https://www.acmicpc.net/problem/12866 "https://www.acmicpc.net/problem/12866")
+	- [https://www.acmicpc.net/problem/31526](https://www.acmicpc.net/problem/31526 "https://www.acmicpc.net/problem/31526")
+	- [https://www.acmicpc.net/problem/21841](https://www.acmicpc.net/problem/21841 "https://www.acmicpc.net/problem/21841")
+	- [https://www.acmicpc.net/problem/14314](https://www.acmicpc.net/problem/14314 "https://www.acmicpc.net/problem/14314")
+	- [https://www.acmicpc.net/problem/10164](https://www.acmicpc.net/problem/10164 "https://www.acmicpc.net/problem/10164")
+	- [https://www.acmicpc.net/problem/16980](https://www.acmicpc.net/problem/16980 "https://www.acmicpc.net/problem/16980")
+	- [https://www.acmicpc.net/problem/12176](https://www.acmicpc.net/problem/12176 "https://www.acmicpc.net/problem/12176")
+	- [https://www.acmicpc.net/problem/30641](https://www.acmicpc.net/problem/30641 "https://www.acmicpc.net/problem/30641")
+	- [https://www.acmicpc.net/problem/30168](https://www.acmicpc.net/problem/30168 "https://www.acmicpc.net/problem/30168")
+	- [https://www.acmicpc.net/problem/1722](https://www.acmicpc.net/problem/1722 "https://www.acmicpc.net/problem/1722")
+	- [https://www.acmicpc.net/problem/5963](https://www.acmicpc.net/problem/5963 "https://www.acmicpc.net/problem/5963")
+	- [https://www.acmicpc.net/problem/26524](https://www.acmicpc.net/problem/26524 "https://www.acmicpc.net/problem/26524")
+	- [https://www.acmicpc.net/problem/19071](https://www.acmicpc.net/problem/19071 "https://www.acmicpc.net/problem/19071")
+- Backtracking (Bashca):
+	- https://vjudge.net/article/4246
