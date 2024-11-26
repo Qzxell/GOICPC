@@ -34,6 +34,27 @@ int sum(int pos){ //retorna la suma de a[0:pos]
 
 ```
 
+or 
+
+```cpp
+vector<int> ft(ga, 0);
+void update(int pos,int add){ //sumo a[pos] += add
+  while(pos <= N){
+    ft[pos] += add;
+    pos += (pos & (pos-1));
+  }
+}
+int query(int pos){ //retorna la suma de a[0:pos]
+  int sum = 0;
+  while(pos > 0){
+    sum += ft[pos];
+    pos -= (pos & (pos-1));
+  }
+  return sum;
+}
+
+```
+
 ## subproblema: hallar el vector despues de k updates desde un l hasta un r
 
 - prefix sum del inverso del prefix sum de s = s .
