@@ -15,35 +15,7 @@ using namespace std;
 #define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-const int ga = 101;
-int n , x;
-int V[ga];
-const fa = 1e6 + 1;
-int memo[fa];
-
-int fu(int nu){
-    if (memo[nu] != 0) {
-        
-    }
-    if (nu == 0) {
-       return 0; 
-    } 
-    int ret = 1e9;
-    f(i,0,n){
-        if (nu >= V[i]) {
-            ret = min(ret,fu(nu-V[i]) + 1) ;
-        }    
-    }
-    return ret;
-}
-
 void so(int test){
-    cin >> n >> x;
-    f(i,0,n){
-        cin >> V[i];
-    }
-    int ans = fu(x);
-    cout << ans ;
 
 }
 
@@ -52,6 +24,7 @@ int main() {
     cin.tie(0);
 
     int tt = 1;
+    cin >> tt;
     int test = 1;
     while (tt--){
         so(test++);
