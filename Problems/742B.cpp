@@ -15,6 +15,7 @@ using namespace std;
 #define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
+<<<<<<< HEAD
 int masc;
 const int N = 1e5 + 1;
 map<int,int> m;
@@ -33,12 +34,44 @@ void dep(int pos , int a, int b){
 
 void so(int test){
     int n;
+=======
+int n;
+int masc;
+ll ans = 0;
+map<int,int> m;
+
+void ga(int pos , int a, int b){
+    if(pos == 18){
+        if((a^b) == masc ){
+            if(a == b){
+                ans += (m[a]*1ll*(m[a]-1));
+            }else ans += ( m[a]*1ll*m[b]);
+        }
+        return;
+    }
+    if((masc>>pos) & 1 ){
+        ga(pos +1 , a , b + (1<<pos));
+        ga(pos +1 , a + (1<<pos), b );
+    }else{
+        ga(pos +1 , a , b);
+        ga(pos +1 , a + (1<<pos), b + (1<<pos));
+    }
+}
+
+void so(int test){
+>>>>>>> 27de873c3364637765b335a924dcd21513dc15aa
     cin >> n >> masc;
     f(i,0,n){
         int x;
         cin >> x;
         m[x]++;
     }
+<<<<<<< HEAD
+=======
+    ga(0,0,0);
+    cout << ans/2 << ln;
+
+>>>>>>> 27de873c3364637765b335a924dcd21513dc15aa
 
 }
 
