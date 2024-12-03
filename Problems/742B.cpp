@@ -15,6 +15,26 @@ using namespace std;
 #define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
+<<<<<<< HEAD
+int masc;
+const int N = 1e5 + 1;
+map<int,int> m;
+int ans = 0;
+
+void dep(int pos , int a, int b){
+    if(pos == 18){
+        ans += m[a]*m[b];
+        return;
+    }
+    if (masc&1) {
+        dep(pos+1 , a + (1<<pos), b) 
+    }
+
+}
+
+void so(int test){
+    int n;
+=======
 int n;
 int masc;
 ll ans = 0;
@@ -39,15 +59,19 @@ void ga(int pos , int a, int b){
 }
 
 void so(int test){
+>>>>>>> 27de873c3364637765b335a924dcd21513dc15aa
     cin >> n >> masc;
     f(i,0,n){
         int x;
         cin >> x;
         m[x]++;
     }
+<<<<<<< HEAD
+=======
     ga(0,0,0);
     cout << ans/2 << ln;
 
+>>>>>>> 27de873c3364637765b335a924dcd21513dc15aa
 
 }
 
