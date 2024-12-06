@@ -1,5 +1,5 @@
-.obsidian
-a
-in
-ou
+.obsidian/
+**/a
+**/in
+**/ou
 
