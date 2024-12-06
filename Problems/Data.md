@@ -70,6 +70,15 @@ columns:
       - { label: "dsu", value: "dsu", color: "hsl(235, 95%, 90%)"}
       - { label: "trees", value: "trees", color: "hsl(184, 95%, 90%)"}
       - { label: "graphs", value: "graphs", color: "hsl(7, 95%, 90%)"}
+      - { label: "number theory", value: "number theory", color: "hsl(342, 95%, 90%)"}
+      - { label: "Math", value: "Math", color: "hsl(247, 95%, 90%)"}
+      - { label: "Brute Force", value: "Brute Force", color: "hsl(216, 95%, 90%)"}
+      - { label: "Combinatorics", value: "Combinatorics", color: "hsl(14, 95%, 90%)"}
+      - { label: "Implementation", value: "Implementation", color: "hsl(328, 95%, 90%)"}
+      - { label: "binary search", value: "binary search", color: "hsl(53, 95%, 90%)"}
+      - { label: "bfs and similars", value: "bfs and similars", color: "hsl(163, 95%, 90%)"}
+      - { label: "Number Theory", value: "Number Theory", color: "hsl(13, 95%, 90%)"}
+      - { label: "Constructive Algorithms", value: "Constructive Algorithms", color: "hsl(144, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true
