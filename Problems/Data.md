@@ -79,6 +79,7 @@ columns:
       - { label: "binary search", value: "binary search", color: "hsl(211, 95%, 90%)"}
       - { label: "bitwise operation", value: "bitwise operation", color: "hsl(215, 95%, 90%)"}
       - { label: "number theory", value: "number theory", color: "hsl(201, 95%, 90%)"}
+      - { label: "bfs and similars", value: "bfs and similars", color: "hsl(321, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true
