@@ -16,15 +16,24 @@ using namespace std;
 #define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-bool dfs( int root ,int go ,vector<vi> &adj, vector<bool> &memo, vector<bool> &vis ){
-    if(root == go) return memo[root] = true; 
-    bool ret = 0;
-    vis[root] = 1;
-    for(int v : adj[root])if(!vis[v]){
-        ret |= dfs(v,go,adj,memo,vis);
+
+int fun(int root, int source, int pat , vector<vi> &adj){
+
+    int ans1 = 0;
+    int son = 0;
+    int add = 0;
+    vi wasa;
+    for(int v : adj[root])if(v != source){
+        wasa.pb(fun(v,root,pat,adj));
+        son++;
     }
-    return memo[root] = ret;
+    sort(rall(wasa));
+    int owo;
+    if(sz(wasa) == 1) add = wasa[0];
+    else owo = wasa[0] + wasa[1] + max(0,son-2);
+    return max({owo,son, son -1 + add});
 }
+
 void so(int test){
     int n;
     cin >> n;
@@ -35,57 +44,19 @@ void so(int test){
         adj[u].pb(v);
         adj[v].pb(u);
     }
-    if(n==2){
+    if(n == 2 ){
         cout << 1 << ln;
         return;
     }
-    vii ord;
-    int u ,v;
-    queue<int> qu;
-    vector<int> dis(n+1,0);
-    auto bfs = [&] (int root){
-        vector<bool> used(n+1,0);
-        qu.push(root);
-        int lon = 0;
-        while(!qu.empty()){
-            int nei = qu.front();
-            lon++;
-            used[nei] = 1;
-            qu.pop();
-            for(int to : adj[nei])if(!used[to] and sz(adj[to]) > 1){
-                qu.push(to);
-            }
-        }
-        return ultimate;
-    };
-    f(i,0,n+1)if(sz(adj[i]) > 1){
-        u = bfs(i);     
-        v = bfs(u);
-        u = bfs(v);
+    int ans ;
+    for(int i = 1; i <= n;i++)if(sz(adj[i]) != 0){
+        ans =  fun(i,-1,0,adj);
+        ans =  max(fun(i,-1,1,adj),ans);
         break;
     }
 
+    cout << ans << ln; 
 
-    vector<bool> memo(n+1,0);
-    vector<bool> vis(n+1,0);
-    bool xd = dfs(u,v,adj,memo,vis);
-    qu.push(u);
-    int len = 0;
-    int ans = 0;
-    int fr = u;
-    while(true){
-        bool cont = 1;
-        memo[fr] = 0;
-        len++;
-        ans += sz(adj[fr]);
-        for(int x: adj[fr])if(memo[x]){
-                qu.push(x);
-                cont = 0;
-                fr = x;
-        }
-        if(cont)break;
-    }
-    cout << ans - 2*(len-1) << ln;
 }
 
 int main() {

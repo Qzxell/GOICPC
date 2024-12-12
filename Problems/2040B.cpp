@@ -15,37 +15,26 @@ using namespace std;
 #define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-void show(vi wa){
-    f(i,0,sz(wa))cout << wa[i] << ' ';
-}
+vi wasa;
 void so(int test){
     int n;
-    n = 4;
-    vi per(n);
-    f(i,0,n)per[i] = i+1;
-    auto fu = [&](vi ga){
-        int wasa = 0;
-        f(j,1,n+1){
-            for(int i = 0; i+j-1 < n; i++){
-                int mi = ga[i];
-                f(k,i,i+j)mi = min(mi,ga[k]);
-                wasa += mi;
-            }
-        }
-        return wasa;
-    };
-    do{
-        show(per);
-        cout << fu(per) << ln;
-    }while(next_permutation(all(per)));
-
+    cin >> n;
+    int owo = lower_bound(all(wasa),n) - wasa.begin();
+    cout << owo + 1 << ln;
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
+    wasa.pb(1);
+    int u = 1;
+    while(u < 1e5){
+        u = (u+1)*2;
+        wasa.pb(u);
+    }
     int tt = 1;
+    cin >> tt;
     int test = 1;
     while (tt--){
         so(test++);
