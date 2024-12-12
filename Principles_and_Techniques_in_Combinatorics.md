@@ -10,7 +10,7 @@ autor: Chen Chuan-Chong
 
 ## 1.1 Two basic countinf principles
 
-> The Addition Principle (AP) Assume that there are
+>[!owo] The Addition Principle (AP) Assume that there are
 > $n_1$  ways for the event $E_1$ to occur,
 > $n_2$  ways for the event $E_2$ to occur,
 > $n_3$  ways for the event $E_3$ to occur,
