@@ -80,8 +80,7 @@ columns:
       - { label: "Number Theory", value: "Number Theory", color: "hsl(13, 95%, 90%)"}
       - { label: "Constructive Algorithms", value: "Constructive Algorithms", color: "hsl(144, 95%, 90%)"}
       - { label: "bitwise operation", value: "bitwise operation", color: "hsl(215, 95%, 90%)"}
-      - { label: "number theory", value: "number theory", color: "hsl(201, 95%, 90%)"}
-      - { label: "bfs and similars", value: "bfs and similars", color: "hsl(321, 95%, 90%)"}
+      - { label: "bfs and dfs", value: "bfs and dfs", color: "hsl(102, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true
