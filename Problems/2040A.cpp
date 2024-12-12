@@ -2,6 +2,7 @@
 
 using namespace std;
 
+
 #define sz(v) ((int)(v).size())
 #define all(v) (v).begin(),(v).end()
 #define ln '\n'
@@ -15,30 +16,30 @@ using namespace std;
 #define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-void show(vi wa){
-    f(i,0,sz(wa))cout << wa[i] << ' ';
-}
 void so(int test){
-    int n;
-    n = 4;
-    vi per(n);
-    f(i,0,n)per[i] = i+1;
-    auto fu = [&](vi ga){
-        int wasa = 0;
-        f(j,1,n+1){
-            for(int i = 0; i+j-1 < n; i++){
-                int mi = ga[i];
-                f(k,i,i+j)mi = min(mi,ga[k]);
-                wasa += mi;
+    int n,k;
+    cin >> n >> k;
+    vi v(n);
+    int c = 0;
+    int ind = 0;
+    f(i,0,n){
+        cin >> v[i];
+    }
+    f(i,0,n){
+        ind = i +1;
+        c = 0;
+        f(j,0,n)if(i != j){
+            if((k + k + abs(v[i] - v[j])) % k ){
+                c++;
             }
         }
-        return wasa;
-    };
-    do{
-        show(per);
-        cout << fu(per) << ln;
-    }while(next_permutation(all(per)));
-
+        if(c == n-1){
+                cout << "YES" << ln;
+                cout << i+1 << ln;
+                return;
+        }
+    }
+    cout << "NO" << ln;
 }
 
 int main() {
@@ -46,6 +47,7 @@ int main() {
     cin.tie(0);
 
     int tt = 1;
+    cin >> tt;
     int test = 1;
     while (tt--){
         so(test++);
