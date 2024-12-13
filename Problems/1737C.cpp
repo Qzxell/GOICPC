@@ -15,28 +15,25 @@ using namespace std;
 #define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-void show(vi wa){
-    f(i,0,sz(wa))cout << wa[i] << ' ';
-}
 void so(int test){
-    int n = 2e5;
-    cout << 1 << ln;
-    cout <<  n << ln;
-    string ga ;
-    f(i,0,n){
-        if(i&1)ga += '(';
-        else ga += '_';
+    int n;
+    cin >> n;
+    vii wa[3];
+    f(i,0,3)cin >> wa.fi >> wa.se;
+    int x,y;
+    cin >> x >> y;
+    f(i,0,3){
+        int mx,my;
+        mx = wa[i].fi; my = wa[i].se;
     }
-    ga[n-1] = ')';
-    cout << ga ;
 }
-
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
     int tt = 1;
+    cin >> tt;
     int test = 1;
     while (tt--){
         so(test++);
