@@ -18,14 +18,42 @@ using namespace std;
 void so(int test){
     int n;
     cin >> n;
-    vii wa[3];
-    f(i,0,3)cin >> wa.fi >> wa.se;
-    int x,y;
-    cin >> x >> y;
+    vii wasa(3);
     f(i,0,3){
-        int mx,my;
-        mx = wa[i].fi; my = wa[i].se;
+        cin >> wasa[i].fi >> wasa[i].se;
+        wasa[i].fi--;
+        wasa[i].se--;
     }
+    int mx,my;
+    cin >> mx >> my;
+    mx--;my--;
+    vector<vii> owo = {
+        {{1,0},{0,0},{0,1}},
+        {{1,n-1},{0,n-1},{0,n-2}},
+        {{n-1,1},{n-1,0},{n-2,0}},
+        {{n-2,n-1},{n-1,n-1},{n-1,n-2}}
+    };
+    sort(all(wasa));
+        
+    do{
+        f(i,0,4){
+            if(wasa == owo[i]){
+                if(owo[i][1].fi == mx or owo[i][1].se == my ){
+                    cout << "YES" << ln;
+                }else cout << "NO" << ln;
+                return;
+            }
+        }
+    }while(next_permutation(all(wasa)));
+
+    f(i,0,3){
+        if( (mx&1) == (wasa[i].fi & 1) and (my&1) == (wasa[i].se & 1)){
+            cout << "YES" << ln;
+            return;
+        }
+    }
+    cout << "NO" << ln;
+
 }
 
 int main() {
