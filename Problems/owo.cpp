@@ -15,20 +15,17 @@ using namespace std;
 #define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-void show(vi wa){
-    f(i,0,sz(wa))cout << wa[i] << ' ';
-}
 void so(int test){
-    int n = 2e5;
-    cout << 1 << ln;
-    cout <<  n << ln;
-    string ga ;
-    f(i,0,n){
-        if(i&1)ga += '(';
-        else ga += '_';
+    int n;
+    cin >> n;
+    vi v(n+1);
+    f(i,1,n+1){
+        cin >> v[i];
     }
-    ga[n-1] = ')';
-    cout << ga ;
+    cout << n << ln;
+    f(i,1,n+1){
+        cout << i << ' ' << v[i] << ln;
+    }
 }
 
 
@@ -37,6 +34,7 @@ int main() {
     cin.tie(0);
 
     int tt = 1;
+    cin >> tt;
     int test = 1;
     while (tt--){
         so(test++);

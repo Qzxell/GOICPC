@@ -10,24 +10,23 @@ using vi = vector<int>  ;
 #define pb push_back
 #define fi first
 #define se second
-#define sz(v) ((int)(v).size())
-#define all(v) (v).begin(),(v).end()
+#define sz(v) = ((int)(v).size())
+#define all(v) = (v).begin(),(v).end()
 #define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
-
-void so(int test){
-
-}
+mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
-
-    int tt = 1;
-    cin >> tt;
-    int test = 1;
-    while (tt--){
-        so(test++);
+    int n;
+    cin >> n;
+    vii wasa;
+    f(i,0,n){
+        int l,r,c;
     }
+
+
     return 0;
 }
+
