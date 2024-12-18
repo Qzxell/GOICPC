@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [[ ! -f "$1.cpp" && ! -f "$1.md" ]]; then
-    cp .temple.md $1.md
-    cp temple.cpp $1.cpp
+  cp .temple.md $1.md
+  cp temple.cpp $1.cpp
 fi
 
-nvim $1.cpp $1.md
+vim $1.cpp $1.md
