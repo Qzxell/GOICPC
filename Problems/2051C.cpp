@@ -17,6 +17,36 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
+	int n,m,k;
+	cin >> n >> m >> k;
+	vi lis(m);
+	vi q(k);
+	vi wasa(n+1,0);
+	f(i,0,m)cin >> lis[i];
+	f(i,0,k){
+		cin >> q[i];
+		wasa[q[i]] ++;
+	}
+
+	if( k < n-1){
+		f(i,0,m)cout << 0 ;
+		cout << ln;
+		return;
+	}
+	if( k== n){
+		f(i,0,m)cout << 1;
+		cout << ln;
+		return;
+	}
+	if( k == n-1){
+		int nose = -1;
+		f(i,1,n+1)if(wasa[i] == 0)nose = i;
+		f(i,0,m){
+			if(nose == lis[i])cout << 1 ;
+			else cout << 0;
+		}
+		cout << ln;
+	}
 	
 }
 

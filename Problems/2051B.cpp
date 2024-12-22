@@ -17,7 +17,24 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-	
+	ll n,a,b,c;	
+	cin >> n >> a >> b >> c;
+	ll sum = a+b+c;
+	ll day = ((n)/sum)*3;
+	ll res = (n - (n/sum)*sum);
+	if(res > 0){
+		day++;
+		res -=a;
+	}
+	if(res > 0){
+		day++;
+		res -=b;
+	}
+	if(res > 0){
+		day++;
+		res -=c;
+	}
+	cout << day << ln;
 }
 
 int main() {

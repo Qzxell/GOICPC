@@ -17,7 +17,29 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-	
+	int n;
+	cin >> n;
+	vi v(n);
+	int c = 0;
+	f(i,0,n) cin >> v[i];
+
+	int lo = 0,lf = n-1;
+	while(v[lo] == 0)lo++;
+	while(v[lf] == 0)lf--;
+	if(lo > lf){
+		cout << 0 <<ln;
+		return;
+	}
+	f(i,lo,lf+1)if(v[i] == 0)c++;
+
+	if(c == 0 ){
+		cout << 1 << ln;
+		return;
+	}else {
+		cout << 2 << ln;
+		return;
+	}
+
 }
 
 int main() {

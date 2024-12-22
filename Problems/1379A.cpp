@@ -17,7 +17,38 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-	
+	int n;
+	cin >> n;
+	string s;
+	cin >> s;
+	string wa = "abacaba";
+	int ind = 0;
+	int con = 0;
+	for(int i = 0 ; i + 6 < n;i++){
+		bool yes = 1;
+		for(int j = i ;j < i+7;j++){
+			if(s[j] == '?')continue;
+			if(wa[j-i] != s[j]){
+				yes = 0;
+				break;
+			}
+		}
+		if(yes){
+			ind = i;
+			con++;
+		}
+	}
+	if(con == 1){
+		f(i,0,n)if(s[i] == '?') s[i] = 'p';
+		f(i,ind,ind + 7){
+			s[i] = wa[i-ind];
+		}
+		cout << "YES" << ln;
+		cout << s << ln;
+		return;
+	}
+	cout << "NO" << ln;
+
 }
 
 int main() {

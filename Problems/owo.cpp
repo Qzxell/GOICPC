@@ -16,21 +16,14 @@ using namespace std;
 #define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-    int n = 10;
-    vi v(n);
-    f(i,0,n)v[i] = i+1;
-    do{
-      int wa1 = v[1] + v[2] + v[3] + v[0] ;
-      int wa2 = v[9] + v[5] + v[7] + v[0] ;
-      int wa3 = v[8] + v[1] + v[7] + v[6] ;
-      int wa4 = v[8] + v[2] + v[4] + v[9] ;
-      int wa5 = v[6] + v[5] + v[3] + v[4] ;
-      if (wa1 == wa2 and wa3 == wa4 and wa4 == wa5 and wa1 == wa3){
-        cout <<  '\t' << wa1  << ln;
-        f(i,0,n)cout << v[i] << ' ';
-        cout << ln;
-      }
-    }while(next_permutation(all(v)));
+	int n = 1e5;
+	set<int> ga[n];
+	for(int i = 0 ; i < n ; i++){
+		ga[i].insert(1);
+		ga[i].insert(2);
+		ga[i].insert(3);
+		ga[i].insert(3);
+	}
 }
 
 
