@@ -5,4 +5,4 @@ if [[ ! -f "$1.cpp" && ! -f "$1.md" ]]; then
   cp temple.cpp $1.cpp
 fi
 
-vim $1.cpp $1.md
+nvim $1.cpp $1.md

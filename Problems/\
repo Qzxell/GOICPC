@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+using ii = pair<int,int>;
+using vii = vector<ii>  ;
+using vi = vector<int>  ;
+#define ln  '\n'
+#define ll long long
+#define pb push_back
+#define fi first
+#define se second
+#define sz(v) ((int)(v).size())
+#define all(v) (v).begin(),(v).end()
+#define rall(v) (v).rbegin(),(v).rend()
+#define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
+#define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
+
+void so(int test){
+	int k;
+	cin >> k;
+	string s,t;
+	cin >> s >> t;
+	int les = sz(s);
+	int let = sz(t);
+	if(les == let){
+		if(s == t){
+			cout << "Yes" ;
+			return;
+		}
+		int c=0;
+		f(i,0,les)if(s[i] != t[i])c++;
+		if(c <= 1){
+			cout << "Yes";
+		}else cout << "No";
+		return;
+	}
+	// add
+	if(les + 1 == let){
+		int ind = 0;
+		while(ind < les and s[ind] == t[ind])ind++;
+		return;
+	}
+	//pop
+	if(let + 1 == les){
+		return;
+	}
+	cout << "No";
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+
+	int tt = 1;
+	int test = 1;
+	while (tt--){
+		so(test++);
+	}
+	return 0;
+}

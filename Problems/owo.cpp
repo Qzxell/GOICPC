@@ -24,6 +24,31 @@ void so(int test){
 		ga[i].insert(3);
 		ga[i].insert(3);
 	}
+	quque<int>qu;
+	auto BFS = [&](int root){
+		qu.push(root);
+		vi dis(n+1,-1);
+		int len = 0;
+		dis[root] = 0;
+		while(!qu.empty()){
+			int v = qu.front();
+			qu.pop();
+			for(int x : adj[v])if(vis[x] != -1){
+				qu.push(x);
+				dis[x] = len+1;
+			}
+			len++;
+		}
+		int mx_to = -1;
+		int to = root;
+		f(i,0,k){
+			if (dis[kk[i]] > mx_to){
+				mx_to = dis[kk[i]];
+				to = kk[i];
+			}
+		}
+		return to;
+	};
 }
 
 
