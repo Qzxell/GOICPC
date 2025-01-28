@@ -16,46 +16,31 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
+ll fu(vi v){
+	ll ans  = 0;
+	int n = v.size();
+	if(n == 1)return v[0];
+	f(i,0,n)ans += v[i];
+	vi owo(n-1);
+	f(i,0,n-1)owo[i] = v[i+1] - v[i];
+	ans = max(fu(owo),ans);
+	reverse(v.begin(),v.end());
+	f(i,0,n-1)owo[i] = v[i+1] - v[i];
+	ans = max(fu(owo),ans);
+	return ans;
+}
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int tet ;
 	cin >> tet;
 	while(tet--){
-		int n,m;
-		cin >> n >> m;
-		int tot = n + m + 1;
-		vi a(tot);
-		vi b(tot);
-		f(i,0,tot)cin >> a[i];
-		f(i,0,tot)cin >> b[i];
-		f(i,0,tot){	
-			int ign = i;
-			int sn = n;
-			int sm = m; 
-			ll punt = 0;
-			f(j,0,tot)if(j != ign){
-				if(a[j] > b[j]){
-					if(sn > 0){
-						punt += a[j];
-						sn--;
-					}else {
-						punt += b[j];
-						sm--;
-					}
-				}else{
-					if(sm > 0){
-						punt += b[j];
-						sm--;
-					}else {
-						punt += a[j];
-						sn--;
-					}
-				}
-			}
-			cout << punt << ' ';
-		}
-		cout << ln;
+		int n;
+		cin >> n;
+		vi v(n);
+		f(i,0,n)cin >> v[i];
+		ll ans = fu(v);
+		cout << ans ;
 	}
 
 	return 0;

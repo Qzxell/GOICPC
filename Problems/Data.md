@@ -81,6 +81,13 @@ columns:
       - { label: "Constructive Algorithms", value: "Constructive Algorithms", color: "hsl(144, 95%, 90%)"}
       - { label: "bitwise operation", value: "bitwise operation", color: "hsl(215, 95%, 90%)"}
       - { label: "bfs and dfs", value: "bfs and dfs", color: "hsl(102, 95%, 90%)"}
+      - { label: "Dijkstra", value: "Dijkstra", color: "hsl(84, 95%, 90%)"}
+      - { label: "Data structures", value: "Data structures", color: "hsl(24, 95%, 90%)"}
+      - { label: "Binary search", value: "Binary search", color: "hsl(355, 95%, 90%)"}
+      - { label: "Prefix sum", value: "Prefix sum", color: "hsl(77, 95%, 90%)"}
+      - { label: "dfs and similar", value: "dfs and similar", color: "hsl(74, 95%, 90%)"}
+      - { label: "Two pointers", value: "Two pointers", color: "hsl(81, 95%, 90%)"}
+      - { label: "pendejo", value: "pendejo", color: "hsl(198, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true
