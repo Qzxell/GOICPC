@@ -1,48 +1,54 @@
 #include <bits/stdc++.h>
-
 using namespace std;
+typedef long long LL;
 
-using ii = pair<int,int>;
-using vii = vector<ii>  ;
-using vi = vector<int>  ;
-#define ln  '\n'
-#define ll long long
-#define pb push_back
-#define fi first
-#define se second
-#define sz(v) = ((int)(v).size())
-#define all(v) = (v).begin(),(v).end()
-#define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
-#define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
-mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
+const LL MOD = 998244353;
 
-ll fu(vi v){
-	ll ans  = 0;
-	int n = v.size();
-	if(n == 1)return v[0];
-	f(i,0,n)ans += v[i];
-	vi owo(n-1);
-	f(i,0,n-1)owo[i] = v[i+1] - v[i];
-	ans = max(fu(owo),ans);
-	reverse(v.begin(),v.end());
-	f(i,0,n-1)owo[i] = v[i+1] - v[i];
-	ans = max(fu(owo),ans);
-	return ans;
-}
-int main() {
-	ios::sync_with_stdio(false);
+signed main() {
+	ios_base::sync_with_stdio(false);
 	cin.tie(0);
-	int tet ;
-	cin >> tet;
-	while(tet--){
-		int n;
-		cin >> n;
-		vi v(n);
-		f(i,0,n)cin >> v[i];
-		ll ans = fu(v);
-		cout << ans ;
+	cout.tie(0);
+	LL tt;
+	cin>>tt;
+	while(tt--) {
+		LL n;
+		cin>>n;
+		vector<LL> v(n), w(n+1);
+		for(auto &x : v)cin>>x;
+		
+		LL jed = 0;
+		LL dwa = 0;
+		LL trz = 0;
+		
+		for(LL i=0; i<n; i++){
+			if(v[i]==1)jed++;
+			if(v[i]==2)dwa++;
+			if(v[i]==3)trz++;
+		}
+		
+		LL res = 0;
+		LL j = 0;
+		LL pow2 = 0;
+		
+		for(LL i=0; i<n; i++){
+			if(v[i] == 1){
+				j++;
+			}else if(v[i] == 3){
+				trz--;
+			}else{
+				
+				
+				LL x = j * trz % MOD;
+				x += trz * pow2 % MOD;
+				x %= MOD;
+				pow2 = pow2 * 2 % MOD;
+				pow2 = pow2 + j % MOD;
+				res = (res + x) % MOD;
+			}
+		}
+		
+		
+		cout<<res<<"\n";
 	}
-
 	return 0;
 }
-

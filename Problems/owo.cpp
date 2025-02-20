@@ -1,65 +1,70 @@
+
 #include <bits/stdc++.h>
-
 using namespace std;
-
-#define sz(v) ((int)(v).size())
-#define all(v) (v).begin(),(v).end()
-#define ln '\n'
+#define MOD 998244353
 #define ll long long
-#define pb push_back
-#define ii pair<int,int>
-#define vii vector<ii>  
-#define vi vector<int>  
-#define fi first
-#define se second
-#define f(i, a, b) for(ll i = (ll)a; i < (ll)b; i++)
-#define fer(i, b, a) for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-void so(int test){
-	int n = 1e5;
-	set<int> ga[n];
-	for(int i = 0 ; i < n ; i++){
-		ga[i].insert(1);
-		ga[i].insert(2);
-		ga[i].insert(3);
-		ga[i].insert(3);
-	}
-	quque<int>qu;
-	auto BFS = [&](int root){
-		qu.push(root);
-		vi dis(n+1,-1);
-		int len = 0;
-		dis[root] = 0;
-		while(!qu.empty()){
-			int v = qu.front();
-			qu.pop();
-			for(int x : adj[v])if(vis[x] != -1){
-				qu.push(x);
-				dis[x] = len+1;
-			}
-			len++;
-		}
-		int mx_to = -1;
-		int to = root;
-		f(i,0,k){
-			if (dis[kk[i]] > mx_to){
-				mx_to = dis[kk[i]];
-				to = kk[i];
-			}
-		}
-		return to;
-	};
+// Exponenciación rápida O(log exp)
+ll fastpow(ll base, ll exp, ll mod) {
+    ll result = 1;
+    while (exp > 0) {
+        if (exp % 2 == 1) result = (result * base) % mod;
+        base = (base * base) % mod;
+        exp /= 2;
+    }
+    return result;
 }
 
+ll count_beautiful_subsequences(vector<int>& a) {
+    int n = a.size();
+    
+    vector<int> pos_1, pos_3, prefix_2(n + 1, 0);
+    
+    // Preprocesar posiciones de 1, 3 y prefijo de 2s
+    for (int i = 0; i < n; i++) {
+        if (a[i] == 1) pos_1.push_back(i);
+        if (a[i] == 3) pos_3.push_back(i);
+        prefix_2[i + 1] = prefix_2[i] + (a[i] == 2);
+    }
+
+    if (pos_1.empty() || pos_3.empty()) return 0;
+
+    ll total = 0;
+    ll acumulado = 0;  // Guarda respuestas previas para evitar recalcular
+
+    int j = pos_3.size() - 1; // Último `3`
+
+    // Recorremos los `1`s de atrás hacia adelante
+    for (int i = pos_1.size() - 1; i >= 0; i--) {
+        int idx_1 = pos_1[i];
+
+        // Mover `j` hacia atrás hasta que `3[j] > 1[i]`
+        while (j >= 0 && pos_3[j] > idx_1) j--;
+
+        if (j == -1) break; // No hay más `3`s disponibles
+
+        int idx_3 = pos_3[j + 1]; // Primer `3` a la derecha del `1`
+        int num_2 = prefix_2[idx_3] - prefix_2[idx_1 + 1];
+
+        if (num_2 > 0) {
+            ll nuevos = fastpow(2, num_2, MOD) - 1;
+            total = (total + nuevos + acumulado) % MOD;
+            acumulado = (acumulado * fastpow(2, num_2, MOD) + nuevos) % MOD;
+        }
+    }
+
+    return total;
+}
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-
-    int tt = 1;
-    int test = 1;
-    while (tt--){
-        so(test++);
-    }
+	int tt;
+	cin >> tt;
+	while(tt--){
+		int n;
+		cin >> n;
+		vector<int> a(n);
+		for(auto &x : a )cin >> x;
+		    cout << count_beautiful_subsequences(a) << endl;
+	}
     return 0;
 }

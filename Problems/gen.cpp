@@ -23,15 +23,15 @@ int main() {
     cin.tie(0);
 
     // Define random distribution
-    uniform_int_distribution<int> dist(1, 20);
-    uniform_int_distribution<int> owo(-1000, 10);
+    uniform_int_distribution<int> dist(1, 11);
+    uniform_int_distribution<int> owo(1, 3);
     cout << 1 << ln;
     int n = dist(rng);
-    vi v(n);
-    f(i,0,n)v[i] = owo(rng);
     cout << n << ln;
-    f(i,0,n)cout << v[i] << ' ' ;
-    cout << ln;
+    f(i,0,n){
+	    int k = owo(rng);
+	    cout << k << ' ';
+    }
 
     return 0;
 }
