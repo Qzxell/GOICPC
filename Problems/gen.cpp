@@ -22,15 +22,29 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    // Define random distribution
-    uniform_int_distribution<int> dist(1, 11);
-    uniform_int_distribution<int> owo(1, 3);
-    cout << 1 << ln;
+    uniform_int_distribution<int> dist(10, 20);
     int n = dist(rng);
-    cout << n << ln;
-    f(i,0,n){
-	    int k = owo(rng);
-	    cout << k << ' ';
+    int q = dist(rng);
+    uniform_int_distribution<int> owo(1, 3);
+    f(i,0,q){
+	    int ty = owo(rng);
+	    cout << ty << ' ';
+	    if(ty == 1){
+		    int a,b;
+		    a = dist(rng);
+		    b = dist(rng);
+		    cout << a << ' ' << b << ln;
+	    }
+	    if(ty == 2){
+		    int a,b;
+		    a = dist(rng);
+		    b = dist(rng);
+		    while(b!=a)b=dist(rng);
+		    cout << a << ' ' << b << ln;
+	    }
+	    if(ty==3){
+		    cout << dist(rng)<<ln;
+	    }
     }
 
     return 0;

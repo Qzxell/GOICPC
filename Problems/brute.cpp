@@ -1,54 +1,51 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-typedef long long LL;
+using ll = long long;
+using ld = long double;
+#ifdef LOCAL
+#include "/home/pouya/dev/cp/lib/debug.cpp"
+#else
+#define dbg(...)
+#define TC solve
+#endif
+#define nl '\n'
 
-const LL MOD = 998244353;
-
-signed main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-	cout.tie(0);
-	LL tt;
-	cin>>tt;
-	while(tt--) {
-		LL n;
-		cin>>n;
-		vector<LL> v(n), w(n+1);
-		for(auto &x : v)cin>>x;
-		
-		LL jed = 0;
-		LL dwa = 0;
-		LL trz = 0;
-		
-		for(LL i=0; i<n; i++){
-			if(v[i]==1)jed++;
-			if(v[i]==2)dwa++;
-			if(v[i]==3)trz++;
-		}
-		
-		LL res = 0;
-		LL j = 0;
-		LL pow2 = 0;
-		
-		for(LL i=0; i<n; i++){
-			if(v[i] == 1){
-				j++;
-			}else if(v[i] == 3){
-				trz--;
-			}else{
-				
-				
-				LL x = j * trz % MOD;
-				x += trz * pow2 % MOD;
-				x %= MOD;
-				pow2 = pow2 * 2 % MOD;
-				pow2 = pow2 + j % MOD;
-				res = (res + x) % MOD;
-			}
-		}
-		
-		
-		cout<<res<<"\n";
-	}
-	return 0;
+void solve(int tc) {
+    int n, q; cin>> n >> q;
+    vector<int> id(n);
+    iota(id.begin(), id.end(), 0);
+    vector<int> pos(n);
+    iota(pos.begin(), pos.end(), 0);
+    vector<int> at(n);
+    iota(at.begin(), at.end(), 0);
+    while (q--) {
+        int t; cin >> t;
+        if (t == 1) {
+            int a, b; cin >> a >> b;
+            a--, b--;
+            // what maps to b?
+            at[a] = pos[b];
+        } else if (t == 2) {
+            int a, b; cin >> a >> b;
+            a--, b--;
+            swap(id[pos[a]], id[pos[b]]);
+            swap(pos[a], pos[b]);
+        } else {
+            int a; cin >> a;
+            a--;
+            cout << id[at[a]]+1 << nl;
+        }
+    }
 }
+
+int32_t main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t = 1;
+    //cin >> t;
+    for (int i=1; i<=t; i++) {
+        TC(i);
+    }
+    return 0;
+}
+

@@ -1,12 +1,10 @@
 ---
 tags:
-    - atcoder
-    - brute force
 Level: 1000
-Solved: true 
+Solved: false 
 Idea_clave: 
 MIstakes: 
-resolve_again_obligatory: true
+resolve_again_obligatory: false
 URL: 
 ---
 
