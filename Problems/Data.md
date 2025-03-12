@@ -88,6 +88,11 @@ columns:
       - { label: "dfs and similar", value: "dfs and similar", color: "hsl(74, 95%, 90%)"}
       - { label: "Two pointers", value: "Two pointers", color: "hsl(81, 95%, 90%)"}
       - { label: "pendejo", value: "pendejo", color: "hsl(198, 95%, 90%)"}
+      - { label: "Dp", value: "Dp", color: "hsl(200, 95%, 90%)"}
+      - { label: "Busqueda Binaria", value: "Busqueda Binaria", color: "hsl(309, 95%, 90%)"}
+      - { label: "Atcoder", value: "Atcoder", color: "hsl(307, 95%, 90%)"}
+      - { label: "DFS", value: "DFS", color: "hsl(336, 95%, 90%)"}
+      - { label: "-Dp", value: "-Dp", color: "hsl(59, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true
