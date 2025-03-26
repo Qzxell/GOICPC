@@ -21,42 +21,34 @@ void so(int test){
 	cin >> n >> k;
 	vi v(n);
 	f(i,0,n)cin >> v[i];
-	int ans = 0;
-	int expain = n - k;
-	int in = 0;
-	int pro = 1;
-	bool yes = 0;
-	set<int> ans<D-v><D-d
-	while(in < n){
-		if(pro){
-			for(int i = in; i <= min(n-1,in+expain);i++){
-				int nex = (i+1 == n ? 0 : v[i+1]);
-				if(nex != 1 + ans){
-					ans++;
-					yes = 1;
-					break;
-				}
-			}
-		}else{
-			for(int i = in; i <= min(n-1,in+expain);i++){
-				if(v[i] == i - in + ans + 1){
-					ans = v[i];
-					break;
-				}else if(i - in == 0){
-					ans = i - in + ans + 1;
-					yes = 1;
-					break;
-				}
-			}
-			
-		}
-		if(yes)break;
-		pro ^= 1;
-		in++;
-	}
-	if(!yes) ans ++;
-	cout << ans << ln;
-
+        int ind = 0;
+        int ans = 1;
+        int dis = n - k;
+        f(i,1,k+1){
+                if(i&1){
+                        int c = 0;
+                        for(;c <= dis;c++){
+                                if(v[ind + c+1] != ans){
+                                        cout << ans << ln;
+                                        return;
+                                }
+                        }
+                        ind++;
+                }else{
+                        int c = 1;
+                        for(;c <= dis;c++){
+                                if(v[ind + c] == ans+1){
+                                        break;
+                                }else{
+                                        cout << ans + 1 << ln;
+                                        return;
+                                }
+                        }
+                        ind++;
+                        ans++;
+                }
+        }
+        cout << ans <<ln;
 }
 
 int main() {

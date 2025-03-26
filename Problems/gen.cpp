@@ -15,7 +15,6 @@ using vi = vector<int>;
 #define f(i, a, b) for (ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a) for (ll i = (ll)a - 1; i >= (ll)b; i--)
 
-// Random number generator
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 int main() {
@@ -24,27 +23,29 @@ int main() {
 
     uniform_int_distribution<int> dist(10, 20);
     int n = dist(rng);
-    int q = dist(rng);
-    uniform_int_distribution<int> owo(1, 3);
-    f(i,0,q){
-	    int ty = owo(rng);
-	    cout << ty << ' ';
-	    if(ty == 1){
-		    int a,b;
-		    a = dist(rng);
-		    b = dist(rng);
-		    cout << a << ' ' << b << ln;
-	    }
-	    if(ty == 2){
-		    int a,b;
-		    a = dist(rng);
-		    b = dist(rng);
-		    while(b!=a)b=dist(rng);
-		    cout << a << ' ' << b << ln;
-	    }
-	    if(ty==3){
-		    cout << dist(rng)<<ln;
-	    }
+    // Generate numbers from 1 to n to allow exactly n unique elements
+    uniform_int_distribution<int> dis(1, n); // Fixed range
+
+    set<int> s;
+    while(sz(s) < n) {
+        s.insert(dis(rng));
+    }
+    cout <<100 << ' '<< n << ln;
+    for(auto x : s) cout << x << ' ';
+    cout << ln;
+
+    set<int> ss;
+    f(i,0,n) {
+        int wa = dist(rng); // wa between 10-20
+        ss.clear();
+        // Create a new distribution with enough range for wa elements
+        uniform_int_distribution<int> ss_dis(1, 2*wa); // Ensures sufficient range
+        while(sz(ss) < wa) {
+            ss.insert(ss_dis(rng));
+        }
+        cout << wa << ' ';
+        for(int d : ss) cout << d << ' ';
+        cout << ln;
     }
 
     return 0;
