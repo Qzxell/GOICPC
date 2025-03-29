@@ -1,7 +1,7 @@
 ---
 tags:
-Level: 1500
-Solved: true 
+Level: 1000
+Solved: false 
 Idea_clave: 
 MIstakes: 
 resolve_again_obligatory: false

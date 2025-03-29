@@ -1,6 +1,7 @@
 ---
 tags:
-Level: 1500
+  - binary search
+Level: 1000
 Solved: true 
 Idea_clave: 
 MIstakes: 
