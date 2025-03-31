@@ -21,42 +21,25 @@ void so(int test){
 	cin >> n;
 	string s;
 	cin >> s;
-	if(n==1){
-		cout << 1 << ln;
+	if( n <3){
+		cout << "NO" << ln;
 		return;
 	}
-	vi ind;
-	f(i,0,n)if(s[i] == '1')ind.pb(i+1);
-	int le = sz(ind);
-
-	auto can = [&](int c){
-		int in = le - c;
-		int res = 0;
-		ll acu = 0;
-		f(i,in,le){
-			if(ind[i] - res > 1){
-				acu += ind[i];
-				res += 2;
-			}else {
-				return -1ll;
-			}
-		}
-
-		return acu;
-	};
-	int lo = 0, lf = le,mid;
-	ll ans = -2;
-	//return;
-	while(lo < lf){
-		mid = (lo+lf+1)/2;
-		if(can(mid) >= 0){
-			lo = mid;
-			ans = can(mid);
-		}else{
-			lf = mid - 1;
-		}
+	bool yy=1;
+	f(i,0,n-1)if(s[i] != s[i+1]){
+		yy = 0;
 	}
-	cout << (n*1ll*(n+1))/2 - ans << ln;
+	if(yy){
+		cout << "NO" << ln;
+		return;
+	}
+	vi fr(3,0);
+	f(i,0,n){
+		if(s[i] == 'T')fr[0]++;
+		if(s[i] == 'I')fr[1]++;
+		if(s[i] == 'L')fr[2]++;
+	}
+
 }
 
 int main() {

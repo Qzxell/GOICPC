@@ -17,46 +17,25 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-	int n;
-	cin >> n;
+	int n,r,c;
+	cin >> n >> r >> c;
 	string s;
+	ii lle = {r,c};
 	cin >> s;
-	if(n==1){
-		cout << 1 << ln;
-		return;
-	}
-	vi ind;
-	f(i,0,n)if(s[i] == '1')ind.pb(i+1);
-	int le = sz(ind);
 
-	auto can = [&](int c){
-		int in = le - c;
-		int res = 0;
-		ll acu = 0;
-		f(i,in,le){
-			if(ind[i] - res > 1){
-				acu += ind[i];
-				res += 2;
-			}else {
-				return -1ll;
-			}
-		}
-
-		return acu;
-	};
-	int lo = 0, lf = le,mid;
-	ll ans = -2;
-	//return;
-	while(lo < lf){
-		mid = (lo+lf+1)/2;
-		if(can(mid) >= 0){
-			lo = mid;
-			ans = can(mid);
-		}else{
-			lf = mid - 1;
-		}
+	int time = 0;
+	int c = 0;
+	int fin = -1;
+	ii cur = {0,0};
+	while(c < n){
+		if(s[c] == 'N')cur.fi--;
+		if(s[c] == 'W')cur.se--;
+		if(s[c] == 'S')cur.fi++;
+		if(s[c] == 'E')cur.se++;
+		c++;
+		if(cur == lle)fin = c;
 	}
-	cout << (n*1ll*(n+1))/2 - ans << ln;
+	
 }
 
 int main() {
@@ -64,7 +43,6 @@ int main() {
 	cin.tie(0);
 
 	int tt = 1;
-	cin >> tt;
 	int test = 1;
 	while (tt--){
 		so(test++);

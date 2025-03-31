@@ -17,54 +17,39 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-	int n;
-	cin >> n;
-	string s;
-	cin >> s;
-	if(n==1){
-		cout << 1 << ln;
-		return;
+	int n,C;
+	cin >> n >> C;
+	vi v(n);
+	vi w(n);
+	f(i,0,n){
+		cin >> v[i];
+		cin >> w[i];
 	}
-	vi ind;
-	f(i,0,n)if(s[i] == '1')ind.pb(i+1);
-	int le = sz(ind);
-
-	auto can = [&](int c){
-		int in = le - c;
-		int res = 0;
-		ll acu = 0;
-		f(i,in,le){
-			if(ind[i] - res > 1){
-				acu += ind[i];
-				res += 2;
-			}else {
-				return -1ll;
+	int inf = - 2e9;
+	vector<ll> dp(C+1,inf);
+	dp[0] = 0;
+	for(int i = 0; i < n ;i++){
+		vector<ll> ndp = dp;
+		for(int j = C; j >= 0;j--){
+			if(j + w[i] <= C and ndp[j] != inf){
+				ndp[j+w[i]] = max(ndp[j] + v[i], ndp[j+w[i]]);
 			}
 		}
-
-		return acu;
-	};
-	int lo = 0, lf = le,mid;
-	ll ans = -2;
-	//return;
-	while(lo < lf){
-		mid = (lo+lf+1)/2;
-		if(can(mid) >= 0){
-			lo = mid;
-			ans = can(mid);
-		}else{
-			lf = mid - 1;
-		}
+		swap(ndp,dp);
 	}
-	cout << (n*1ll*(n+1))/2 - ans << ln;
+	ll ans = 0;
+	f(i,0,C+1){
+		ans = max(ans,dp[i]);
+	}
+	cout << ans;
 }
+
 
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 
 	int tt = 1;
-	cin >> tt;
 	int test = 1;
 	while (tt--){
 		so(test++);

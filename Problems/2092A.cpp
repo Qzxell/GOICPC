@@ -19,44 +19,11 @@ using vi = vector<int>  ;
 void so(int test){
 	int n;
 	cin >> n;
-	string s;
-	cin >> s;
-	if(n==1){
-		cout << 1 << ln;
-		return;
-	}
-	vi ind;
-	f(i,0,n)if(s[i] == '1')ind.pb(i+1);
-	int le = sz(ind);
-
-	auto can = [&](int c){
-		int in = le - c;
-		int res = 0;
-		ll acu = 0;
-		f(i,in,le){
-			if(ind[i] - res > 1){
-				acu += ind[i];
-				res += 2;
-			}else {
-				return -1ll;
-			}
-		}
-
-		return acu;
-	};
-	int lo = 0, lf = le,mid;
-	ll ans = -2;
-	//return;
-	while(lo < lf){
-		mid = (lo+lf+1)/2;
-		if(can(mid) >= 0){
-			lo = mid;
-			ans = can(mid);
-		}else{
-			lf = mid - 1;
-		}
-	}
-	cout << (n*1ll*(n+1))/2 - ans << ln;
+	vi v(n);
+	f(i,0,n)cin >> v[i];
+	sort(all(v));
+	cout << v.back() - v[0] << ln;
+	
 }
 
 int main() {
