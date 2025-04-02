@@ -1,16 +1,11 @@
 ---
 tags:
-<<<<<<< HEAD
-  - binary search
+  - DFS 
 Level: 1000
 Solved: true 
-=======
-Level: 1000
-Solved: false 
->>>>>>> 587772d4b7b6d3cce06f52c44301c74db1273d3f
-Idea_clave: 
+Idea_clave: cambiar de perspectiva, que es un palindromo? -> como se construye o destruye
 MIstakes: 
-resolve_again_obligatory: false
+resolve_again_obligatory: true
 URL: 
 ---
 
