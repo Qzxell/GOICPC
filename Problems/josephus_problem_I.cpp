@@ -16,21 +16,36 @@ using vi = vector<int>  ;
 #define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
+vi rec(int n,int pa){ // pa -> 1 o 2
+	if(n == 1){
+		vi ga = {1};
+		return ga;
+	}
+	vi ret;
+	int c = 0;
+	for(int i = pa ; i <= n ; i+=2){
+		ret.pb(i);
+		c++;
+	}
+	int uu = pa;
+	if( (n&1) and pa == 1) pa = 2;
+	else if( (n&1) and pa == 2) pa = 1;
+	vi wasa = rec(n - c, pa);
+	if(uu == 2){
+		for(auto x : wasa)ret.pb(x*2-1);
+	}else{
+		for(auto x : wasa)ret.pb(x*2);
+	}
+	return ret;
+}
+
 void so(int test){
 	int n;	
 	cin >> n;
-	ll ans = 1;
-	auto fu = [&](int num) -> ll{
-		ll ret = 1ll*((num+2)*(num+1))/2;
-		return ret;
-	};
-
-	while(n){
-		int ga = n%10;
-		n /= 10;
-		ans *= (fu(ga) );
+	vi ans = rec(n,2);// number , parity now, order now
+	for (auto x : ans ){
+		cout << x << ' ';
 	}
-	cout << ans << ln;
 }
 
 int main() {
@@ -38,7 +53,6 @@ int main() {
 	cin.tie(0);
 
 	int tt = 1;
-	cin >> tt;
 	int test = 1;
 	while (tt--){
 		so(test++);

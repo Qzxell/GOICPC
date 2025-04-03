@@ -16,32 +16,27 @@ using vi = vector<int>  ;
 #define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-void so(int test){
-	int n;	
-	cin >> n;
-	ll ans = 1;
-	auto fu = [&](int num) -> ll{
-		ll ret = 1ll*((num+2)*(num+1))/2;
-		return ret;
-	};
-
-	while(n){
-		int ga = n%10;
-		n /= 10;
-		ans *= (fu(ga) );
-	}
-	cout << ans << ln;
-}
-
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 
-	int tt = 1;
-	cin >> tt;
-	int test = 1;
-	while (tt--){
-		so(test++);
+	while (true){
+		int n;
+		cin >> n;
+		if(n == 0){
+			break;
+		}
+		if(n >= 101){
+			cout << "f91(" << n ;
+			cout << ") = ";
+			cout << n - 10 << ln;
+			continue;
+		}else{
+			cout << "f91(" << n ;
+			cout << ") = ";
+			cout << 91 << ln;
+		}
+
 	}
 	return 0;
 }

@@ -17,21 +17,32 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-	int n;	
+	int n;
 	cin >> n;
-	ll ans = 1;
-	auto fu = [&](int num) -> ll{
-		ll ret = 1ll*((num+2)*(num+1))/2;
-		return ret;
-	};
+	vector<vi> v(n,vi(n));
+	f(i,0,n)
+		f(j,0,n)
+			cin >> v[i][j];
 
-	while(n){
-		int ga = n%10;
-		n /= 10;
-		ans *= (fu(ga) );
+	vi vis(n+1,0);
+	vi dis(n+1,0);
+	vi num;
+	f(j,0,n){
+		int ga = 0;
+		for(int k = n-1; k >= 0;k--){
+			if(v[j][k] != 1)break;
+			ga++;
+		}
+		num.pb(ga);
 	}
-	cout << ans << ln;
+	int ans = 1;
+	for(auto x : num){
+		if(x == ans)ans++;
+	}
+
+
 }
+
 
 int main() {
 	ios::sync_with_stdio(false);

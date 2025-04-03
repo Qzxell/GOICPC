@@ -17,20 +17,13 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-	int n;	
-	cin >> n;
-	ll ans = 1;
-	auto fu = [&](int num) -> ll{
-		ll ret = 1ll*((num+2)*(num+1))/2;
-		return ret;
-	};
-
-	while(n){
-		int ga = n%10;
-		n /= 10;
-		ans *= (fu(ga) );
+	ll n,k,x;
+	cin >> n >> k >> x;
+	if ( x < (k*(k+1))/2 or ((n+(n-k+1))*k)/2 < x) {
+		cout << "NO";
 	}
-	cout << ans << ln;
+	else cout << "YES";
+	cout << ln;
 }
 
 int main() {
