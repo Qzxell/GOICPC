@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.1)  1 APR 2025 17:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.1)  3 APR 2025 12:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -573,7 +573,7 @@ Package hyperref Info: Link coloring ON on input line 82.
 \openout3 = `main.out'.
 
 \c@lstlisting=\count351
-<./images/UNI.png, id=20, 1204.5pt x 1514.65875pt>
+<./images/UNI.png, id=72, 1204.5pt x 1514.65875pt>
 File: ./images/UNI.png Graphic file (type png)
 <use ./images/UNI.png>
 Package pdftex.def Info: ./images/UNI.png  used on input line 99.
@@ -596,65 +596,161 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 [2]
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
 
-[3{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+ []
 
-./main.tex:291: Package keyval Error: center undefined.
+
+./main.tex:196: Package keyval Error: center undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.291 ...ter]{2025_04_01_ea720b93e8ebb5d0c6aeg-03}
+l.196 ...ter]{2025_04_01_ea720b93e8ebb5d0c6aeg-03}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-03.jpg, id=53, 447.6725pt x 384.43625pt>
+<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-03.jpg, id=109, 447.6725pt x 384.43625pt>
 File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-03.jpg Graphic file (type jpg)
 <use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-03.jpg>
-Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-03.jpg  used on input line 291.
-(pdftex.def)             Requested size: 67.14796pt x 57.66295pt.
+Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-03.jpg  used on input line 196.
+(pdftex.def)             Requested size: 134.30278pt x 115.33176pt.
 
 
-[4]
+[3{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-03.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
 
-./main.tex:350: Package keyval Error: center undefined.
+ []
+
+
+./main.tex:260: Package keyval Error: center undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.350 ...ter]{2025_04_01_ea720b93e8ebb5d0c6aeg-05}
+l.260 ...ter]{2025_04_01_ea720b93e8ebb5d0c6aeg-05}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05.jpg, id=66, 305.14pt x 441.65pt>
+<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05.jpg, id=123, 305.14pt x 441.65pt>
 File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05.jpg Graphic file (type jpg)
 <use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05.jpg>
-Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05.jpg  used on input line 350.
-(pdftex.def)             Requested size: 45.76901pt x 66.24463pt.
+Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05.jpg  used on input line 260.
+(pdftex.def)             Requested size: 91.5427pt x 132.49602pt.
 
-
-[5 <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-03.jpg>]
-
-./main.tex:353: Package keyval Error: center undefined.
+./main.tex:267: Package keyval Error: center undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.353 ...]{2025_04_01_ea720b93e8ebb5d0c6aeg-05(1)}
+l.267 ...]{2025_04_01_ea720b93e8ebb5d0c6aeg-05(1)}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05(1).jpg, id=86, 757.83125pt x 346.29375pt>
+<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05(1).jpg, id=124, 757.83125pt x 346.29375pt>
 File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05(1).jpg Graphic file (type jpg)
 <use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05(1).jpg>
-Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05(1).jpg  used on input line 353.
-(pdftex.def)             Requested size: 113.66978pt x 51.94182pt.
+Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05(1).jpg  used on input line 267.
+(pdftex.def)             Requested size: 227.35112pt x 103.88892pt.
+
+
+[4 <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 312--313
+
+ []
+
+
+./main.tex:316: Package keyval Error: center undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.316 ...ter]{2025_04_01_ea720b93e8ebb5d0c6aeg-06}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-06.jpg, id=135, 844.15375pt x 506.89375pt>
+File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-06.jpg Graphic file (type jpg)
+<use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-06.jpg>
+Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-06.jpg  used on input line 316.
+(pdftex.def)             Requested size: 253.24808pt x 152.06929pt.
+
+
+[5 <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05(1).jpg>]
+
+./main.tex:337: Package keyval Error: center undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.337 ...]{2025_04_01_ea720b93e8ebb5d0c6aeg-07(1)}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07(1).jpg, id=142, 1143.27126pt x 700.6175pt>
+File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07(1).jpg Graphic file (type jpg)
+<use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07(1).jpg>
+Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07(1).jpg  used on input line 337.
+(pdftex.def)             Requested size: 342.98402pt x 210.18686pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
+
+ []
+
+
+./main.tex:345: Package keyval Error: center undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.345 ...ter]{2025_04_01_ea720b93e8ebb5d0c6aeg-07}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07.jpg, id=143, 406.51875pt x 236.885pt>
+File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07.jpg Graphic file (type jpg)
+<use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07.jpg>
+Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07.jpg  used on input line 345.
+(pdftex.def)             Requested size: 121.95656pt x 71.06604pt.
+
+
+[6 <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-06.jpg> <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07(1).jpg>]
+
+./main.tex:376: Package keyval Error: center undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.376 ...]{2025_04_01_ea720b93e8ebb5d0c6aeg-08(1)}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08(1).jpg, id=150, 775.89874pt x 229.85875pt>
+File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08(1).jpg Graphic file (type jpg)
+<use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08(1).jpg>
+Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08(1).jpg  used on input line 376.
+(pdftex.def)             Requested size: 232.77141pt x 68.95815pt.
+
+
+[7 <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07.jpg> <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08(1).jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 391--393
+
+ []
+
 
 ./main.tex:396: Package keyval Error: center undefined.
 
@@ -662,107 +758,129 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.396 ...ter]{2025_04_01_ea720b93e8ebb5d0c6aeg-06}
+l.396 ...ter]{2025_04_01_ea720b93e8ebb5d0c6aeg-08}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-06.jpg, id=87, 844.15375pt x 506.89375pt>
-File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-06.jpg Graphic file (type jpg)
-<use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-06.jpg>
-Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-06.jpg  used on input line 396.
-(pdftex.def)             Requested size: 126.6176pt x 76.03078pt.
-
-
-[6 <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05.jpg> <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-05(1).jpg>]
-
-./main.tex:402: Package keyval Error: center undefined.
-
-See the keyval package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.402 ...]{2025_04_01_ea720b93e8ebb5d0c6aeg-07(1)}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07(1).jpg, id=93, 1143.27126pt x 700.6175pt>
-File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07(1).jpg Graphic file (type jpg)
-<use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07(1).jpg>
-Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07(1).jpg  used on input line 402.
-(pdftex.def)             Requested size: 171.48328pt x 105.08809pt.
-
-./main.tex:406: Package keyval Error: center undefined.
-
-See the keyval package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.406 ...ter]{2025_04_01_ea720b93e8ebb5d0c6aeg-07}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07.jpg, id=94, 406.51875pt x 236.885pt>
-File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07.jpg Graphic file (type jpg)
-<use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07.jpg>
-Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07.jpg  used on input line 406.
-(pdftex.def)             Requested size: 60.97517pt x 35.5312pt.
-
-./main.tex:426: Package keyval Error: center undefined.
-
-See the keyval package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.426 ...]{2025_04_01_ea720b93e8ebb5d0c6aeg-08(1)}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08(1).jpg, id=95, 775.89874pt x 229.85875pt>
-File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08(1).jpg Graphic file (type jpg)
-<use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08(1).jpg>
-Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08(1).jpg  used on input line 426.
-(pdftex.def)             Requested size: 116.37979pt x 34.47731pt.
-
-
-[7 <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-06.jpg> <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07(1).jpg> <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-07.jpg>]
-
-./main.tex:443: Package keyval Error: center undefined.
-
-See the keyval package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.443 ...ter]{2025_04_01_ea720b93e8ebb5d0c6aeg-08}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08.jpg, id=103, 325.215pt x 373.395pt>
+<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08.jpg, id=158, 325.215pt x 373.395pt>
 File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08.jpg Graphic file (type jpg)
 <use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08.jpg>
-Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08.jpg  used on input line 443.
-(pdftex.def)             Requested size: 48.78014pt x 56.00682pt.
+Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08.jpg  used on input line 396.
+(pdftex.def)             Requested size: 97.56525pt x 112.01936pt.
 
-./main.tex:449: Package keyval Error: center undefined.
+./main.tex:404: Package keyval Error: center undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.449 ...ter]{2025_04_01_ea720b93e8ebb5d0c6aeg-09}
+l.404 ...ter]{2025_04_01_ea720b93e8ebb5d0c6aeg-09}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09.jpg, id=104, 420.57124pt x 528.97626pt>
+<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09.jpg, id=159, 420.57124pt x 528.97626pt>
 File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09.jpg Graphic file (type jpg)
 <use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09.jpg>
-Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09.jpg  used on input line 449.
-(pdftex.def)             Requested size: 63.08296pt x 79.343pt.
+Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09.jpg  used on input line 404.
+(pdftex.def)             Requested size: 126.17235pt x 158.69409pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--406
+
+ []
+
+
+./main.tex:416: Package keyval Error: center undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.416 ...]{2025_04_01_ea720b93e8ebb5d0c6aeg-09(1)}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09(1).jpg, id=160, 1249.66875pt x 579.16376pt>
+File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09(1).jpg Graphic file (type jpg)
+<use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09(1).jpg>
+Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09(1).jpg  used on input line 416.
+(pdftex.def)             Requested size: 374.90352pt x 173.75046pt.
+
+
+[8 <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08.jpg> <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09.jpg>]
+
+./main.tex:436: Package keyval Error: center undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.436 ...udegraphics[scale = 0.40, center]{rieles}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<./images/rieles.png, id=168, 394.47375pt x 288.07625pt>
+File: ./images/rieles.png Graphic file (type png)
+<use ./images/rieles.png>
+Package pdftex.def Info: ./images/rieles.png  used on input line 436.
+(pdftex.def)             Requested size: 157.7867pt x 115.22844pt.
+
+
+[9 <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09(1).jpg>]
+
+./main.tex:442: Package keyval Error: center undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.442 ...ludegraphics[scale = 0.40, center]{rueda}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<./images/rueda.png, id=180, 258.9675pt x 348.30125pt>
+File: ./images/rueda.png Graphic file (type png)
+<use ./images/rueda.png>
+Package pdftex.def Info: ./images/rueda.png  used on input line 442.
+(pdftex.def)             Requested size: 103.58514pt x 139.31802pt.
+
+./main.tex:447: Package keyval Error: center undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.447 ...raphics[scale = 0.40, center]{cronometro}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<./images/cronometro.png, id=181, 403.5075pt x 300.12125pt>
+File: ./images/cronometro.png Graphic file (type png)
+<use ./images/cronometro.png>
+Package pdftex.def Info: ./images/cronometro.png  used on input line 447.
+(pdftex.def)             Requested size: 161.40013pt x 120.04637pt.
+
+./main.tex:452: Package keyval Error: center undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.452 ...degraphics[scale = 0.40, center]{vernier}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<./images/vernier.png, id=182, 566.115pt x 178.6675pt>
+File: ./images/vernier.png Graphic file (type png)
+<use ./images/vernier.png>
+Package pdftex.def Info: ./images/vernier.png  used on input line 452.
+(pdftex.def)             Requested size: 226.44199pt x 71.46573pt.
 
 ./main.tex:457: Package keyval Error: center undefined.
 
@@ -770,41 +888,132 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.457 ...]{2025_04_01_ea720b93e8ebb5d0c6aeg-09(1)}
+l.457 ...degraphics[scale = 0.40, center]{vernier}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09(1).jpg, id=105, 1249.66875pt x 579.16376pt>
-File: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09(1).jpg Graphic file (type jpg)
-<use ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09(1).jpg>
-Package pdftex.def Info: ./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09(1).jpg  used on input line 457.
-(pdftex.def)             Requested size: 187.44221pt x 86.8708pt.
+File: ./images/vernier.png Graphic file (type png)
+<use ./images/vernier.png>
+Package pdftex.def Info: ./images/vernier.png  used on input line 457.
+(pdftex.def)             Requested size: 226.44199pt x 71.46573pt.
 
 
-[8 <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08(1).jpg> <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-08.jpg> <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09.jpg>]
+[10 <./images/rieles.png> <./images/rueda.png> <./images/cronometro.png> <./images/vernier.png>]
 
-[9 <./images/2025_04_01_ea720b93e8ebb5d0c6aeg-09(1).jpg>] (./main.aux)
+./main.tex:462: Package keyval Error: center undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.462 ...degraphics[scale = 0.40, center]{balanza}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<./images/balanza.png, id=191, 478.78876pt x 332.24126pt>
+File: ./images/balanza.png Graphic file (type png)
+<use ./images/balanza.png>
+Package pdftex.def Info: ./images/balanza.png  used on input line 462.
+(pdftex.def)             Requested size: 191.5121pt x 132.89413pt.
+
+./main.tex:467: Package keyval Error: center undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.467 ...ludegraphics[scale = 0.40, center]{nivel}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<./images/nivel.png, id=192, 454.69875pt x 336.25626pt>
+File: ./images/nivel.png Graphic file (type png)
+<use ./images/nivel.png>
+Package pdftex.def Info: ./images/nivel.png  used on input line 467.
+(pdftex.def)             Requested size: 181.87627pt x 134.5001pt.
+
+./main.tex:474: Package keyval Error: center undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.474 ...egraphics[scale = 0.30, center]{Diagrama}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<./images/Diagrama.png, id=193, 1746.525pt x 970.62625pt>
+File: ./images/Diagrama.png Graphic file (type png)
+<use ./images/Diagrama.png>
+Package pdftex.def Info: ./images/Diagrama.png  used on input line 474.
+(pdftex.def)             Requested size: 523.96155pt x 291.19012pt.
+
+Overfull \hbox (40.26468pt too wide) in paragraph at lines 474--475
+ [][] 
+ []
+
+
+./main.tex:477: LaTeX Error: \begin{document} ended by \end{itemize}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.477 \end{itemize}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./main.tex:477: Extra \endgroup.
+\end  ...end#1\endcsname \@checkend {#1}\endgroup 
+                                                  \UseHook {env/#1/after}\if...
+l.477 \end{itemize}
+                   
+Things are pretty mixed up, but I think the worst is over.
+
+
+
+[11 <./images/balanza.png> <./images/nivel.png>]
+
+./main.tex:481: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.481 \end{itemize}
+                   
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[12 <./images/Diagrama.png>] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EBBB7DF823D98FBFA7AC288A57F4E257;544.
+(rerunfilecheck)             Checksum: 0F56567BCC7585D555D764D5F2739094;3021.
  ) 
 Here is how much of TeX's memory you used:
- 16852 strings out of 475171
- 288057 string characters out of 5767096
- 889661 words of memory out of 5000000
- 39590 multiletter control sequences out of 15000+600000
+ 16971 strings out of 475171
+ 290538 string characters out of 5767096
+ 890667 words of memory out of 5000000
+ 39695 multiletter control sequences out of 15000+600000
  564544 words of font info for 57 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,21n,79p,1473b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,21n,79p,1473b,532s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (9 pages, 787489 bytes).
+Output written on main.pdf (12 pages, 2498339 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 500000)
- 88 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 294 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 227 words of extra memory for PDF output out of 10000 (max. 10000000)
 

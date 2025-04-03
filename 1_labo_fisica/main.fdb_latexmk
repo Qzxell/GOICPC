@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1743546890.72101 "main.tex" "main.pdf" "main" 1743546891.90543 2
+["pdflatex"] 1743700288.55384 "main.tex" "main.pdf" "main" 1743700289.92939 2
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1742685315 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1742685315 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -130,11 +130,18 @@
   "images/2025_04_01_ea720b93e8ebb5d0c6aeg-08.jpg" 1743546408.72025 12697 3f9516fc41f0aa42becad958e2038730 ""
   "images/2025_04_01_ea720b93e8ebb5d0c6aeg-09(1).jpg" 1743546408.72096 41156 1ecfacbe83054a7a70f6592fc63d9256 ""
   "images/2025_04_01_ea720b93e8ebb5d0c6aeg-09.jpg" 1743546408.72051 19712 3a03d4a7c840581c9804307d86741ab6 ""
+  "images/Diagrama.png" 1743699696.33505 199897 d5214ba06a4969c4fac5d3fe9d24f0f7 ""
   "images/UNI.png" 1743546586.16911 380921 93218426419f855600d23c79b411e8f0 ""
-  "main.aux" 1743546891.81275 752 5129072b3447d67bb62e487c4ffef977 "pdflatex"
-  "main.out" 1743546891.81375 544 ebbb7df823d98fbfa7ac288a57f4e257 "pdflatex"
-  "main.tex" 1743546889.98602 22881 23dc009dc7b3283a35318acd19e4f610 ""
-  "main.toc" 1743546891.81375 338 6f42863bb8a36b487a207193e6fec13f "pdflatex"
+  "images/balanza.png" 1743698346.27329 172580 b8d722bfa18b00b45b94b51f0aeb0cc4 ""
+  "images/cronometro.png" 1743698332.87262 174994 89c3a10786033cfe88b6cf75aaccc1ad ""
+  "images/nivel.png" 1743698339.55646 233521 0ebba2622377f1bf20d118aa448900c1 ""
+  "images/rieles.png" 1743698308.70822 158035 3a5eab0515bddea3cc5adb6bf28d1550 ""
+  "images/rueda.png" 1743698321.6859 104863 5188d1c770f4e7b1bf7a58a6d3500cdd ""
+  "images/vernier.png" 1743698326.20578 141260 873e956d53046e30ec039ef58201f6f0 ""
+  "main.aux" 1743700289.84355 3982 d0ede0a3446e3810bceff4c0f46a1272 "pdflatex"
+  "main.out" 1743700289.84561 3021 0f56567bcc7585d555d764d5f2739094 "pdflatex"
+  "main.tex" 1743700287.31563 21768 3b0c63a575c9be429eabc3879d4f2c0e ""
+  "main.toc" 1743700289.84561 1490 1cdd4663ee3aaeedabc04a2fba9aa316 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
