@@ -42,6 +42,7 @@ vector<vi> fu(int n){
 	}
 	return ret;
 }
+<<<<<<< HEAD
 void so(int test){
 	int n;
 	cin >> n;
@@ -49,6 +50,21 @@ void so(int test){
 	if(test > 1)cout << ln;
 	for(auto x: ans){
 		int c = 0;
+=======
+int ga = 1;
+void so(int test){
+	int n;
+	cin >> n;
+        if(n == 0){
+                ga = 0;
+                return;
+        }
+	vector<vi> ans = fu(n-1);
+	if(test > 1)cout << ln;
+	for(auto x: ans){
+		int c = 0;
+                // sin o con esto, falla
+>>>>>>> be9f22b6f9551236c0e3f33e502acd6ae7d418ee
 		for(int i = 0 ; i < sz(x) ; i++)if(x[i] != ' ')c = i;
 		for(int i = 0 ; i <= c ; i++)cout << x[i];
 		cout << ln;
@@ -61,9 +77,14 @@ int main() {
 	cin.tie(0);
 
 	int tt = 1;
+<<<<<<< HEAD
 	cin >> tt;
 	int test = 1;
 	while (tt--){
+=======
+	int test = 1;
+	while (ga){
+>>>>>>> be9f22b6f9551236c0e3f33e502acd6ae7d418ee
 		so(test++);
 	}
 	return 0;

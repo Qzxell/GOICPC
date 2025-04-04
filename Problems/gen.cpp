@@ -21,32 +21,20 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    uniform_int_distribution<int> dist(10, 20);
+    uniform_int_distribution<int> dist(6, 7);
+    cout << 1 << ln;
     int n = dist(rng);
-    // Generate numbers from 1 to n to allow exactly n unique elements
     uniform_int_distribution<int> dis(1, n); // Fixed range
-
-    set<int> s;
-    while(sz(s) < n) {
-        s.insert(dis(rng));
-    }
-    cout <<100 << ' '<< n << ln;
-    for(auto x : s) cout << x << ' ';
-    cout << ln;
-
-    set<int> ss;
-    f(i,0,n) {
-        int wa = dist(rng); // wa between 10-20
-        ss.clear();
-        // Create a new distribution with enough range for wa elements
-        uniform_int_distribution<int> ss_dis(1, 2*wa); // Ensures sufficient range
-        while(sz(ss) < wa) {
-            ss.insert(ss_dis(rng));
+        cout << n << ln;
+        vi v(2*n);
+        f(i,0,n){
+                v[i] = dis(rng);
         }
-        cout << wa << ' ';
-        for(int d : ss) cout << d << ' ';
-        cout << ln;
-    }
+        sort(all(v));
+        f(i,0,n){
+                cout << v[i] << ' ';
+        }
+
 
     return 0;
 }

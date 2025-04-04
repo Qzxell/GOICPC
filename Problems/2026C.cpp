@@ -17,6 +17,20 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
+<<<<<<< HEAD
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        int ans = 0;
+        int dis = 0;
+        f(i,0,n){
+                dis++;
+                if(s[i] == '1'){
+                        
+                }
+        }
+=======
 	int n;
 	cin >> n;
 	string s;
@@ -57,6 +71,7 @@ void so(int test){
 		}
 	}
 	cout << (n*1ll*(n+1))/2 - ans << ln;
+>>>>>>> 587772d4b7b6d3cce06f52c44301c74db1273d3f
 }
 
 int main() {

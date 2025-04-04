@@ -26,39 +26,29 @@ void so(int test){
 			cout << 1 << ln;
 			return;
 		}
-
-		vector<vi> dp(n+3,vi(27,0));
-		f(i,1,n+1){
-			dp[i][s[i-1]-'a']++;
-			f(j,0,27){
-				dp[i+2][j] += dp[i][j];
-			}
-		}
-		vi aux1(27),aux2(27),aux3(27),aux4(27);
-		int ans = 2e9;
-		f(i,1,n+1){
-			aux1 = dp[i-1];
-			aux2 = dp[i-2];
-			if(i&1){
-				f(j,0,27){
-					aux4[j] = dp[n][j] - dp[i][j];
-					aux3[j] = dp[n-1][j] - dp[i-1][j];
-				}
-			}else{
-				f(j,0,27){
-					aux4[j] = dp[n][j] - dp[i-1][j];
-					aux3[j] = dp[n-1][j] - dp[i][j];
-				}
-			}
-			f(j,0,27){
-				aux2[j] += aux3[j];
-				aux1[j] += aux4[j];
-			}
-			int wa = accumulate(all(aux1),0) - *max_element(all(aux1));
-			wa += accumulate(all(aux2),0) - *max_element(all(aux2));
-			ans = min(ans,wa);
-		}
-		cout << ans << ln;
+                vi freq1(27,0);
+                vi freq0(27,0);
+                f(i,1,n){
+                        if(i&1)freq1[s[i]-'a']++;
+                        else freq0[s[i] - 'a']++;
+                }
+                int ans = accumulate(all(freq1),0) - *max_element(all(freq1));
+                ans += accumulate(all(freq0),0) - *max_element(all(freq0));
+                int ig = 0;
+                f(i,1,n){
+                        if(ig==0){
+                                freq1[s[i-1]-'a']++;
+                                freq1[s[i]-'a']--;
+                        }else{
+                                freq0[s[i-1]-'a']++;
+                                freq0[s[i]-'a']--;
+                        }
+                        int aw = accumulate(all(freq1),0) - *max_element(all(freq1));
+                        aw += accumulate(all(freq0),0) - *max_element(all(freq0));
+                        ans = min(ans,aw);
+                        ig ^= 1;
+                }
+                cout << ans + 1 << ln;
 		return;
 	}
 	vi freq1(27,0);
