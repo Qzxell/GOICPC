@@ -1,73 +1,68 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef long long ll;
+using ii = pair<int,int>;
+using vii = vector<ii>  ;
+using vi = vector<int>  ;
+#define ln  '\n'
+#define ll long long
+#define pb push_back
+#define fi first
+#define se second
+#define sz(v) ((int)(v).size())
+#define all(v) (v).begin(),(v).end()
+#define rall(v) (v).rbegin(),(v).rend()
+#define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
+#define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 string wa = "What are you doing at the end of the world? Are you busy? Will you save us?";
 string s1 = "What are you doing while sending \"";
 string s2 = "\"? Are you busy? Will you send \"";
 string s3 = "\"?";
 
-const int MAX_N = 1e5 + 5;
-const ll INF = 1e18;
-
-vector<ll> len(MAX_N, -1);
-
-void precompute() {
-    len[0] = wa.size();
-    for (int i = 1; i < MAX_N; ++i) {
-        if (len[i-1] == -1) {
-            len[i] = -1;
-            continue;
-        }
-        ll current = 2 * len[i-1] + s1.size() + s2.size() + s3.size();
-        len[i] = (current > INF) ? -1 : current;
-    }
-}
-
-char query(int n, ll k) {
-    while (true) {
-        if (n == 0) {
-            if (k <= wa.size()) return wa[k-1];
-            else return '.';
-        }
-        if (k <= s1.size()) {
-            return s1[k-1];
-        }
-        k -= s1.size();
-        ll prev_len = len[n-1];
-        if (prev_len == -1 || k <= prev_len) {
-            n--;
-            continue;
-        }
-        k -= prev_len;
-        if (k <= s2.size()) {
-            return s2[k-1];
-        }
-        k -= s2.size();
-        if (prev_len == -1 || k <= prev_len) {
-            n--;
-            continue;
-        }
-        k -= prev_len;
-        if (k <= s3.size()) {
-            return s3[k-1];
-        }
-        return '.';
-    }
-}
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    precompute();
-    int q;
-    cin >> q;
-    while (q--) {
-        int n;
-        ll k;
-        cin >> n >> k;
-        cout << query(n, k);
-    }
-    return 0;
+        ios::sync_with_stdio(false);
+        cin.tie(0);
+
+        int nn = 2;
+        char wasa = ((nn&1)? 'a' : 'm');
+        //vector<string> com = rec(nn-1,wasa,mi,mi);
+        int len = (1<<nn);
+        int mi = len/2;
+        vector<string> aux(mi,string(mi,' '));
+        //vector<string> lost = (nn-1,ga,l,r);
+        vector<string> lost(mi,string(mi, '-'));
+        lost[0] = "01";
+        vector<string> ret(len,string(len,' '));
+
+        auto ful = [&](int ind_x,int ind_y){
+                f(i,0,mi){
+                        f(j,0,mi){
+                                ret[ind_x + i][ind_y +j] = lost[i][j];
+                        }
+                }
+        };
+        auto rotate = [&](){
+                f(i,0,mi){
+                        f(j,0,mi){
+                                aux[mi-j-1][i] = lost[i][j];
+                        }
+                }
+                swap(aux,lost);
+        };
+        ful(0,0);
+        rotate();
+        ful(mi,0);
+        rotate();
+        ful(mi,mi);
+        rotate();
+        ful(0,mi);
+        f(i,0,len){
+                f(j,0,len){
+                        cout<< ret[i][j] ;
+                }
+                cout << ln;
+        }
+        return 0;
 }
