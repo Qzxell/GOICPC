@@ -12,7 +12,10 @@
 \contentsline {subsection}{\numberline {3.1}Equipo utilizado}{9}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Diagrama de Flujo}{12}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Procedimiento Experimental}{12}{section.4}%
-\contentsline {section}{\numberline {5}C\'{a}lculos y resultados}{12}{section.5}%
-\contentsline {section}{\numberline {6}Cuestionario}{12}{section.6}%
-\contentsline {section}{\numberline {7}Conclusiones}{12}{section.7}%
-\contentsline {section}{\numberline {8}Anexo}{12}{section.8}%
+\contentsline {section}{\numberline {5}C\'{a}lculos y resultados}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Tabla de datos}{13}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Cuestionario}{13}{section.6}%
+\contentsline {section}{\numberline {7}Observaciones y Sugerencias}{13}{section.7}%
+\contentsline {section}{\numberline {8}Conclusiones}{13}{section.8}%
+\contentsline {section}{\numberline {9}Bibliografia}{13}{section.9}%
+\contentsline {section}{\numberline {10}Anexo}{14}{section.10}%

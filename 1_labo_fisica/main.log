@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.1)  3 APR 2025 12:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.1)  3 APR 2025 22:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -980,40 +980,43 @@ Things are pretty mixed up, but I think the worst is over.
 
 [11 <./images/balanza.png> <./images/nivel.png>]
 
-./main.tex:481: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.481 \end{itemize}
-                   
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+[12 <./images/Diagrama.png>]
+Overfull \hbox (276.5134pt too wide) in paragraph at lines 504--524
+\OT1/cmr/m/n/10 una altura inicial $\OML/cmm/m/it/10 h[] \OT1/cmr/m/n/10 = 57\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5[]$ [] [] 
+ []
 
 
 
-[12 <./images/Diagrama.png>] (./main.aux)
+[13]
+
+[14] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0F56567BCC7585D555D764D5F2739094;3021.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 0F56567BCC7585D555D764D5F2739094;3021
+(rerunfilecheck)             After:  7B98171F05A0EC48FE7DC54EF8EF2941;3445.
  ) 
 Here is how much of TeX's memory you used:
- 16971 strings out of 475171
- 290538 string characters out of 5767096
+ 16982 strings out of 475171
+ 290689 string characters out of 5767096
  890667 words of memory out of 5000000
- 39695 multiletter control sequences out of 15000+600000
+ 39701 multiletter control sequences out of 15000+600000
  564544 words of font info for 57 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,21n,79p,1473b,532s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (12 pages, 2498339 bytes).
+Output written on main.pdf (14 pages, 2508003 bytes).
 PDF statistics:
- 294 PDF objects out of 1000 (max. 8388607)
- 224 compressed objects within 3 object streams
- 59 named destinations out of 1000 (max. 500000)
+ 307 PDF objects out of 1000 (max. 8388607)
+ 235 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 500000)
  227 words of extra memory for PDF output out of 10000 (max. 10000000)
 
