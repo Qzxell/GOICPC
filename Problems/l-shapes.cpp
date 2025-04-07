@@ -69,13 +69,6 @@ vector<string> rec(int nn,char ga,int l , int r){
                 }
                 swap(aux,lost);
         };
-        auto aum1 = [&](int u){
-                f(i,0,mi){
-                        f(j,0,mi){
-                               if(com[i][j] !='.')com[i][j] += u;
-                        }
-                }
-        };
         auto aum = [&](int u){
                 f(i,0,mi){
                         f(j,0,mi){
