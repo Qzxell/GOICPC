@@ -21,20 +21,12 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    uniform_int_distribution<int> dist(6, 7);
-    cout << 1 << ln;
-    int n = dist(rng);
-    uniform_int_distribution<int> dis(1, n); // Fixed range
-        cout << n << ln;
-        vi v(2*n);
-        f(i,0,n){
-                v[i] = dis(rng);
-        }
-        sort(all(v));
-        f(i,0,n){
-                cout << v[i] << ' ';
-        }
-
-
+    uniform_int_distribution<int> dist(4, 10);
+    uniform_int_distribution<int> owo(4,8);
+    int tt = owo(rng);
+    cout << tt << ln;
+    while(tt--){
+        cout << dist(rng) << ' ' << dist(rng) << ln;
+    }
     return 0;
 }
