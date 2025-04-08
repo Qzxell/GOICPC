@@ -39,7 +39,7 @@ vector<string> rec(int nn,char ga,int l , int r){
                 r -= mi;
         } else cu_y = 1;
 
-        char wasa = 'A' + po - nn;
+        char wasa = (ga == '.' ? 'M' + nn : (nn&1) ? 'A'+nn : 'H' + nn);
         vector<string> com = rec(nn-1,ga,l,r);
         vector<string> lost = rec(nn-1,wasa,mi,mi);
         vector<string> aux(mi,string(mi,' '));

@@ -21,12 +21,10 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    uniform_int_distribution<int> dist(4, 10);
-    uniform_int_distribution<int> owo(4,8);
-    int tt = owo(rng);
-    cout << tt << ln;
-    while(tt--){
-        cout << dist(rng) << ' ' << dist(rng) << ln;
-    }
+    uniform_int_distribution<int> dist(0, 10);
+    int n = dist(rng);
+    cout << (1<<n) << ln;
+    uniform_int_distribution<int> owo(1,(1<<n));
+    cout << owo(rng) << ' ' << owo(rng) << ln;
     return 0;
 }

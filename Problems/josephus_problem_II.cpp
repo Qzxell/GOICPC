@@ -3,6 +3,7 @@
 using namespace std;
 
 using ii = pair<int,int>;
+using iii = pair<int,ii>;
 using vii = vector<ii>  ;
 using vi = vector<int>  ;
 #define ln  '\n'
@@ -18,23 +19,8 @@ using vi = vector<int>  ;
 
 int n,k;	
 
+/*
 vi rec(int nn,int di){
-        if(nn == 1){
-                di %= (nn+1);
-                vi ga = {di,1-di};
-                return ga;
-        }
-        di %= (nn+1);
-
-        int c = 0;
-        int dif = 0;
-        vi ret;
-        for(int i = di ; i <= nn; i +=k+1) {
-                c++;
-                ret.pb(i);
-                dif = nn - i;
-        }
-        vi au = rec(nn - c, k- dif);
         for(auto x : au){
                 if(x < di)ret.pb(x);
                 else{
@@ -44,23 +30,64 @@ vi rec(int nn,int di){
                         ret.pb(pa);
                 }
         }
-        return ret;
 }
+*/
 void so(int test){
         cin >> n >> k;
         if(n == 1){
                 cout << 1 <<ln;
                 return;
         }
-        if(k==0){
+        if(k == 0){
                 f(i,0,n)cout << i+1 << ' ';
                 return;
         }
+        stack<ii> st;
+        int ind = k%n;
+        st.push({n-1,ind});
+        vi ans;
+        while(true){
+                ii ip = st.top();
+                if(ip.fi == 0)break;
+                int len = ip.fi+1;
+                int ind = ip.se%len;
 
-        vi ans = rec(n-1,k);
-        
-        for(auto x : ans)cout << x+1 << ' ';
-        cout << ln;
+                int pro = (len - ind - 1)/(k+1) + 1;
+                int l1,ind1;
+
+                l1 = ip.fi - pro;
+                ind1 =  k - (len - 1 - (ind + (pro-1)*(k+1)));
+
+                st.push({l1,ind1});
+        }
+        while(!st.empty()){
+                ii ip = st.top();
+                st.pop();
+                cout << ip.fi << ' ' << ip.se<<ln;
+                if(ans.empty()){
+                        ans.pb(0);
+                        continue;
+                }
+                int di = ip.se% (ip.fi+1);
+                int le = sz(ans);
+                for(int i = 0;i < le;i++){
+                        int x  = ans[i];
+                        if(x < di)continue;
+                        else{
+                                int df1 = di,df2 = di+1;
+                                int so = (x-df1)%(k);
+                                int pa = ((x-df1)/k)*(k+1) + so + df1+1;
+                                ans[i] = pa;
+                        }
+                }
+                int gro = (ip.fi - di)/(k+1);
+                int c= 0 ;
+                for(int i = di + gro*(k+1); i >= 0 ; i -= k+1){
+                        ans.pb(i);
+                }
+        }
+        reverse(all(ans));
+        f(i,0,sz(ans))cout << ans[i]+1 << ' ';
 
 }
 
