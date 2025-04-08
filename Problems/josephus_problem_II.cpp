@@ -17,78 +17,51 @@ using vi = vector<int>  ;
 #define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-int n,k;	
+const int N = 2e5 + 3;
+const int ga = 1e5+1;
 
-/*
-vi rec(int nn,int di){
-        for(auto x : au){
-                if(x < di)ret.pb(x);
-                else{
-                        int df1 = di,df2 = di+1;
-                        int so = (x-df1)%(k);
-                        int pa = ((x-df1)/k)*(k+1) + so + df2;
-                        ret.pb(pa);
-                }
+vector<int> ft(ga, 0);
+
+void update(int pos,int add){ //sumo a[pos] += add
+        for(++pos;pos<ga;pos+=pos&-pos){
+                ft[pos] += add ;
         }
 }
-*/
+int sum(int pos){ //retorna la suma de a[0:pos]
+        int ans=0;
+        for(++pos;pos>0;pos&=pos-1) ans+=ft[pos];
+        return ans;
+}
+
 void so(int test){
+        int n,k;
         cin >> n >> k;
-        if(n == 1){
-                cout << 1 <<ln;
-                return;
+        f(i,1,n+1){
+                update(i,1);
         }
-        if(k == 0){
-                f(i,0,n)cout << i+1 << ' ';
-                return;
-        }
-        stack<ii> st;
-        int ind = k%n;
-        st.push({n-1,ind});
+
         vi ans;
-        while(true){
-                ii ip = st.top();
-                if(ip.fi == 0)break;
-                int len = ip.fi+1;
-                int ind = ip.se%len;
 
-                int pro = (len - ind - 1)/(k+1) + 1;
-                int l1,ind1;
+        int len = n;
+        int fi = k;
 
-                l1 = ip.fi - pro;
-                ind1 =  k - (len - 1 - (ind + (pro-1)*(k+1)));
-
-                st.push({l1,ind1});
+        while(len){
+                int lo = 1, lf = n;
+                int mid;
+                fi = fi % len;
+                while(lo < lf){
+                        mid = (lo+lf)/2;
+                        if(sum(mid) > fi)lf = mid;
+                        else lo = mid+1;
+                }
+                ans.pb(lo);
+                update(lo,-1);
+                fi += k;
+                len--;
         }
-        while(!st.empty()){
-                ii ip = st.top();
-                st.pop();
-                cout << ip.fi << ' ' << ip.se<<ln;
-                if(ans.empty()){
-                        ans.pb(0);
-                        continue;
-                }
-                int di = ip.se% (ip.fi+1);
-                int le = sz(ans);
-                for(int i = 0;i < le;i++){
-                        int x  = ans[i];
-                        if(x < di)continue;
-                        else{
-                                int df1 = di,df2 = di+1;
-                                int so = (x-df1)%(k);
-                                int pa = ((x-df1)/k)*(k+1) + so + df1+1;
-                                ans[i] = pa;
-                        }
-                }
-                int gro = (ip.fi - di)/(k+1);
-                int c= 0 ;
-                for(int i = di + gro*(k+1); i >= 0 ; i -= k+1){
-                        ans.pb(i);
-                }
+        for(auto x : ans){
+                cout  << x << ' ';
         }
-        reverse(all(ans));
-        f(i,0,sz(ans))cout << ans[i]+1 << ' ';
-
 }
 
 int main() {
