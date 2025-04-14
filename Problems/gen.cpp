@@ -21,7 +21,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    uniform_int_distribution<int> dist(0, 10);
+    uniform_int_distribution<int> dist(2, 10);
+    uniform_int_distribution<int> mm(1, 10);
+    uniform_int_distribution<int> qq(1, 50);
     int n = dist(rng);
     cout << (1<<n) << ln;
     uniform_int_distribution<int> owo(1,(1<<n));

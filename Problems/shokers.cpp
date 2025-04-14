@@ -28,34 +28,39 @@ void so(int test){
 		string ga;
 		cin >> ga;
 		if(acc == '!'){
-			if(yes) ans++;
+			if(yes){
+                                ans++;
+                        }
 			vi aux(26,0);
 			f(j,0,sz(ga)){
 				aux[ga[j]-'a'] = 1;
 			}
-			f(j,0,26)if(ab[j] != 0) ab |= aux[j];
+			f(j,0,26){
+                                if(aux[j] == 0)ab[j] = 0;
+                                else ab[j] &= aux[j];
+                        }
 			int c = 0;
 			f(j,0,26)c += ab[j];
 			if( c <= 1) yes = 1;
 		}else if(acc == '.'){
-			vi aux(26,1);
 			f(j,0,sz(ga)){
-				aux[ga[j]-'a'] = 0;
-			}
-			f(j,0,sz(ga)){
-				ab[j] &= aux[j];
+                                ab[ga[j]-'a'] = 0;
 			}
 			int c = 0;
 			f(j,0,26)c += ab[j];
 			if( c <= 1) yes = 1;
 		}else{
 			char uu = ga[0];
+                        if(yes and i < n-1){
+                                ans++;
+                        } 
 			ab[uu-'a'] = 0;
-
+			int c = 0;
+			f(j,0,26)c += ab[j];
+			if( c <= 1) yes = 1;
 		}
-
-
 	}
+                cout << ans;
 }
 
 int main() {
