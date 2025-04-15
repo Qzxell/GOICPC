@@ -17,27 +17,25 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-        ll n,W;	
-        cin >> n >> W;
-        vector<ll> v(n),w(n);
-        f(i,0,n){
-                cin >> v[i] >> w[i];
-        }
-        int mask = (1<<n);
-        ll ans =0;
-        f(i,0,mask){
-                ll acu_w = 0;
-                ll acu_v = 0;
-                f(j,0,n)if((i>>j)&1){
-                        acu_w += w[j];
-                        acu_v += v[j];
-                }
-                if(acu_w > W)continue;
-                ans = max(ans,acu_v);
-        }
-        cout << ans << ln;
-}
+        int n,W;	
+        cin >> n>> W;
 
+        int inf = 1e9;
+        int N = 1e5 + 3;
+        vi dp(N,inf);// dp of value with min weight
+        dp[0] = 0;
+        f(i,0,n){
+                int v,w;
+                cin >> v >> w;
+                for(int j = N-1 ; j >= 0 ; j--)if(j + v < N and dp[j] != inf){
+                        dp[j + v] = min(dp[j + v], dp[j] + w);
+                }
+        }
+        for(int j = N-1 ; j >= 0 ; j--)if(dp[j] != inf and dp[j] <= W){
+                cout << j << ln;
+                return;
+        }
+}
 
 int main() {
 	ios::sync_with_stdio(false);

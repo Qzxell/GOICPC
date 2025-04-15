@@ -17,27 +17,26 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-        ll n,W;	
-        cin >> n >> W;
-        vector<ll> v(n),w(n);
+        int n;
+        cin >> n;
+        vi v(n);
+        f(i,0,n)cin >> v[i];
+        sort(all(v));
+        ll time = 0;
+        int ans = 0;
         f(i,0,n){
-                cin >> v[i] >> w[i];
-        }
-        int mask = (1<<n);
-        ll ans =0;
-        f(i,0,mask){
-                ll acu_w = 0;
-                ll acu_v = 0;
-                f(j,0,n)if((i>>j)&1){
-                        acu_w += w[j];
-                        acu_v += v[j];
+                if(time <= v[i]){
+                        ans++;
+                        time += v[i];
                 }
-                if(acu_w > W)continue;
-                ans = max(ans,acu_v);
+                else{
+                        continue;
+                }
         }
-        cout << ans << ln;
-}
+        cout << ans;
 
+
+}
 
 int main() {
 	ios::sync_with_stdio(false);
