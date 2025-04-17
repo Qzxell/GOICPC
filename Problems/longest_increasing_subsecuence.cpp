@@ -19,21 +19,20 @@ using vi = vector<int>  ;
 void so(int test){
         int n;
         cin >> n;
-        int inf = 1e9;
-        vi dp(n+1,inf);// DP[lon] := min value(ult)
-        dp[0] = 0;
+        vi a(n);
+        f(i,0,n)cin >> a[i];
+        int lost = 0;
+        int lon = 0;
         f(i,0,n){
-                int x;
-                cin >> x;
-                f(j,0,n)if(dp[j] < x){
-                        dp[j+1] = min(dp[j+1],x);
+                if(a[i] > lost){
+                        lost = a[i];
+                        lon++;
+                }else{
+                        lost = a[i];
                 }
         }
-        int ans = -1;
-        f(i,0,n+1)if(dp[i] != inf)ans = i;
-        cout << ans ;
+        cout << lon << ln;
 }
-
 
 int main() {
 	ios::sync_with_stdio(false);

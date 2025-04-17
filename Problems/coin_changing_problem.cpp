@@ -17,23 +17,20 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-        int n;
-        cin >> n;
+        int n,m,d;
+        cin >> n >> m;
         int inf = 1e9;
-        vi dp(n+1,inf);// DP[lon] := min value(ult)
+        vi dp(n+1,inf);// dp[value] := min cant
         dp[0] = 0;
-        f(i,0,n){
-                int x;
-                cin >> x;
-                f(j,0,n)if(dp[j] < x){
-                        dp[j+1] = min(dp[j+1],x);
+        f(x,0,m){
+                cin >> d;
+                f(i,0,n+1)if(dp[i] != inf and i + d <= n){
+                        dp[i+d] = min(dp[i+d], dp[i] + 1);
                 }
         }
-        int ans = -1;
-        f(i,0,n+1)if(dp[i] != inf)ans = i;
-        cout << ans ;
-}
+        cout << dp[n] << ln;
 
+}
 
 int main() {
 	ios::sync_with_stdio(false);

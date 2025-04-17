@@ -46,7 +46,6 @@ void so(int test){
         cout << ans << ln;
 }
 
-
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
