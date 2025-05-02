@@ -1,48 +1,62 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+#include<bitset>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 
 using namespace std;
-
-using ii = pair<int,int>;
-using vii = vector<ii>  ;
-using vi = vector<int>  ;
-#define ln  '\n'
 #define ll long long
-#define pb push_back
-#define fi first
-#define se second
-#define sz(v) ((int)(v).size())
-#define all(v) (v).begin(),(v).end()
-#define rall(v) (v).rbegin(),(v).rend()
-#define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
-#define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
+#define ld long double
+//#define int long long
+#define all(v) v.begin(),v.end()
+#define rall(v) v.rbegin(),v.rend()
+#define pb(k) push_back(k)
+#define inv(v) for(auto&it:v){cin>>it;}
+#define sv(v, n) v = vector<int>(n);
+#define rere return ret;
+#define pa pair<int,int>
+#define ini(dp) memset(dp,-1, sizeof(dp));
+using namespace __gnu_pbds;
+template<class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+#define FLASH  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
-void so(int test){
-        int n;
-        cin >> n;
-        int inf = 1e9;
-        vi dp(n+1,inf);// DP[lon] := min value(ult)
-        dp[0] = 0;
-        f(i,0,n){
-                int x;
-                cin >> x;
-                f(j,0,n)if(dp[j] < x){
-                        dp[j+1] = min(dp[j+1],x);
-                }
-        }
-        int ans = -1;
-        f(i,0,n+1)if(dp[i] != inf)ans = i;
-        cout << ans ;
+void MILO() {
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
 }
 
+int dx[] = {-1, 0, 1, 0, -1, -1, 1, 1, 0};
+int dy[] = {0, 1, 0, -1, -1, 1, 1, -1, 0};
+vector<ll> v, pre;
+ll dp[404][404];
 
-int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+ll go(int l, int r) {
+    if (l >= r)return 0;
+    ll &ret = dp[l][r];
+    if (~ret)rere;
+    ret = 1e18;
+    for (int i = l; i < r; ++i) {
+        ret = min(go(l, i) + go(i + 1, r) + pre[r] - pre[l - 1], ret);
+    }
+    rere;
+}
 
-	int tt = 1;
-	int test = 1;
-	while (tt--){
-		so(test++);
-	}
-	return 0;
+void O_O() {
+    int n;
+    cin >> n;
+    ini(dp);
+    v = pre = vector<ll>(n + 6);
+    for (int i = 1; i <= n; ++i) {
+        cin >> v[i];
+        pre[i] += pre[i - 1] + v[i];
+    }
+    cout << go(1, n);
+}
+
+int32_t main() {
+    int rep = 1;
+//    cin >> rep;
+    while (rep--) O_O();
+    return 0;
 }

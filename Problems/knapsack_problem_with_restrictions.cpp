@@ -21,27 +21,34 @@ void so(int test){
 	cin >> n >> C;
 	
 	ll inf = -(1ll<<60);
-	vector<ll> dp(C+1,0);
+	vector<ll> dp(C+1,inf);//dp[wight] := max value
 
 	dp[0] = 0;
 	f(i,0,n){
 		int vv,ww,mm;
 		cin >> vv >> ww >> mm;
-		f(k,0,mm){
-			vector<ll> ndp = dp;
-			for(int j = C; j >= 0;j--){
-				if(j + ww <= C and ndp[j]!= inf){
-					ndp[j+ww] = max(ndp[j+ww],ndp[j] + vv);
-				}
-			}
-			swap(dp,ndp);
-		}
+                multiset<ll> val[ww];
+                vector<ll> ndp = dp;
+                int cant_groups = (C+1+ww-1)/ww;
+                f(j,0,C+1){
+                        int group_dp = j/ww;
+                        int mod_dp = j%ww;
+                        ll value_dp = dp[j] + vv*(cant_groups - group_dp);
+                        if(sz(val[mod_dp]) > mm){
+                                ll value_pop = dp[j - (mm+1)*ww] + vv*(cant_groups - (group_dp - mm - 1));
+                                auto it = val[mod_dp].find(value_pop);
+                                if(it != val[mod_dp].end()) val[mod_dp].erase(it);
+                        }
+                        val[mod_dp].insert(value_dp);
+                        ndp[j] = max(ndp[j],*(prev(val[mod_dp].end())) - vv*(cant_groups - group_dp));
+                }
+                swap(dp,ndp);
 	}
 	ll ans = 0;
 	f(i,0,C+1){
 		ans = max(dp[i],ans);
 	}
-	cout << ans;
+	cout << ans << ln;
 
 
 }

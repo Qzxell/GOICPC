@@ -21,12 +21,12 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    uniform_int_distribution<int> nn(1, 10);
-    uniform_int_distribution<int> aa(1, 10);
+    uniform_int_distribution<int> nn(1, 400);
+    uniform_int_distribution<int> ram(1, 1000000000);
     int n = nn(rng);
-    cout << n << ln;
+    cout << n << ln; 
     f(i,0,n){
-            cout << aa(rng) << ' ';
+            cout << ram(rng)  << ' ';
     }
     return 0;
 }
