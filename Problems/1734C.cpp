@@ -19,24 +19,21 @@ using vi = vector<int>  ;
 void so(int test){
         int n;
         cin >> n;
-        string s,t;
-        cin >> s >> t;
-        string a,b;
-        a = s; b = t;
-        sort(all(a));
-        sort(all(b));
-        if(a != b){
-                cout << "NO" << ln;
-                return;
+        string s;
+        cin >> s;
+        vi vis(n+1,0);
+        ll ans = 0;
+        f(i,1,n+1){
+                int point = i-1;
+                while(point < n){
+                        if(s[point] == '0'){
+                                if(!vis[point])ans += i;
+                                vis[point] = 1;
+                                point += i;
+                        }else break;
+                }
         }
-        string ga1,ga2;
-        f(i,0,n){
-                if(s[i] != 'b')ga1 += s[i];
-                if(t[i] != 'b')ga2 += t[i];
-        }
-        if(ga1 != ga2) cout << "NO" ;
-        else cout << "YES";
-        cout << ln;
+        cout << ans << ln;
 }
 
 int main() {
