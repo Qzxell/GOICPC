@@ -15,52 +15,36 @@ using vi = vector<int>  ;
 #define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-string wa = "What are you doing at the end of the world? Are you busy? Will you save us?";
-string s1 = "What are you doing while sending \"";
-string s2 = "\"? Are you busy? Will you send \"";
-string s3 = "\"?";
-
+vector<vector<int>> rec(int n) {
+        if(n == 0){
+                vector<vector<int>> ret = {{0}};
+                return ret;
+        }
+        int len = (1<<n);
+        int tot = len*len;
+        vector<vector<int>> ret(len,vector<int>(len,0));
+        vector<vector<int>> aux = rec(n-1);
+        auto fil = [&](int x,int y,int in){
+                int tam = len/2;
+                for(int i = 0;i < tam;i++){
+                        for(int j = 0;j < tam;j++){
+                                ret[i+x][j+y] = aux[i][j] + in;
+                        }
+                }
+        };
+        int au = (len/2)*(len/2);
+        fil(0,len/2,0);
+        fil(len/2,len/2,au);
+        fil(len/2,0,au+au);
+        fil(0,0,au+au+au);
+        return ret;
+}
 
 int main() {
-        ios::sync_with_stdio(false);
-        cin.tie(0);
-
-        int nn = 2;
-        char wasa = ((nn&1)? 'a' : 'm');
-        //vector<string> com = rec(nn-1,wasa,mi,mi);
-        int len = (1<<nn);
-        int mi = len/2;
-        vector<string> aux(mi,string(mi,' '));
-        //vector<string> lost = (nn-1,ga,l,r);
-        vector<string> lost(mi,string(mi, '-'));
-        lost[0] = "01";
-        vector<string> ret(len,string(len,' '));
-
-        auto ful = [&](int ind_x,int ind_y){
-                f(i,0,mi){
-                        f(j,0,mi){
-                                ret[ind_x + i][ind_y +j] = lost[i][j];
-                        }
-                }
-        };
-        auto rotate = [&](){
-                f(i,0,mi){
-                        f(j,0,mi){
-                                aux[mi-j-1][i] = lost[i][j];
-                        }
-                }
-                swap(aux,lost);
-        };
-        ful(0,0);
-        rotate();
-        ful(mi,0);
-        rotate();
-        ful(mi,mi);
-        rotate();
-        ful(0,mi);
-        f(i,0,len){
-                f(j,0,len){
-                        cout<< ret[i][j] ;
+        vector<vector<int>> ans = rec(2);
+        for(auto x : ans){
+                for(auto y : x){
+                        cout << y << ' ';
                 }
                 cout << ln;
         }
