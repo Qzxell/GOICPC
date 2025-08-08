@@ -4,7 +4,7 @@ using namespace std;
 
 using ii = pair<int,int>;
 using vii = vector<ii>  ;
-using vi = vector<long long>  ;
+using vi = vector<int>  ;
 #define ln  '\n'
 #define ll long long
 #define pb push_back
@@ -20,19 +20,23 @@ void so(int test){
         int n;
         cin >> n;
         vi v(n);
+        vi papi(n);
         f(i,0,n)cin >> v[i];
-        sort(all(v));
-        ll gc = 0;
+
+        papi[0] = 0;
         f(i,1,n){
-                if(v[i] % v[0] == 0){
-                        gc = gcd(gc,v[i]);
-                }
+                if(v[i] == v[i-1])papi[i] = papi[i-1];
+                else papi[i] = i;
         }
-        if(v[0] == gc){
-                cout << "YES" << ln;
-                return;
+        ll ans = (1ll<<62);
+        f(i,0,n){
+                ll score = v[i]*1ll*i;
+                int pu = upper_bound(all(papi),papi[i]) - papi.begin();
+                score += v[i]*1ll*(n-pu);
+                ans = min(ans,score);
         }
-        cout << "NO" << ln;
+        cout << ans << ln;
+        
 }
 
 int main() {

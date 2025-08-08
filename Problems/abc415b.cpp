@@ -4,7 +4,7 @@ using namespace std;
 
 using ii = pair<int,int>;
 using vii = vector<ii>  ;
-using vi = vector<long long>  ;
+using vi = vector<int>  ;
 #define ln  '\n'
 #define ll long long
 #define pb push_back
@@ -17,22 +17,16 @@ using vi = vector<long long>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-        int n;
-        cin >> n;
-        vi v(n);
-        f(i,0,n)cin >> v[i];
-        sort(all(v));
-        ll gc = 0;
-        f(i,1,n){
-                if(v[i] % v[0] == 0){
-                        gc = gcd(gc,v[i]);
-                }
+        string s;
+        cin >> s;
+        vi v;
+        f(i,0,sz(s))if(s[i] == '#'){
+                v.pb(i+1);
         }
-        if(v[0] == gc){
-                cout << "YES" << ln;
-                return;
+        for(int i = 0 ; i < sz(v) ;i+=2){
+                cout << v[i] << ',' << v[i+1] << ln;
         }
-        cout << "NO" << ln;
+
 }
 
 int main() {
@@ -40,7 +34,6 @@ int main() {
 	cin.tie(0);
 
 	int tt = 1;
-	cin >> tt;
 	int test = 1;
 	while (tt--){
 		so(test++);

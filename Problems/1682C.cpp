@@ -1,10 +1,9 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
 using ii = pair<int,int>;
 using vii = vector<ii>  ;
-using vi = vector<long long>  ;
+using vi = vector<int>  ;
 #define ln  '\n'
 #define ll long long
 #define pb push_back
@@ -16,23 +15,30 @@ using vi = vector<long long>  ;
 #define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
+map<int,int> m;
+
 void so(int test){
         int n;
         cin >> n;
-        vi v(n);
-        f(i,0,n)cin >> v[i];
-        sort(all(v));
-        ll gc = 0;
-        f(i,1,n){
-                if(v[i] % v[0] == 0){
-                        gc = gcd(gc,v[i]);
-                }
+        vi num;
+        f(i,0,n){
+                int x;
+                cin >> x;
+                if(m.count(x) == 0)num.pb(x);
+                m[x]++;
         }
-        if(v[0] == gc){
-                cout << "YES" << ln;
-                return;
+        sort(all(num));
+        int tam = sz(m);
+        int c = 0;
+        int ans = 1;
+        f(i,0,sz(num)){
+                if(m[num[i]] == 1)tam--;
+                c++;
+                if(tam + ( i < sz(num) - 1? 1 : 0 >= c)ans =c;
+                else break;
         }
-        cout << "NO" << ln;
+        cout << ans << ln;
+        m.clear();
 }
 
 int main() {
