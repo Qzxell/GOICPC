@@ -17,7 +17,23 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-	
+        int n;
+        cin >> n;
+        if(n==2){
+                cout << -1 << ' ' << 2 << ln;
+                return;
+        }
+        vi ans(n);
+        f(i,0,n){
+                if(i&1)ans[i] =  3;
+                else ans[i] =  -1;
+        }
+        if(n%2 == 0){
+                ans[n-1]  =  2;
+        }
+        f(i,0,n)cout << ans[i] << ' ' ;
+
+        cout << ln;
 }
 
 int main() {

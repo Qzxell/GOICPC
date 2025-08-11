@@ -17,7 +17,20 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-	
+        int n;
+        cin >> n;
+        vi a(n),b(n);
+        int co = 0;
+        f(i,0,n)cin >> a[i];
+        f(i,0,n)cin >> b[i];
+        int ans = 1;
+        f(i,0,n){
+                if(a[i] > b[i]){
+                        ans += a[i] - b[i];
+                }
+        }
+        cout << ans << ln;
+        
 }
 
 int main() {

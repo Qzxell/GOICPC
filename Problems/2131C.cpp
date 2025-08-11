@@ -17,7 +17,29 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-	
+        int n,k;
+        cin >> n >> k;
+        map<int,int> m;
+        map<int,int> m_;
+        f(i,0,n){
+                int x;
+                cin >> x;
+                m[x%k]++;
+        }
+        f(i,0,n){
+                int x;
+                cin >> x;
+                m_[x%k]++;
+        }
+        for(auto [a,b] : m){
+                m[abs(a-k)] += m[a];
+                m[a] = 0;
+        }
+        for(auto [a,b] : m_){
+                m_[abs(a-k)] += m_[a];
+                m_[a] = 0;
+        }
+        cout << (m == m_ ? "YES" : "NO") << ln;
 }
 
 int main() {
