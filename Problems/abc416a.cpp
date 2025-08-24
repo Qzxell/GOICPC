@@ -17,10 +17,20 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-        int n,m;
-        cin >> n >> m;
-        n--;
-        cout << (n+m)%12 + 1 << ln;
+        int n,l,r;
+        cin >> n >> l >> r;
+        l--;r--;
+        string s;
+        cin >> s;
+        int co = 0;
+        f(i,l,r+1){
+                if(s[i] == 'o')co++;
+        }
+        if(co == r-l+1){
+                cout << "Yes" << ln;
+                        return;
+        }
+        cout << "No" <<ln;
 }
 
 int main() {

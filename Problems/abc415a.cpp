@@ -17,10 +17,16 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-        int n,m;
-        cin >> n >> m;
-        n--;
-        cout << (n+m)%12 + 1 << ln;
+        int n,x;
+        cin >> n ;
+        vi ma(102,0);
+        f(i,0,n)cin >> x,ma[x]++;
+        cin >> x;
+        if(ma[x]){
+                cout << "Yes" << ln;
+                return;
+        }
+        cout << "No" << ln;
 }
 
 int main() {

@@ -1,49 +1,76 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAXN = 1e5 + 5;
-const int K = 20;  // log2(MAXN) + margen
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-int st[MAXN][K + 1]; // st[i][j] = máximo en A[i..i + 2^j - 1]
-int lg[MAXN];        // log2 de cada número
+    int N, M;
+    if (!(cin >> N >> M)) return 0;
 
-void precompute_log(int N) {
-    lg[1] = 0;
-    for (int i = 2; i <= N; ++i)
-        lg[i] = lg[i / 2] + 1;
-}
+    // Adyacencia con IDs: adj[u] = { (v, edge_id) }
+    vector<vector<pair<int,int>>> adj(N);
+    adj.reserve(N);
 
-void build_sparse_table(const vector<int>& A) {
-    int N = A.size();
-    precompute_log(N);
+    for (int i = 0; i < M; ++i) {
+        int u, v; 
+        cin >> u >> v;        // 0 <= u, v < N
+        adj[u].push_back({v, i});
+    }
 
-    for (int i = 0; i < N; ++i)
-        st[i][0] = A[i];
+    vector<char> vis(N, 0), in_stk(N, 0);
+    vector<int> par_v(N, -1), par_e(N, -1);  // par_e[x] = id de arista (par_v[x] -> x)
 
-    for (int j = 1; (1 << j) <= N; ++j) {
-        for (int i = 0; i + (1 << j) <= N; ++i) {
-            st[i][j] = max(st[i][j - 1], st[i + (1 << (j - 1))][j - 1]);
+    vector<int> cycle; 
+    bool found = false;
+
+    function<void(int)> dfs = [&](int u) {
+        vis[u] = 1;
+        in_stk[u] = 1;
+
+        for (auto [v, eid] : adj[u]) {
+            if (found) return;                 // cortar todo al hallar un ciclo
+            if (!vis[v]) {
+                par_v[v] = u;
+                par_e[v] = eid;
+                dfs(v);
+            } else if (in_stk[v]) {
+                // back-edge: u -> v, v está en la pila => hay ciclo
+                vector<int> tmp;
+                int cur = u;
+                // recoger aristas desde u hacia v subiendo por padres (u->..., ..., -> v)
+                while (cur != v) {
+                    tmp.push_back(par_e[cur]); // arista (par_v[cur] -> cur)
+                    cur = par_v[cur];
+                }
+                reverse(tmp.begin(), tmp.end()); // ahora va de v -> ... -> u
+                tmp.push_back(eid);              // cerrar con (u -> v)
+                cycle = move(tmp);
+                found = true;
+                return;
+            }
+        }
+
+        in_stk[u] = 0;
+    };
+
+    for (int i = 0; i < N && !found; ++i) {
+        if (!vis[i]) {
+            par_v[i] = -1;
+            par_e[i] = -1;
+            dfs(i);
         }
     }
-}
 
-int query_max(int L, int R) {
-    int j = lg[R - L + 1];
-    return max(st[L][j], st[R - (1 << j) + 1][j]);
-}
+    if (!found) {
+        cout << -1 << '\n';
+        return 0;
+    }
 
-int main() {
-    // Entrada de ejemplo
-    vector<int> A = {1, 5, 2, 4, 6, 1, 3, 5, 7, 3};
-
-    // Construcción de la tabla
-    build_sparse_table(A);
-
-    // Consultas de ejemplo
-    cout << "Máximo entre [2, 5]: " << query_max(2, 5) << '\n'; // → 6
-    cout << "Máximo entre [0, 9]: " << query_max(0, 9) << '\n'; // → 7
-    cout << "Máximo entre [7, 9]: " << query_max(7, 9) << '\n'; // → 7
-
+    cout << (int)cycle.size() << '\n';
+    for (int i = 0; i < (int)cycle.size(); ++i) {
+        cout << cycle[i] << '\n';
+    }
     return 0;
 }
 

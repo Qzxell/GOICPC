@@ -17,10 +17,27 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-        int n,m;
-        cin >> n >> m;
-        n--;
-        cout << (n+m)%12 + 1 << ln;
+        int n,k;
+        cin >> n >> k;
+        vi mo(k,0);
+        ll ans = 0;
+        f(i,1,n+1){
+                mo[i%k]++;
+        }
+        f(i,1,k)if(i != k-i){
+                if(min(mo[i],mo[k-i]) == 0){
+                        ans += max(mo[i],mo[k-i]);
+                        continue;
+                }
+                ans++;
+        }
+        ans /= 2;
+        if(mo[0])ans++;
+        if( k/2 == k- k/2 and mo[k/2]){
+                ans++;
+        }
+        cout << ans << ln;
+
 }
 
 int main() {
