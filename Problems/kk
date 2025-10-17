@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [[ ! -f "$1.cpp" && ! -f "$1.md" ]]; then
-  cp .temple.md $1.md
-  cp temple.cpp $1.cpp
-fi
-
-# obtain $1
-nvim $1.cpp $1.md

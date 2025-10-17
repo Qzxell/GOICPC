@@ -16,42 +16,48 @@ using vi = vector<int>  ;
 #define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-void so(int test){
-	int n;
-	cin >> n;
-	int mem[n+1][n+1];
-	int inf = 1e9;
-	f(i,0,n)f(j,0,n) mem[i][j] = inf;
-
-	vector<string> v(n);
-	f(i,0,n)cin >> v[i];
-	queue<ii> qu;
-	f(i,0,n){
-		qu.push({i,i});
-		mem[i][i] = 0;
-	}
-
-	f(i,0,n)f(j,0,n)if(i != j and v[i][j] != '-'){
-		qu.push({i,j});
-		mem[i][j] = 1;
-	}
-	while(!qu.empty()){
-		auto [i,j] = qu.front();qu.pop();
-		f(k,0,n)f(l,0,n){
-			if(v[k][i] == v[j][l] and mem[k][l] == inf and v[k][i] != '-' and v[j][l] != '-'){
-				qu.push({k,l});
-				mem[k][l] = mem[i][j] + 2;
-			}
-		}
-	}
-	f(i,0,n){
-		f(j,0,n){
-			cout << (mem[i][j] == inf ? -1 : mem[i][j]) << ' ';
-		}
-		cout << ln;
-	}
-	
+const int N = 502;
+vector<vector<vi>> dp(N,vector<vi>(N,vi(N,505)));
+vector<vector<vi>> vis(N,vector<vi>(N,vi(N,0)));
+int n,k;
+string s;
+int solve(int l,int r,int lon){
+        if(l < 0 or r >= n)return 0;
+        if(vis[l][r][lon])return dp[l][r][lon];
+        int ret = 0;
+        ret = min(ret,solve(l-1,r+1,lon));
+        ret = min(ret,solve(l,r+1,lon));
+        ret = min(ret,solve(l-1,r,lon));
+        ret = min(ret,solve(l-1,r+1,lon + (l == r ? 1 : 2)) + (s[l] != s[r]));
+        vis[l][r][lon] = 1;
+        return dp[l][r][lon] = ret;
 }
+
+void so(int test){
+        cin >> n >> k;
+        cin >> s;
+        int ans = n;
+        f(i,0,n){
+                f(j,0,n){
+                }
+        }
+        f(i,0,n+1){
+                f(j,0,n){
+                        f(l,0,n){
+                                cout << dp[j][l][i] << ' ';
+                        }
+                        cout << ln;
+                }
+                cout << ln;
+        }
+        f(i,k,n+1){
+                f(j,0,n) f(l,j,n){
+                        ans = min(ans,dp[j][l][i]);
+                }
+        }
+        cout << ans << ln;
+}
+
 
 int main() {
 	ios::sync_with_stdio(false);

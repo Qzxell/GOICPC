@@ -1,199 +1,84 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <limits>
-#include <string>
-#include <cmath>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-const int MAX_N = 2e5 + 5;
-const int MAX_Q = 2e5 + 5;
-const int INF = 1e9 + 7;
+using ii = pair<int,int>;
+using vii = vector<ii>  ;
+using vi = vector<int>  ;
+#define ln  '\n'
+#define ll long long
+#define pb push_back
+#define fi first
+#define se second
+#define sz(v) ((int)(v).size())
+#define all(v) (v).begin(),(v).end()
+#define rall(v) (v).rbegin(),(v).rend()
+#define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
+#define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-struct Node {
-    int key;
-    int degree;
-    Node* parent;
-    Node* child;
-    Node* left;
-    Node* right;
-    bool mark;
-};
-
-class FibonacciHeap {
-private:
-    Node* minNode;
-    int numNodes;
-
-public:
-    FibonacciHeap() : minNode(nullptr), numNodes(0) {}
-
-    void insert(int key) {
-        Node* newNode = new Node{key, 0, nullptr, nullptr, nullptr, nullptr, false};
-        if (minNode == nullptr) {
-            minNode = newNode;
-        } else {
-            newNode->right = minNode;
-            newNode->left = minNode->left;
-            minNode->left->right = newNode;
-            minNode->left = newNode;
-            if (newNode->key < minNode->key) {
-                minNode = newNode;
-            }
+void so(int test){
+        int n,q;
+        cin >> n >> q;
+        vector<string> v(n);
+        map<string,vi> m;
+        f(i,0,n){
+                cin >> v[i];
+                if(v[i][0] > v[i][1])swap(v[i][0],v[i][1]);
+                m[v[i]].pb(i);
         }
-        numNodes++;
-    }
-
-    int extractMin() {
-        Node* min = minNode;
-        if (min != nullptr) {
-            if (min->child != nullptr) {
-                Node* child = min->child;
-                do {
-                    Node* nextChild = child->right;
-                    child->right = min->right;
-                    child->left = min->left;
-                    min->left->right = child;
-                    min->right->left = child;
-                    child->parent = nullptr;
-                    child = nextChild;
-                } while (child != min->child);
-            }
-            min->left->right = min->right;
-            min->right->left = min->left;
-            if (min == min->right) {
-                minNode = nullptr;
-            } else {
-                minNode = min->right;
-                consolidate();
-            }
-            numNodes--;
-            return min->key;
-        }
-        return -1;
-    }
-
-    void consolidate() {
-        int maxDegree = (int)log2(numNodes) + 1;
-        vector<Node*> degreeTable(maxDegree, nullptr);
-        Node* current = minNode;
-        do {
-            Node* next = current->right;
-            int degree = current->degree;
-            while (degreeTable[degree] != nullptr) {
-                Node* other = degreeTable[degree];
-                if (current->key > other->key) {
-                    swap(current, other);
+        auto eq = [&](int x,int y)->bool{
+                f(i,0,2) f(j,0,2){
+                        if(v[x][i] == v[y][j])return true;
                 }
-                link(other, current);
-                degreeTable[degree] = nullptr;
-                degree++;
-            }
-            degreeTable[degree] = current;
-            current = next;
-        } while (current != minNode);
-        minNode = nullptr;
-        for (int i = 0; i < maxDegree; i++) {
-            if (degreeTable[i] != nullptr) {
-                if (minNode == nullptr) {
-                    minNode = degreeTable[i];
-                } else {
-                    degreeTable[i]->right = minNode;
-                    degreeTable[i]->left = minNode->left;
-                    minNode->left->right = degreeTable[i];
-                    minNode->left = degreeTable[i];
-                    if (degreeTable[i]->key < minNode->key) {
-                        minNode = degreeTable[i];
-                    }
+                return false;
+        };
+        f(_,0,q){
+                int x,y;
+                cin >> x >> y;
+                x--;y--;
+                if(eq(x,y)){
+                        cout << abs(x-y) << ln;
+                        continue;
                 }
-            }
+                if(x > y)swap(x,y);
+                int ans = INT_MAX;
+                f(i,0,2) f(j,0,2){
+                        string ga;
+                        ga += v[x][i] ;
+                        ga += v[y][j];
+                        if(ga[0] > ga[1])swap(ga[1],ga[0]);
+                        if(sz(m[ga]) == 0)continue;
+                        int pun = lower_bound(all(m[ga]),x) - m[ga].begin();
+                        int id;
+                        if(pun != sz(m[ga])){
+                                id = m[ga][pun];
+                                ans = min(ans, abs(id - x) + abs(y-id));
+                        }
+                        if(pun-1 >= 0 and !m[ga].empty()){
+                                id = m[ga][pun-1];
+                                ans = min(ans, abs(id - x) + abs(y-id));
+                        }
+                }
+                if(ans == INT_MAX){
+                        cout << -1 << ln;
+                        continue;
+                }
+                cout << ans << ln;
         }
-    }
 
-    void link(Node* y, Node* x) {
-        y->right->left = y->left;
-        y->left->right = y->right;
-        y->parent = x;
-        if (x->child == nullptr) {
-            x->child = y;
-            y->right = y;
-            y->left = y;
-        } else {
-            y->right = x->child;
-            y->left = x->child->left;
-            x->child->left->right = y;
-            x->child->left = y;
-        }
-        if (y->key < x->child->key) {
-            x->child = y;
-        }
-        x->degree++;
-        y->mark = false;
-    }
-    int size() const{
-    return numNodes;
-    }
-};
+}
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
+	ios::sync_with_stdio(false);
+	cin.tie(0);
 
-    int t;
-    cin >> t;
-
-    while (t--) {
-        int n, q;
-        cin >> n >> q;
-
-        vector<string> colors(n);
-        for (int i = 0; i < n; i++) {
-            cin >> colors[i];
-        }
-
-        vector<vector<int>> graph(n);
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (colors[i][0] == colors[j][0] || colors[i][1] == colors[j][1]) {
-                    graph[i].push_back(j);
-                    graph[j].push_back(i);
-                }
-            }
-        }
-
-        FibonacciHeap heap;
-        vector<int> distances(n, INF);
-        vector<int> previous(n, -1);
-
-        for (int i = 0; i < q; i++) {
-            int x, y;
-            cin >> x >> y;
-            x--;
-            y--;
-
-            heap.insert(0);
-            distances[x] = 0;
-
-            while (heap.size() > 0) {
-                int currentNode = heap.extractMin();
-                for (int neighbor : graph[currentNode]) {
-                    int distance = distances[currentNode] + abs(neighbor - currentNode);
-                    if (distance < distances[neighbor]) {
-                        distances[neighbor] = distance;
-                        previous[neighbor] = currentNode;
-                        heap.insert(distance);
-                    }
-                }
-            }
-
-            if (distances[y] == INF) {
-                cout << -1 << "\n";
-            } else {
-                cout << distances[y] << "\n";
-            }
-        }
-    }
-
-    return 0;
+	int tt = 1;
+	cin >> tt;
+	int test = 1;
+	while (tt--){
+		so(test++);
+	}
+	return 0;
 }
+
+

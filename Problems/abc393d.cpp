@@ -17,30 +17,37 @@ using vi = vector<int>  ;
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
 void so(int test){
-	int n;
-	cin >> n;
-	string s;
-	cin >> s;
-	vi v;
-	f(i,0,n)if(s[i] == '1')v.pb(i);
-	ll ans = (1ll<<60);
-	ll sum = 0;
-	int lo = v[0]+1;
-	int le = sz(v);
-
-	f(i,1,le){
-		sum += v[i] - (lo);
-		lo++;
-	}
-	ans = min(ans,sum);
-	f(i,1,le){
-		sum -= (v[i] - v[i-1]-1)*(le-i);
-		sum += (v[i]-v[i-1]-1)*(i);
-		ans = min(ans,sum);
-	}
-	cout << ans ;
-
-
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        vi pos;
+        ll sum = 0;
+        f(i,0,n)if(s[i] == '1'){
+                sum += (i);
+                pos.pb(i);
+        }
+        ll cur = 0;
+        vector<ll> pref(n+1,0);
+        vector<ll> suf(n+1,0);
+        int last = 0 ;
+        f(i,0,sz(pos)){
+                cur += (pos[i] - 1 - last)*1ll*i;
+                pref[i] = cur;
+                last = pos[i];
+        }
+        cur = 0;
+        last = 0;
+        for(int i = sz(pos) -1 , cant = 0 ; i >= 0 ; i--,cant++){
+                cur += (last - pos[i] - 1)*1ll*(cant);
+                suf[i] = cur;
+                last = pos[i];
+        }
+        ll ans = LLONG_MAX;
+        f(i,0,sz(pos)){
+                ans = min(ans, pref[i] + suf[i]);
+        }
+        cout << ans << ln;
 }
 
 int main() {

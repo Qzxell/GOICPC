@@ -93,27 +93,10 @@ columns:
       - { label: "Atcoder", value: "Atcoder", color: "hsl(307, 95%, 90%)"}
       - { label: "DFS", value: "DFS", color: "hsl(336, 95%, 90%)"}
       - { label: "-Dp", value: "-Dp", color: "hsl(59, 95%, 90%)"}
-    config:
-      enable_media_view: true
-      link_alias_enabled: true
-      media_width: 100
-      media_height: 100
-      isInline: false
-      task_hide_completed: true
-      footer_type: none
-      persist_changes: false
-  Level:
-    input: number
-    accessorKey: Level
-    key: Level
-    id: Level
-    label: Level
-    position: 5
-    skipPersist: false
-    isHidden: false
-    sortIndex: 1
-    isSorted: true
-    isSortedDesc: true
+      - { label: "physics", value: "physics", color: "hsl(264, 95%, 90%)"}
+      - { label: "BFS", value: "BFS", color: "hsl(75, 95%, 90%)"}
+      - { label: "SPOJ", value: "SPOJ", color: "hsl(138, 95%, 90%)"}
+      - { label: "DSU", value: "DSU", color: "hsl(175, 95%, 90%)"}
     config:
       enable_media_view: true
       link_alias_enabled: true
@@ -209,8 +192,51 @@ columns:
     label: URL
     position: 8
     skipPersist: false
+    isHidden: true
+    sortIndex: -1
+    config:
+      enable_media_view: true
+      link_alias_enabled: true
+      media_width: 100
+      media_height: 100
+      isInline: false
+      task_hide_completed: true
+      footer_type: none
+      persist_changes: false
+  level:
+    input: text
+    accessorKey: level
+    key: level
+    id: level
+    label: level
+    position: 5
+    skipPersist: false
     isHidden: false
     sortIndex: -1
+    config:
+      enable_media_view: true
+      link_alias_enabled: true
+      media_width: 100
+      media_height: 100
+      isInline: false
+      task_hide_completed: true
+      footer_type: none
+      persist_changes: false
+  __created__:
+    key: __created__
+    id: __created__
+    input: metadata_time
+    label: Created
+    accessorKey: __created__
+    isMetadata: true
+    isDragDisabled: false
+    skipPersist: false
+    csvCandidate: true
+    isSorted: false
+    isSortedDesc: true
+    sortIndex: -1
+    position: 0
+    isHidden: false
     config:
       enable_media_view: true
       link_alias_enabled: true
@@ -228,7 +254,7 @@ config:
   remove_empty_folders: false
   automatically_group_files: false
   hoist_files_with_empty_attributes: true
-  show_metadata_created: false
+  show_metadata_created: true
   show_metadata_modified: false
   show_metadata_tasks: false
   show_metadata_inlinks: false

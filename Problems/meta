@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ ! -f "$1.cpp" ]]; then
+  cp temple.cpp $1.cpp
+fi
+
+if [[ ! -f "$1.md" ]]; then
+  cp .temple.md $1.md
+fi
+
+# obtain $1
+nvim $1.cpp $1.md

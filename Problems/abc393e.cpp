@@ -16,32 +16,34 @@ using vi = vector<int>  ;
 #define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-void so(int test){
-	int n,k;
-	cin >> n >> k;
-	vi v(n);
-	f(i,0,n)cin >> v[i];
-	int m = *max_element(all(v));
-	vi freq(m+1,0);
-	f(i,0,n)freq[v[i]]++;
-	vi freq_x(m+1,0); // cuantos elementos de A, son multiplos de x
-	vi wasa(m+1,0); // dp: cual es el maximo divisor de i, que aparece en A al menos k veces
+const int N = 1e6 + 5;
 
-	// la idea principal es :
-	// para un x, la respuesta es el maximo divisor tal que aparesca como minimo k veces
-	f(i,1,m+1){
-		for(int x = i ; x <= m; x+= i){
-			freq_x[i] += freq[x];
-		}
-	}
-	f(i,1,m+1){
-		if(freq_x[i] < k)continue;
-		for(int x = i ; x <= m; x+= i){
-			wasa[x] = max(wasa[x],(int)i);
-		}
-	}
-	f(i,0,n)cout << wasa[v[i]] << ln;
-	
+void so(int test){
+        int n,k;
+        cin >> n >> k;
+        vi v(n);
+        vi cnt(N,0);
+        vi mul(N,0);
+        f(i,0,n){
+                cin >> v[i];
+                cnt[v[i]]++;
+        }
+        f(i,1,N){
+                int acu = 0;
+                for(int j = i ; j < N; j += i){
+                        acu += cnt[j];
+                }
+                mul[i] = acu;
+        }
+        vi dp(N,1);
+        f(i,0,N) if(mul[i] >= k){
+                for(int j = i ; j < N ; j+= i){
+                        dp[j] = max<ll>(i,dp[j]);
+                }
+        }
+        for(auto x : v){
+                cout << dp[x] << ln;
+        }
 }
 
 int main() {

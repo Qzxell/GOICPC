@@ -1,13 +1,13 @@
 ---
 tags:
-    - atcoder
-    - brute force
+  - atcoder
+  - brute force
 Level: 1000
-Solved: true 
-Idea_clave: 
-MIstakes: 
-resolve_again_obligatory: true
-URL: 
+Solved: true
+Idea_clave:
+MIstakes:
+resolve_again_obligatory: false
+URL:
 ---
 
 ## De que va el problema

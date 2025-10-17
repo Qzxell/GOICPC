@@ -1,12 +1,13 @@
 ---
 tags:
-    - DP
+  - DP
+  - atcoder
 Level: 1000
-Solved: false 
-Idea_clave: 
-MIstakes: 
+Solved: false
+Idea_clave:
+MIstakes:
 resolve_again_obligatory: true
-URL: 
+URL:
 ---
 
 ## De que va el problema
