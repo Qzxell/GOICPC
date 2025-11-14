@@ -1,60 +1,150 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <set>
+#include <queue>
+#include <algorithm>
+#include <cstdlib>
+#include <ctime>
+#include <map>
+
 using namespace std;
 
-mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-
-int randint(int l, int r) {
-    uniform_int_distribution<int> dist(l, r);
-    return dist(rng);
+// Función para obtener una arista canónica (menor, mayor)
+pair<int, int> make_edge(int u, int v) {
+    return {min(u, v), max(u, v)};
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    // Inicializar el generador de números aleatorios
+    srand(time(0));
 
-    int t = 1; // número de testcases (ajústalo)
-    cout << t << "\n";
+    int N, C;
+    N = 13;
+    C = 13;
 
-    int total_n = 0, total_q = 0;
+    if (N < 3) {
+        cerr << "Error: N debe ser al menos 3." << endl;
+        return 1;
+    }
 
-    for (int tc = 0; tc < t; tc++) {
-        int n = randint(5, 10);   // tamaño del array (ajusta a tu gusto)
-        int q = randint(5, 10);   // número de queries
+    cout << 1 << '\n';
+    vector<vector<int>> adj(N + 1);
+    vector<pair<int, int>> edges;
+    // Almacena las aristas que ya pertenecen a un ciclo
+    set<pair<int, int>> cycle_edges;
 
-        total_n += n;
-        total_q += q;
+    // --- Fase 1: Generar un árbol aleatorio ---
+    // Conecta cada nuevo nodo (i) a un nodo ya existente (aleatorio de 1 a i-1)
+    for (int i = 2; i <= N; ++i) {
+        // Vértice existente al que nos conectaremos
+        int u = 1 + (rand() % (i - 1));
+        int v = i; // Nuevo vértice
 
-        cout << n << " " << q << "\n";
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+        edges.push_back({u, v});
+    }
 
-        // generar array inicial
-        for (int i = 1; i <= n; i++) {
-            cout << randint(1, 1000000) << (i == n ? "\n" : " ");
+    // --- Fase 2: Añadir C ciclos ---
+    int cycles_added = 0;
+    int max_tries = N * N * 2; // Límite de intentos para evitar bucles infinitos
+    int tries = 0;
+
+    while (cycles_added < C && tries < max_tries) {
+        tries++;
+
+        // 1. Elegir dos vértices aleatorios no adyacentes
+        int u = 1 + (rand() % N);
+        int v = 1 + (rand() % N);
+
+        if (u == v) continue;
+
+        // Comprobar si ya son adyacentes
+        bool adjacent = false;
+        for (int neighbor : adj[u]) {
+            if (neighbor == v) {
+                adjacent = true;
+                break;
+            }
+        }
+        if (adjacent) continue;
+
+        // 2. Encontrar el camino entre u y v (BFS)
+        queue<int> q;
+        map<int, int> parent; // parent[hijo] = padre
+        vector<bool> visited(N + 1, false);
+
+        q.push(u);
+        visited[u] = true;
+        parent[u] = 0; // Raíz
+
+        while (!q.empty()) {
+            int curr = q.front();
+            q.pop();
+
+            if (curr == v) break; // Camino encontrado
+
+            for (int neighbor : adj[curr]) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    parent[neighbor] = curr;
+                    q.push(neighbor);
+                }
+            }
+        }
+        
+        // 3. Verificar si el camino es "limpio" (no usa aristas de ciclo)
+        bool path_is_clean = true;
+        vector<pair<int, int>> path_edges;
+        
+        int curr = v;
+        while (curr != u) {
+            int p = parent[curr];
+            if (p == 0) { // No debería pasar si el grafo está conectado
+                path_is_clean = false; 
+                break;
+            }
+            
+            pair<int, int> path_edge = make_edge(curr, p);
+            
+            if (cycle_edges.count(path_edge)) {
+                path_is_clean = false; // Esta arista ya está en un ciclo
+                break;
+            }
+            path_edges.push_back(path_edge);
+            curr = p;
         }
 
-        bool has_type2 = false;
+        // 4. Si es limpio, añadir el ciclo
+        if (path_is_clean) {
+            // Añadir la nueva arista (u, v)
+            adj[u].push_back(v);
+            adj[v].push_back(u);
+            pair<int, int> new_edge = make_edge(u, v);
+            edges.push_back({u, v});
 
-        // generar queries
-        for (int i = 0; i < q; i++) {
-            int type;
-            if (!has_type2 && i == q-1) {
-                type = 2; // forzar al menos una query de tipo 2
-            } else {
-                type = randint(1, 2);
+            // Marcar todas las aristas del nuevo ciclo como "usadas"
+            cycle_edges.insert(new_edge);
+            for (const auto& edge : path_edges) {
+                cycle_edges.insert(edge);
             }
-
-            if (type == 1) {
-                int l = randint(1, n);
-                int r = randint(l, n);
-                cout << "1 " << l << " " << r << "\n";
-            } else {
-                int x = randint(1, n);
-                cout << "2 " << x << "\n";
-                has_type2 = true;
-            }
+            
+            cycles_added++;
+            tries = 0; // Reiniciar contador de intentos
         }
     }
 
-    cerr << "Generado con total_n=" << total_n 
-         << " total_q=" << total_q << "\n";
-}
+    // --- Fase 3: Imprimir el grafo generado ---
+    cout << "\n--- Grafo Cactus Generado ---" << endl;
+    cout << N << " " << edges.size() << endl;
+    for (const auto& edge : edges) {
+        cout << edge.first << " " << edge.second << endl;
+    }
 
+    if (cycles_added < C) {
+        cerr << "\nAdvertencia: Solo se pudieron anadir " << cycles_added
+             << " de los " << C << " ciclos solicitados (limite de intentos alcanzado)." << endl;
+    }
+
+    return 0;
+}

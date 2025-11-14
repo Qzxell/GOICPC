@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -17,30 +16,23 @@ using vi = vector<int>  ;
 #define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 #define point complex<long long>
-#define re real()
-#define im imag()
 
 void so(int test){
-        int n;
-        cin >> n ;
-        vi v(n);
-        f(i,0,n)cin >> v[i];
-        ll ans = 0;
-        int ma = -1;
-        int prev;
+        int r,x,d,n;
+        cin >> r >> x >> d >> n;
+        string s;
+        cin >> s;
+        int ans = 0;
         f(i,0,n){
-                if(i %  2 == 0){
-                        if( i == 0)continue;
-                        if(v[i] >= prev){
-                                ans += (v[i] - prev + 1);
-                        }
+                if(s[i] == '1'){
+                        ans++;
+                        r = max(0,r-d);
                 }else{
-                        if(v[i] < prev){
-                                v[i] = ma;
+                        if(r < x){
+                                ans++;
+                                r = max(0,r-d);
                         }
                 }
-                prev = v[i];
-                ma = max(ma,v[i]);
         }
         cout << ans << ln;
 }

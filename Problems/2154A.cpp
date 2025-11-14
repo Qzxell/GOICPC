@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -21,26 +20,20 @@ using vi = vector<int>  ;
 #define im imag()
 
 void so(int test){
-        int n;
-        cin >> n ;
-        vi v(n);
-        f(i,0,n)cin >> v[i];
-        ll ans = 0;
-        int ma = -1;
-        int prev;
-        f(i,0,n){
-                if(i %  2 == 0){
-                        if( i == 0)continue;
-                        if(v[i] >= prev){
-                                ans += (v[i] - prev + 1);
-                        }
-                }else{
-                        if(v[i] < prev){
-                                v[i] = ma;
+        int ans = 0;
+        int n,k;
+        cin >> n >> k;
+        string s;
+        cin >> s;
+        f(i,0,n)if(s[i] == '1'){
+                int un = 1;
+                for(int j = max<ll>(i-k+1,0); j < i ; j++){
+                        if(s[j] == '1'){
+                                un = 0;
+                                break;
                         }
                 }
-                prev = v[i];
-                ma = max(ma,v[i]);
+                ans += un;
         }
         cout << ans << ln;
 }

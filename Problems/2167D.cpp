@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -22,25 +21,18 @@ using vi = vector<int>  ;
 
 void so(int test){
         int n;
-        cin >> n ;
-        vi v(n);
-        f(i,0,n)cin >> v[i];
-        ll ans = 0;
-        int ma = -1;
-        int prev;
+        cin >> n;
+        vector<ll> pri = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53};
+        int ans = 1e9;
         f(i,0,n){
-                if(i %  2 == 0){
-                        if( i == 0)continue;
-                        if(v[i] >= prev){
-                                ans += (v[i] - prev + 1);
-                        }
-                }else{
-                        if(v[i] < prev){
-                                v[i] = ma;
+                ll nu;
+                cin >> nu;
+                for(auto x : pri){
+                        if(nu % x){
+                                ans = min<ll>(ans,x);
+                                break;
                         }
                 }
-                prev = v[i];
-                ma = max(ma,v[i]);
         }
         cout << ans << ln;
 }

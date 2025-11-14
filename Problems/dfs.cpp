@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -20,29 +19,38 @@ using vi = vector<int>  ;
 #define re real()
 #define im imag()
 
-void so(int test){
-        int n;
-        cin >> n ;
-        vi v(n);
-        f(i,0,n)cin >> v[i];
-        ll ans = 0;
-        int ma = -1;
-        int prev;
-        f(i,0,n){
-                if(i %  2 == 0){
-                        if( i == 0)continue;
-                        if(v[i] >= prev){
-                                ans += (v[i] - prev + 1);
-                        }
-                }else{
-                        if(v[i] < prev){
-                                v[i] = ma;
-                        }
+const int N = 100;
+vii G[N];
+vii edg(N);
+vi color(N,0);
+
+void dfs(int nod,int pat){
+        color[nod] = 1;
+        for(auto [x,id] : G[nod])if(x != pat){
+                if(color[x] != 2) edg[id] = {nod,x};
+                if(!color[x]){
+                        dfs(x,nod);
                 }
-                prev = v[i];
-                ma = max(ma,v[i]);
         }
-        cout << ans << ln;
+        color[nod] = 2;
+}
+
+void so(int test){
+        int n,m;
+        cin >> n >> m;
+        f(i,0,m){
+                int u,v;
+                cin >> u >> v;
+                G[u].pb({v,i});
+                G[v].pb({u,i});
+                edg[i] = {u,v};
+        }
+        f(i,1,n+1)sort(all(G[i]));
+        dfs(1,-1);
+        f(i,0,m){
+                auto [a,b] = edg[i];
+                cout << a << ' ' << b << ln;
+        }
 }
 
 int main() {
@@ -50,7 +58,6 @@ int main() {
         cin.tie(0);
 
         int tt = 1;
-        cin >> tt;
         int test = 1;
         while (tt--){
                 so(test++);

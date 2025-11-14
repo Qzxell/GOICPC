@@ -1,52 +1,94 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
-using ii = pair<int,int>;
-using vii = vector<ii>  ;
-using vi = vector<int>  ;
-#define ln  '\n'
-#define ll long long
-#define pb push_back
-#define fi first
-#define se second
-#define sz(v) ((int)(v).size())
-#define all(v) (v).begin(),(v).end()
-#define rall(v) (v).rbegin(),(v).rend()
-#define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
-#define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
+int N, E;
+vector<vector<int>> adj;
+int depth[82];
+int parent[82];
+set<pair<int, int>> used_edges;
+unsigned long long total_ways;
 
-vector<vector<int>> rec(int n) {
-        if(n == 0){
-                vector<vector<int>> ret = {{0}};
-                return ret;
+/**
+ * Realiza una Búsqueda en Profundidad (DFS) para encontrar ciclos.
+ * u: nodo actual
+ * p: nodo padre (en el árbol DFS)
+ * d: profundidad actual
+ */
+void dfs(int u, int p, int d) {
+    depth[u] = d;
+    parent[u] = p;
+
+    for (int v : adj[u]) {
+        if (v == p) continue; // No volver al padre inmediato
+
+        // Arista canónica (u, v)
+        pair<int, int> edge = {min(u, v), max(u, v)};
+
+        if (depth[v] == -1) {
+            // Nodo v no visitado, continuar DFS
+            dfs(v, u, d + 1);
+        } else if (depth[v] < depth[u]) {
+            // Arista de retroceso (back-edge) a un ancestro
+            // Hemos encontrado un ciclo.
+            
+            // Verificar si esta arista ya forma parte de un ciclo contado
+            if (used_edges.count(edge)) {
+                continue;
+            }
+
+            // Calcular la longitud del ciclo
+            // El ciclo es u -> ... -> v -> u
+            // La longitud es (profundidad[u] - profundidad[v]) + 1
+            int cycle_len = (d - depth[v]) + 1;
+            
+            // Multiplicar al total de formas
+            total_ways *= (unsigned long long)cycle_len;
+
+            // Marcar todas las aristas de este ciclo como usadas
+            used_edges.insert(edge);
+            int curr = u;
+            while (curr != v) {
+                int par = parent[curr];
+                used_edges.insert({min(curr, par), max(curr, par)});
+                curr = par;
+            }
         }
-        int len = (1<<n);
-        int tot = len*len;
-        vector<vector<int>> ret(len,vector<int>(len,0));
-        vector<vector<int>> aux = rec(n-1);
-        auto fil = [&](int x,int y,int in){
-                int tam = len/2;
-                for(int i = 0;i < tam;i++){
-                        for(int j = 0;j < tam;j++){
-                                ret[i+x][j+y] = aux[i][j] + in;
-                        }
-                }
-        };
-        int au = (len/2)*(len/2);
-        fil(0,len/2,0);
-        fil(len/2,len/2,au);
-        fil(len/2,0,au+au);
-        fil(0,0,au+au+au);
-        return ret;
+    }
+}
+
+void solve(int case_num) {
+    cin >> N >> E;
+    
+    // Limpiar estructuras de datos para el nuevo caso
+    adj.assign(N + 1, vector<int>());
+    used_edges.clear();
+    total_ways = 1;
+    memset(depth, -1, sizeof(depth)); // Marcar todos como no visitados
+    memset(parent, 0, sizeof(parent));
+
+    for (int i = 0; i < E; ++i) {
+        int u, v;
+        cin >> u >> v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    // El grafo es conexo, así que un solo DFS desde el nodo 1 es suficiente
+    dfs(1, 0, 0); 
+
+    cout << "Case " << case_num << ": " << total_ways << "\n";
 }
 
 int main() {
-        vector<vector<int>> ans = rec(2);
-        for(auto x : ans){
-                for(auto y : x){
-                        cout << y << ' ';
-                }
-                cout << ln;
-        }
-        return 0;
+    // Optimización de I/O
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int T;
+    cin >> T;
+    for (int i = 1; i <= T; ++i) {
+        solve(i);
+    }
+    return 0;
 }

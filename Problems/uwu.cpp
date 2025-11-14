@@ -16,59 +16,72 @@ using vi = vector<int>  ;
 #define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
 
-const int mod = 1e9 + 7;
+const int N = 2e5 + 5;
+vii G[N];
+vii edg(N);
+int es_puente[N];
 
-int fp(int b,int exp){
-	int re = 1;
-	while(exp){
-		if(exp&1)re = (re*1ll*b)%mod;
-		exp >>= 1;
-		b = (b*1ll*b)%mod;
-	}
-	return re;
+int in_edg[N];
+int ou_edg[N];
+
+int color[N];
+int color_[N];
+
+int papi[N];
+int dp[N];
+vii puentes;
+
+int fun(int nod,int pat){
+        int ret = ou_edg[nod] - in_edg[nod];
+        color_[nod] = 1;
+        for(auto [x,id] : G[nod])if(x != pat){
+                if(!color_[x]){
+                        ret += fun(x,nod);
+                }
+        }
+        color_[nod] = 2;
+        return dp[nod] = ret;
+}
+
+void dfs(int nod,int pat){
+        color[nod] = 1;
+        papi[nod] = pat;
+        for(auto [x,id] : G[nod])if(x != pat){
+                if(!color[x]){
+                        edg[id] = {nod,x};
+                        dfs(x,nod);
+                }
+                if(color[x] == 1){
+                        edg[id] = {nod,x};
+                        in_edg[x]++;
+                        ou_edg[nod]++;
+                }
+        }
+        color[nod] = 2;
 }
 
 void so(int test){
-	int n,k;
-	cin >> n>>k;
-	vi adj[n+1];
-	vi bla(n+1,0);
-	f(i,0,n-1){
-		int u,v,c;
-		cin >> u >> v >> c;
-		if(c == 0){
-			adj[u].pb(v);
-			adj[v].pb(u);
-			bla[u] = bla[v] = 1;
-		}
-	}
-	queue<int> qu;
-	vi vis(n+1,0);
-	vi gru(n+1,0);
-	int co = 1;
-	auto bfs = [&](int x){
-		qu.push(x);	
-		while(!qu.empty()){
-			int fr = qu.front();qu.pop();
-			vis[fr] = 1;
-			gru[co]++;
-			for(auto v : adj[fr])if(!vis[v]){
-				qu.push(v);
-			}
-		}
-	};
-	f(i,1,n+1)if(!vis[i] and bla[i]){
-		bfs(i);
-		co++;
-	}
-	ll ans = fp(n,k);
-	ll acu = 0;
-
-	f(i,1,n+1)if(gru[i]){
-		acu = (fp(gru[i],k) +0ll+ acu)%mod;	
-		ans = (ans +0ll+ gru[i])%mod;
-	}
-	cout << (ans - acu - n+ mod + mod + mod)%mod << ln;
+        int n,m;
+        cin >> n >> m;
+        f(i,0,m){
+                int u,v;
+                cin >> u >> v;
+                G[u].pb({v,i});
+                G[v].pb({u,i});
+                edg[i] = {u,v};
+        }
+        dfs(1,-1);
+        fun(1,-1);
+        f(i,2,n+1){
+                if(dp[i] == 0){
+                        cout << "IMPOSSIBLE" << '\n';
+                        return;
+                }
+        }
+        f(i,0,m){
+                auto [a,b] = edg[i];
+                cout << a << ' ' << b << '\n';
+        }
 }
 
 int main() {
@@ -82,3 +95,4 @@ int main() {
 	}
 	return 0;
 }
+

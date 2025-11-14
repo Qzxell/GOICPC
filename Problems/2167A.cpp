@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -16,33 +15,16 @@ using vi = vector<int>  ;
 #define rall(v) (v).rbegin(),(v).rend()
 #define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
 #define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
-#define point complex<long long>
-#define re real()
-#define im imag()
 
 void so(int test){
-        int n;
-        cin >> n ;
-        vi v(n);
-        f(i,0,n)cin >> v[i];
-        ll ans = 0;
-        int ma = -1;
-        int prev;
-        f(i,0,n){
-                if(i %  2 == 0){
-                        if( i == 0)continue;
-                        if(v[i] >= prev){
-                                ans += (v[i] - prev + 1);
-                        }
-                }else{
-                        if(v[i] < prev){
-                                v[i] = ma;
-                        }
-                }
-                prev = v[i];
-                ma = max(ma,v[i]);
+        vi v(4);
+        f(i,0,4)cin >> v[i];
+        sort(all(v));
+        if(v[0] == v[3]){
+                cout << "YES" << ln;
+                return;
         }
-        cout << ans << ln;
+                cout << "NO" << ln;
 }
 
 int main() {

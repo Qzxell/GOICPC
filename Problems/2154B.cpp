@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -27,20 +26,20 @@ void so(int test){
         f(i,0,n)cin >> v[i];
         ll ans = 0;
         int ma = -1;
-        int prev;
-        f(i,0,n){
-                if(i %  2 == 0){
-                        if( i == 0)continue;
-                        if(v[i] >= prev){
-                                ans += (v[i] - prev + 1);
-                        }
-                }else{
-                        if(v[i] < prev){
-                                v[i] = ma;
-                        }
-                }
-                prev = v[i];
+        for(int i = 0 ; i < n ; i+=1){
                 ma = max(ma,v[i]);
+                if(i&1)v[i] = ma;
+        }
+        for(int i = 0 ; i < n ; i+=2){
+                if(i == 0){
+                        if(v[i] == v[i+1]){
+                                ans++;
+                        }
+                        continue;
+                }
+                if(v[i] >= v[i-1]){
+                        ans += (v[i] - v[i-1] + 1);
+                }
         }
         cout << ans << ln;
 }
