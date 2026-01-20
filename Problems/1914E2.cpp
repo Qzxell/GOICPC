@@ -20,6 +20,24 @@ using ll = long long;
 #define sz(v) (int)(v).size()
 
 void so(int test){
+        int n;
+        cin >> n;
+        int a[n],b[n],ord[n];
+        forn(i,n)cin >> a[i];
+        forn(i,n)cin >> b[i],ord[i] = i;
+        auto ga = [&](int ind1, int ind2)->bool{
+                return a[ind1] - b[ind2] < a[ind2] - b[ind1];
+        };
+        sort(ord,ord+n,ga);
+        reverse(ord,ord+n);
+        ll sa,sb;
+        sa = sb = 0;
+        forn(i,n)if(i&1){
+                sb += b[ord[i]] - 1;
+        }else{
+                sa += a[ord[i]] - 1;
+        }
+        cout << sa - sb << '\n';
 }
 
 int main(){
@@ -27,6 +45,9 @@ int main(){
         cin.tie(0);
         int tt = 1;
         int test = 1;
+        cin >> tt;
         while(tt--) so(test++);
         return 0;
 }
+
+

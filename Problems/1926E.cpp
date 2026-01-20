@@ -20,13 +20,29 @@ using ll = long long;
 #define sz(v) (int)(v).size()
 
 void so(int test){
+        int n,k;
+        cin >> n >> k;
+        forn(i,32){
+                int fi = (1<<i);
+                int ra = (1<<(i+1));
+                int cur = (n-fi)/ra + 1;
+                if(cur >= k){
+                        int ans = fi + ra*(k-1);
+                        cout << ans << '\n';
+                        return;
+                }else k -= cur;
+        }
+        assert(false);
 }
 
 int main(){
         ios::sync_with_stdio(false);
         cin.tie(0);
         int tt = 1;
+        cin >> tt;
         int test = 1;
         while(tt--) so(test++);
         return 0;
 }
+
+

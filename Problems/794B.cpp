@@ -16,17 +16,25 @@ using ll = long long;
 #define fi first
 #define se second
 #define all(v) (v).begin(),(v).end()
-#define rall(v) (v).rbegin(),(v).rend()
 #define sz(v) (int)(v).size()
 
 void so(int test){
+        int n,h;
+        cin >> n >> h;
+        forsn(i,1,n){
+                double ans = sqrt((double)i/n)*h;
+                cout << ans << ' ';
+        }
 }
 
 int main(){
         ios::sync_with_stdio(false);
         cin.tie(0);
+        cout << fixed << setprecision(9) ;
         int tt = 1;
         int test = 1;
         while(tt--) so(test++);
         return 0;
 }
+
+

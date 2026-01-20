@@ -16,10 +16,20 @@ using ll = long long;
 #define fi first
 #define se second
 #define all(v) (v).begin(),(v).end()
-#define rall(v) (v).rbegin(),(v).rend()
 #define sz(v) (int)(v).size()
 
 void so(int test){
+        string s;
+        cin >> s;
+        string h,m;
+        h = s.substr(0, 2);
+        m = s.substr(3, 2);
+        int ho = stoi(h);
+        int mi = stoi(m);
+        ho %= 12;
+        double ans_h = (ho ?30*ho:0 ) + (double)mi/2.0;
+        double ans_mi = 6*mi;
+        cout << ans_h << ' ' << ans_mi << '\n';
 }
 
 int main(){
@@ -30,3 +40,5 @@ int main(){
         while(tt--) so(test++);
         return 0;
 }
+
+

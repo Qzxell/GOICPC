@@ -20,6 +20,34 @@ using ll = long long;
 #define sz(v) (int)(v).size()
 
 void so(int test){
+        int n;
+        cin >> n;
+        ll ans = 0;
+        vi v;
+        forn(i,n){
+                int x;
+                cin >> x;
+                if(x%2==0){
+                        if(x > 0)ans += x;
+                }else{
+                        v.push_back(x);
+                }
+        }
+        sort(rall(v));
+        if(v[0] < 0){
+                ans += v[0];
+                cout << ans << '\n';
+                return;
+        }
+        ans += v[0];
+        for(int i = 1 ; i < sz(v) ; i += 2)if(i+1 < sz(v)){
+                if(v[i] + v[i+1] > 0){
+                        ans += v[i] + v[i+1];
+                }
+        }
+        cout << ans << '\n';
+
+
 }
 
 int main(){
@@ -30,3 +58,5 @@ int main(){
         while(tt--) so(test++);
         return 0;
 }
+
+

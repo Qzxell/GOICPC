@@ -20,13 +20,30 @@ using ll = long long;
 #define sz(v) (int)(v).size()
 
 void so(int test){
+        int n;
+        cin >> n;
+        int g = n /2;
+        int r = (n&1);
+        int ans = 0;
+        if(g%2==0){
+                cout << r << '\n';
+                return;
+        }
+        if(r){
+                cout << (g > 1 ? 1 : 3) << '\n';
+        }else{
+                cout << (g > 1 ? 0 : 2) << '\n';
+        }
 }
 
 int main(){
         ios::sync_with_stdio(false);
         cin.tie(0);
         int tt = 1;
+        cin >> tt;
         int test = 1;
         while(tt--) so(test++);
         return 0;
 }
+
+

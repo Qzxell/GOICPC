@@ -20,13 +20,40 @@ using ll = long long;
 #define sz(v) (int)(v).size()
 
 void so(int test){
+        int n,k;
+        cin >>n >> k;
+        set<int> s;
+        s.insert(n);
+        int op =1;
+        if(n == k){
+                cout<< 0 << '\n';
+                return;
+        }
+        while(true){
+                set<int> ga;
+                for(auto x : s){
+                        if(x/2 == k or (x+1)/2 == k){
+                                cout << op << '\n';
+                                return;
+                        }
+                        ga.insert(x/2);
+                        ga.insert((x+1)/2);
+                }
+                swap(ga,s);
+                op++;
+                if(op > 40)break;
+        }
+        cout << -1 << '\n';
 }
 
 int main(){
         ios::sync_with_stdio(false);
         cin.tie(0);
         int tt = 1;
+        cin >> tt;
         int test = 1;
         while(tt--) so(test++);
         return 0;
 }
+
+
