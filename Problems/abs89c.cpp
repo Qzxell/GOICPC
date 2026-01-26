@@ -20,41 +20,38 @@ using ll = long long;
 #define sz(v) (int)(v).size()
 
 void so(int test){
-        ll n,k;
-        cin >> n >> k;
-        vi r(n);
-        multiset<ll> s;
+        int n;
+        cin >> n;
+        map<char,int> m;
+        string uwu = "MARCH";
         forn(i,n){
-                ll x;
-                cin >> x;
-                s.insert(x);
-        }
-        forn(i,n)cin >> r[i];
-
-
-        sort(all(r));
-
-        int ans = 0;
-        dforn(i,n){
-                if(r[i] + 1 > k)continue;
-                ll ma  = (k - r[i]) /(r[i] + 1);
-                auto it = s.upper_bound(ma);
-                if(it != s.begin()){
-                        it = prev(it);
-                        s.erase(it);
-                        ans++;
+                string s;
+                cin >> s;
+                for(auto c : uwu){
+                        if(s[0] == c){
+                                m[c]++;
+                                break;
+                        }
                 }
         }
-        cout << ans << '\n';
-
+        vi v;
+        for(auto [a,b] : m){
+                v.push_back(b);
+        }
+        ll ans = 0;
+        forn(i,sz(v))
+        forn(j,sz(v))
+        forn(k,sz(v))
+        if( i != k and i != j and k != j){
+                ans += 1ll*v[i]*v[j]*v[k];
+        }
+        cout << ans/6 << '\n';
 }
-
 
 int main(){
         ios::sync_with_stdio(false);
         cin.tie(0);
         int tt = 1;
-        cin >> tt;
         int test = 1;
         while(tt--) so(test++);
         return 0;

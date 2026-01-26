@@ -20,41 +20,41 @@ using ll = long long;
 #define sz(v) (int)(v).size()
 
 void so(int test){
-        ll n,k;
-        cin >> n >> k;
-        vi r(n);
-        multiset<ll> s;
+        int n;
+        cin >> n;
+        vii v(n);
         forn(i,n){
-                ll x;
-                cin >> x;
-                s.insert(x);
+                auto &[a,b] = v[i];
+                cin >> a >> b;
         }
-        forn(i,n)cin >> r[i];
-
-
-        sort(all(r));
-
-        int ans = 0;
-        dforn(i,n){
-                if(r[i] + 1 > k)continue;
-                ll ma  = (k - r[i]) /(r[i] + 1);
-                auto it = s.upper_bound(ma);
-                if(it != s.begin()){
-                        it = prev(it);
-                        s.erase(it);
-                        ans++;
+        auto pen = [&](ii a, ii b)->ii{
+                int nu = b.se - a.se;
+                int de = b.fi - a.fi;
+                int gc = gcd(nu,de);
+                if(gc){
+                        nu /= gc;
+                        de /= gc;
                 }
+                return {nu,de};
+        };
+        ll ans = 0;
+        forn(i,n)
+        forsn(j,i+1,n)
+        forsn(k,j+1,n){
+                int ok = 1;
+                if(pen(v[i],v[j]) == pen(v[i],v[k]) or
+                pen(v[j],v[i]) == pen(v[j],v[k])){
+                        ok = 0;
+                }
+                ans += ok;
         }
         cout << ans << '\n';
-
 }
-
 
 int main(){
         ios::sync_with_stdio(false);
         cin.tie(0);
         int tt = 1;
-        cin >> tt;
         int test = 1;
         while(tt--) so(test++);
         return 0;

@@ -20,41 +20,24 @@ using ll = long long;
 #define sz(v) (int)(v).size()
 
 void so(int test){
-        ll n,k;
-        cin >> n >> k;
-        vi r(n);
-        multiset<ll> s;
-        forn(i,n){
-                ll x;
-                cin >> x;
-                s.insert(x);
-        }
-        forn(i,n)cin >> r[i];
-
-
-        sort(all(r));
-
-        int ans = 0;
-        dforn(i,n){
-                if(r[i] + 1 > k)continue;
-                ll ma  = (k - r[i]) /(r[i] + 1);
-                auto it = s.upper_bound(ma);
-                if(it != s.begin()){
-                        it = prev(it);
-                        s.erase(it);
-                        ans++;
+        int n;
+        cin >> n;
+        vi fre(n+1,0);
+        ll ans = 0;
+        for(int i = 1; i <= n ; i++){
+                for(int j = i ; j <= n ; j+= i){
+                        fre[j]++;
                 }
         }
+        forn(i,n)ans += fre[i];
         cout << ans << '\n';
 
 }
-
 
 int main(){
         ios::sync_with_stdio(false);
         cin.tie(0);
         int tt = 1;
-        cin >> tt;
         int test = 1;
         while(tt--) so(test++);
         return 0;

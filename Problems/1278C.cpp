@@ -20,35 +20,27 @@ using ll = long long;
 #define sz(v) (int)(v).size()
 
 void so(int test){
-        ll n,k;
-        cin >> n >> k;
-        vi r(n);
-        multiset<ll> s;
-        forn(i,n){
-                ll x;
-                cin >> x;
-                s.insert(x);
-        }
-        forn(i,n)cin >> r[i];
-
-
-        sort(all(r));
-
-        int ans = 0;
-        dforn(i,n){
-                if(r[i] + 1 > k)continue;
-                ll ma  = (k - r[i]) /(r[i] + 1);
-                auto it = s.upper_bound(ma);
-                if(it != s.begin()){
-                        it = prev(it);
-                        s.erase(it);
-                        ans++;
+        int n;
+        cin >> n;
+        vi v(n+n),ps(n+n+1,0),suf(n+n+2,0);
+        forn(i,n+n)cin >> v[i];
+        forsn(i,1,n+n+1)ps[i] = ps[i-1] + (v[i-1] == 1 ? 1 : -1);
+        for(int i = n + n ; i > n ; i--)suf[i] = suf[i+1] + (v[i-1] == 1 ? 1 : -1);
+        map<int,int> m,m_;
+        forsn(i,0,n+1)m[ps[i]] = i;
+        for(int i = n + n + 1 ; i > n ; i--)m_[suf[i]] = i;
+        int tot = 2*n;
+        int ans = (1<<30);
+        //cout << "===========\n";
+        for(auto [x,ind] : m){
+                if(m_.count(-x)){
+                        //cout << x << ' ' << m_[-x] << ' ' << m[x] << '\n';
+                        ans = min(ans,m_[-x]-m[x] - 1);
                 }
         }
+        //if(ans == (1<<30))ans = n+n;
         cout << ans << '\n';
-
 }
-
 
 int main(){
         ios::sync_with_stdio(false);

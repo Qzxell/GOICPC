@@ -2,7 +2,7 @@
 
 using namespace std;
 
-using ll = long long;
+using ll = unsigned long long;
 
 #define forn(i,n) for(int i=0 ;i<int(n);i++)
 #define forsn(i,s,n) for(int i=int(s);i<int(n);i++)
@@ -20,40 +20,30 @@ using ll = long long;
 #define sz(v) (int)(v).size()
 
 void so(int test){
-        ll n,k;
-        cin >> n >> k;
-        vi r(n);
-        multiset<ll> s;
-        forn(i,n){
-                ll x;
-                cin >> x;
-                s.insert(x);
+        ll k;
+        cin >> k;
+        ll ci = 9;
+        int dig = 1;
+        while(true){
+                if( k - ci*1ll*dig <= 0)break;
+                k -= ci;
+                ci *= 10;
+                dig++;
         }
-        forn(i,n)cin >> r[i];
+        ll fi = 1;
+        forn(i,dig-1)fi*=10;
+        ll gru = (k + dig -1 )/dig;
 
-
-        sort(all(r));
-
-        int ans = 0;
-        dforn(i,n){
-                if(r[i] + 1 > k)continue;
-                ll ma  = (k - r[i]) /(r[i] + 1);
-                auto it = s.upper_bound(ma);
-                if(it != s.begin()){
-                        it = prev(it);
-                        s.erase(it);
-                        ans++;
-                }
-        }
-        cout << ans << '\n';
 
 }
-
 
 int main(){
         ios::sync_with_stdio(false);
         cin.tie(0);
         int tt = 1;
+        init();
+        forn(i,N)cout << v[i] << ' ';
+        cout << '\n';
         cin >> tt;
         int test = 1;
         while(tt--) so(test++);
