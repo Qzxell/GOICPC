@@ -1,83 +1,62 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 
 using namespace std;
 
-using ii = pair<int,int>;
-using vii = vector<ii>  ;
-using vi = vector<int>  ;
-#define ln  '\n'
-#define ll long long
-#define pb push_back
+using ll = long long;
+
+#define forn(i,n) for(int i=0 ;i<int(n);i++)
+#define forsn(i,s,n) for(int i=int(s);i<int(n);i++)
+#define dforn(i,n) for(int i=int(n)-1;i>=0;i--)
+#define dforsn(i,s,n) for(int i=int(n)-1;i>=int(s);i--)
+
+#define vi vector<int>
+#define vl vector<ll>
+#define ii pair<int,int>
+#define vii vector<ii>
 #define fi first
 #define se second
-#define sz(v) ((int)(v).size())
 #define all(v) (v).begin(),(v).end()
 #define rall(v) (v).rbegin(),(v).rend()
-#define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
-#define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
-
-const int N = 100005;
-vi adj[N];
-vi v_(N,0);// quien es me leder
-vi ans;
-int pos = 1;
-int leder = 1;
-           //
-void cic(int ro){
-        v_[ro] = 1;
-        for(auto x : adj[ro]){
-                if(v_[x] == 0){
-                        cic(x);
-                }else{
-                        if(v_[x] == 1){
-                                pos = 0;
-                        }
-                }
-        }
-        ans.pb(ro);
-        v_[ro] = 2;
-}
-
+#define sz(v) (int)(v).size()
 
 void so(int test){
-        int n,k;
-        cin >> n >> k;
-        vi ned(k);
-        f(i,0,k)cin >> ned[i];
+	int n;
+	cin >> n;
+	vector<vi> pos_nu(n+1);
+	forn(i,n){
+		int nu;
+		cin >> nu;
+		if(nu > n)continue;
+		pos_nu[nu].push_back(i);
+	}
+	ll ans = 0;
+	forsn(i,1,sqrt(n)+2){
+		for(int j = 1 ; j *1ll*i <= n ; j++){
+			if(j < i)continue;
+			int ind = 0;
+			int dis = i*j;
+			for(auto id : pos_nu[i]){
+				while(ind < sz(pos_nu[j])){
+					if(pos_nu[j][ind] - id >= dis)
+						break;
+					ind++;
+				}
+				if(ind < sz(pos_nu[j]))
+					if(pos_nu[j][ind] - id == dis)
+						ans++;
 
-        f(i,1,n+1){
-                int x;
-                cin >> x;
-                f(j,0,x){
-                        int v;
-                        cin >> v;
-                        adj[i].pb(v);
-                }
-        }
-        int co = 1;
-        for(int x : ned){
-                if(!v_[x])cic(x);
-        }
-        if(!pos){
-                cout << -1 << ln;
-                return;
-        }
-        cout << sz(ans) << ln;
-        for(auto x: ans){
-                cout << x << ' ';
-        }
-
-	
+			}
+		}
+	}
+	cout << ans << '\n';
 }
 
-int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-
-	int tt = 1;
-	int test = 1;
-	while (tt--){
-		so(test++);
-	}
-	return 0;
+int main(){
+        ios::sync_with_stdio(false);
+        cin.tie(0);
+        int tt = 1;
+	cin >>  tt;
+        int test = 1;
+        while(tt--) so(test++);
+        return 0;
 }

@@ -6,8 +6,6 @@ using ll = long long;
 
 #define forn(i,n) for(int i=0 ;i<int(n);i++)
 #define forsn(i,s,n) for(int i=int(s);i<int(n);i++)
-#define dforn(i,n) for(int i=int(n)-1;i>=0;i--)
-#define dforsn(i,s,n) for(int i=int(n)-1;i>=int(s);i--)
 
 #define vi vector<int>
 #define vl vector<ll>

@@ -1,5 +1,6 @@
 .obsidian/
 **/a
-**/in
-**/ou
+**/in[0-9]*
+**/ou[0-9]*
 **/sinc
+**/cases
