@@ -17,79 +17,69 @@ using ll = long long;
 #define rall(v) (v).rbegin(),(v).rend()
 #define sz(v) (int)(v).size()
 
+const int N = 3e5 + 5;
+const int MOD = 998244353;
+int fre[N] , cnt[N], crib[N] ,fac[N],inv[N],invfac[N];
+
+void init(){
+	fac[0] = 1;
+	inv[1] = 1;
+	invfac[0] = 1;
+	forsn(i,1,N){
+		fac[i] = fac[i-1]*1ll*i%MOD;
+	}
+	forsn(i,2,N){
+		inv[i] = (MOD - (MOD/i)*1ll*inv[MOD%i]%MOD)%MOD;
+	}
+	forsn(i,1,N){
+		invfac[i] = invfac[i-1]*1ll*inv[i]%MOD;
+	}
+}
+
+ll C(int n,int k){
+	if(n == 0)return 0;
+	if(k <= 0 or k > n)return 0;
+	return fac[n]*1ll* invfac[n-k] %MOD *invfac[k]%MOD;
+}
+ll add(ll a, ll b){
+	return (a%MOD + MOD + b%MOD + MOD)%MOD;
+}
+ll mul(ll a, ll b){
+	return (a%MOD * b%MOD)%MOD;
+}
+	
+
 void so(int test){
-	int n;
-	cin >> n;
-	vector<vi> T(n);
-	vector<vi> T_(n);
-	vi deg(n,0);
-	forn(i,n-1){
-		int u,v;
-		cin >> u >> v;
-		u--;v--;
-		T[u].push_back(v);
-		T[v].push_back(u);
-		deg[u]++;
-		deg[v]++;
+	int n,k;
+	cin >> n >> k;
+	fill(crib,crib+n+1,0);
+	fill(fre,fre+n+1,0);
+	fill(cnt,cnt+n+1,0);
+	forn(i,n){
+		int x;
+		cin >> x;
+		fre[x]++;
 	}
-	vi vis(n,0);
-	int ans = 1;
-	forn(i,n-1){
-		if(deg[i] == 3){
-			for(auto x : T[i])if(deg[x] == 3)
-				ans = 2;
+	vi primos;
+	forsn(i,2,n+1){
+		if(crib[i])continue;
+		int con = 0;
+		for(int j = i ; j < n+1; j += i){
+			con += fre[j];
+			crib[j] = 1;
 		}
+		cnt[i] = con;
+		if(con > 0)
+			primos.push_back(i);
 	}
-
-	queue<int> qu;
-	auto bfs = [&](int nod){
-		qu.push(nod);
-		vis[nod] = 1;
-		while(!qu.empty()){
-			int fr = qu.front();qu.pop();
-			for(auto x : T[fr])if(deg[x] >= 4 and !vis[x]){
-				T_[fr].push_back(x);
-				T_[x].push_back(fr);
-				qu.push(x);
-				vis[x] = 1;
-			}
-		}
-	};
-	queue<ii> qu1;
-	int ul = -1;
-	auto bfs1 = [&](int nod)->int{
-		qu1.push({nod,1});
-		vis[nod] = 1;
-		int mx = 1;
-		while(!qu1.empty()){
-			auto [fr,dis] = qu1.front();qu1.pop();
-			mx = max(mx,dis);
-			ul = fr;
-			for(auto x : T_[fr])if(!vis[x]){
-				qu1.push({x,dis+1});
-				vis[x] = 1;
-			}
-			for(auto x : T[fr])if(deg[x] == 3){
-				mx = max(mx,dis+1);
-			}
-
-		}
-		return mx;
-	};
-	auto diametro = [&](int nod)->int{
-		int ans = 1;
-		ul = -1;
-		ans = max(bfs1(nod),ans);
-
-		ans = max(bfs1(ul),ans);
-		return ans;
-	};
-	forn(i,n)if(deg[i] >= 4)
-		bfs(i);
-	forn(i,n)
-		vis[i] = 0;
-	forn(i,n)if(deg[i] >= 4)
-		ans = max(ans,diametro(i));
+	ll ans = 0;
+	//cout << "===============\n";
+	for(auto x : primos){
+		//cout << x << ' ' << C(n,k) << ' ' << C(n - cnt[x],k) << '\n';
+		//cout << add(C(n,k), -C(n - cnt[x],k)) << '\n';
+		ans = add(ans , mul(x,add(C(n,k), -C(n - cnt[x],k))));
+	}
+	//cout << '\n';
 	cout << ans << '\n';
 }
 
@@ -98,6 +88,7 @@ int main(){
         ios::sync_with_stdio(false);
         cin.tie(0);
         int tt = 1;
+	init();
 	cin >> tt;
         int test = 1;
         while(tt--) so(test++);
