@@ -1,0 +1,74 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+using ll = long long;
+
+#define forn(i,n) for(int i=0 ;i<int(n);i++)
+#define forsn(i,s,n) for(int i=int(s);i<int(n);i++)
+
+#define all(v) (v).begin(),(v).end()
+#define sz(v) (int)(v).size()
+
+const int N = 3e5 + 5;
+const int MOD = 998244353;
+ll dp[N];
+vector<int> G[N];
+
+int add (int a, int b){
+	return (a + 0ll + b)%MOD;
+}
+
+int mul (int a, int b){
+	return (a *1ll* b)%MOD;
+}
+
+int binpow(ll b,ll e){
+	ll ret = 1;
+	while(e > 0){
+		if( e&1){
+			ret = ret * b %MOD;
+		}
+		b = b * b%MOD;
+		e >>= 1;
+	}
+	return ret;
+}
+
+void dfs(int nod,int fa){
+	dp[nod] = 1;
+	int v1 = 1;
+	int v2 = 1;
+	for(auto to : G[nod])if(to != fa){
+		dfs(to, nod);
+		v1 = mul(v1, dp[to]);
+	}
+	dp[nod] = add(dp[nod] , v1);
+}
+
+void so(int test){
+	int n;
+	cin >> n;
+
+	forn(i,n)G[i].clear();
+	forn(i,n-1){
+		int u,v;
+		cin >> u >> v;
+		u--;v--;
+		G[u].push_back(v);
+		G[v].push_back(u);
+	}
+	dfs(0,-1);
+	cout << dp[0] << '\n';
+}
+
+int main(){
+        ios::sync_with_stdio(false);
+        cin.tie(0);
+        int tt = 1;
+	cin >> tt;
+        int test = 1;
+        while(tt--) so(test++);
+        return 0;
+}
+

@@ -1,48 +1,62 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 
 using namespace std;
 
-using ii = pair<int,int>;
-using vii = vector<ii>  ;
-using vi = vector<int>  ;
-#define ln  '\n'
-#define ll long long
-#define pb push_back
+using ll = long long;
+
+#define forn(i,n) for(int i=0 ;i<int(n);i++)
+#define forsn(i,s,n) for(int i=int(s);i<int(n);i++)
+
+#define vi vector<int>
+#define vl vector<ll>
+#define ii pair<int,int>
+#define vii vector<ii>
 #define fi first
 #define se second
-#define sz(v) ((int)(v).size())
 #define all(v) (v).begin(),(v).end()
 #define rall(v) (v).rbegin(),(v).rend()
-#define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
-#define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
+#define sz(v) (int)(v).size()
+int test = 1;
+
+int n;
+string s;
+const int N = 6005;
+int dp[N][N];
+int vis[N][N];
+bool ans = 0;
+
+int rec(int l,int r){
+	if(l > r)
+		return -1;
+	if(vis[l][r] == test)return dp[l][r];
+	vis[l][r] = test;
+
+	if(((n - (r-l+1))&1) == 0){//Monacrpio
+		dp[l][r] = max( rec(l+1,r) + (s[l] == '(' ? -1 : 1) , rec(l,r-1) + (s[r] == '(' ? -1 : 1));
+		if(s[l] == ')') dp[l][r] = max(1,dp[l][r]);
+		if(s[r] == ')') dp[l][r] = max(1,dp[l][r]);
+		return dp[l][r];
+	}
+	return dp[l][r] = min(rec(l+1,r)  , rec(l,r-1));
+}
 
 void so(int test){
-        int n;
-        cin >> n;
-        map<int,int> m;
-        map<int,int> m_;
-        f(i,1,n+1){
-                int x;
-                cin >> x;
-                m[x+i]++;
-                m_[i-x]++;
-        }
-        ll ans = 0;
-        for(auto [a,b]:m){
-                if(m_.count(a) == 0)continue;
-                ans += b*1ll*m_[a];
-        }
-        cout << ans << ln;
+	cin >> n;
+	cin >> s;
+	ans = 0;
+	if(s[0] == '(' and rec(1,n-1) >= 1)
+		ans = 1;
+	if(s[n-1] == '(' and rec(0,n-2) >= 1)
+		ans = 1;
+	cout << (ans ? "Monocarp" : "Polycarp" ) << '\n';
 }
 
-int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-
-	int tt = 1;
-	int test = 1;
-	while (tt--){
-		so(test++);
-	}
-	return 0;
+int main(){
+        ios::sync_with_stdio(false);
+        cin.tie(0);
+        int tt = 1;
+	cin >> tt;
+        while(tt--) so(test++);
+        return 0;
 }
+

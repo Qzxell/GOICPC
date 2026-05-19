@@ -1,53 +1,73 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 
 using namespace std;
 
-using ii = pair<long long,long long>;
-using vii = vector<ii>  ;
-using vi = vector<long long>  ;
-#define ln  '\n'
-#define ll long long
-#define pb push_back
+using ll = long long;
+
+#define forn(i,n) for(int i=0 ;i<int(n);i++)
+#define forsn(i,s,n) for(int i=int(s);i<int(n);i++)
+
+#define vi vector<int>
+#define vl vector<ll>
+#define ii pair<int,int>
+#define vii vector<ii>
 #define fi first
 #define se second
-#define sz(v) ((int)(v).size())
 #define all(v) (v).begin(),(v).end()
 #define rall(v) (v).rbegin(),(v).rend()
-#define f(i, a, b)  for(ll i = (ll)a; i < (ll)b; i++)
-#define fer(i, b, a)  for(ll i = (ll)a - 1; i >= (ll)b; i--)
-#define point complex<long long>
-#define re real()
-#define im imag()
+#define sz(v) (int)(v).size()
+
+
+const int N = 8005;
+int a[N],c[N];
+
+vi compres;
+int n;
+
+ll ft[N];
+
+void updt(int pos,ll modi){
+	while( pos <= n ){
+		ft[pos] = max(ft[pos],modi);
+		pos += pos&-pos;
+	}
+}
+
+ll query(int pos){
+	ll ret = 0;
+	while(pos > 0 ){
+		ret = max(ret,ft[pos]);
+		pos -= pos & -pos;
+	}
+	return ret;
+}
 
 void so(int test){
-        int n;
-        cin >> n;
-        vi a(n),c(n);
-        f(i,0,n)cin >> a[i];
-        f(i,0,n)cin >> c[i];
-        ll inf = LLONG_MAX;
-        vector<vii> dp(2,vii(n+1,{inf,inf}));
-        dp[0][0] = {0,1 };
-        dp[1][0] = {0,1 };
-        f(i,1,n+1){
-                f(j,0,2)
-                f(k,0,2)
-                {
-                        ii r1 = dp[j][i-1];
-                        if(r1.fi == inf)continue;
-                        ii &cur = dp[k][i];
-                        if( k == 0){
-                                if(r1.se > a[i-1])continue;
-                                cur = min(cur,{r1.fi,a[i-1]});
-                                continue;
-                        }
-                        if( k == 1){
-                                cur = min(cur,{r1.fi + c[i-1] ,r1.se});
-                                continue;
-                        }
-                }
-        }
-        cout << min(dp[0][n],dp[1][n]).fi << ln;
+	cin >> n;
+	compres.clear();
+	forn(i,n+1)ft[i] = 0;
+	forn(i,n)cin >> a[i],compres.push_back(a[i]);
+	forn(i,n)cin >> c[i];
+	sort(all(compres));
+	compres.erase(unique(all(compres)),compres.end());
+	auto get = [&](int nu)->int{
+		return lower_bound(all(compres),nu) - compres.begin() + 1;
+	};
+	forn(i,n)a[i] = get(a[i]);
+
+	//forn(i,n)cout << a[i] << ' ';
+	//cout << '\n';
+
+	ll tot = accumulate(c,c+n,0ll);
+	ll ans = 0;
+	forn(i,n){
+		ll qu = query(a[i]);
+		updt(a[i],qu + c[i]);
+		ans = max(ans,query(a[i]));
+	}
+	cout << tot - ans << '\n';
+
+
 }
 
 int main() {

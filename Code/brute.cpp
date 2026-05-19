@@ -1,36 +1,46 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 
 using namespace std;
+
 using ll = long long;
 
-void solve() {
-    int n;
-    cin >> n;
+#define forn(i,n) for(int i=0 ;i<int(n);i++)
+#define forsn(i,s,n) for(int i=int(s);i<int(n);i++)
 
-    vector<ll> a(n), b(n);
-    for (int i = 0; i < n; i++) cin >> a[i];
-    for (int i = 0; i < n; i++) cin >> b[i];
+#define vi vector<int>
+#define vl vector<ll>
+#define ii pair<int,int>
+#define vii vector<ii>
+#define fi first
+#define se second
+#define all(v) (v).begin(),(v).end()
+#define rall(v) (v).rbegin(),(v).rend()
+#define sz(v) (int)(v).size()
+#define pb push_back
+#define imp(v) {for(auto x:v)cout<<x<<' ';cout<<'\n';}
 
-    ll max_a = 0;
-    ll max_b = 0;
 
-    for (int i = 0; i < n; i++) {
-        ll next_a = max(max_a, max_b + a[i]);
-        ll next_b = max(max_b, max_a + b[i]);
-        
-        max_a = next_a;
-        max_b = next_b;
-    }
-
-    cout << max(max_a, max_b) << '\n';
+void so(int test){
+	int n = 3;
+	vi v(n);
+	iota(all(v),1);
+	int ans = 0;
+	do{
+		int ok = 1;
+		forsn(i,1,n+1)
+			if(v[i-1] == i)
+				ok = 0;
+		ans += ok;
+	}while(next_permutation(all(v)));
+	cout << ans << '\n';
 }
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int tt = 1;
-    while (tt--) {
-        solve();
-    }
-    return 0;
+int main(){
+        ios::sync_with_stdio(false);
+        cin.tie(0);
+        int tt = 1;
+        int test = 1;
+        while(tt--) so(test++);
+        return 0;
 }
+

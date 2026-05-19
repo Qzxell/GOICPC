@@ -17,78 +17,63 @@ using ll = long long;
 #define rall(v) (v).rbegin(),(v).rend()
 #define sz(v) (int)(v).size()
 
-const int N = 3e5 + 5;
-const int MOD = 998244353;
-int fre[N] , cnt[N], crib[N] ,fac[N],inv[N],invfac[N];
+const int N = 4e3 + 5;
+int n,m;
 
-void init(){
-	fac[0] = 1;
-	inv[1] = 1;
-	invfac[0] = 1;
-	forsn(i,1,N){
-		fac[i] = fac[i-1]*1ll*i%MOD;
+ll ft[N][N];
+ll a[N],b[N];
+
+void updt(int pos,int modi,int row){
+	while( pos < n+1 ){// !!!!!URGENT limit
+		ft[pos][row] += modi;
+		pos = pos | (pos+1);
 	}
-	forsn(i,2,N){
-		inv[i] = (MOD - (MOD/i)*1ll*inv[MOD%i]%MOD)%MOD;
+}
+ll query(int pos,int row){
+	ll ret = 0;
+	while(pos >= 0 ){
+		ret += ft[pos][row];
+		pos = (pos & (pos+1))  - 1;
 	}
-	forsn(i,1,N){
-		invfac[i] = invfac[i-1]*1ll*inv[i]%MOD;
-	}
+	return ret;
 }
 
-ll C(int n,int k){
-	if(n == 0)return 0;
-	if(k <= 0 or k > n)return 0;
-	return fac[n]*1ll* invfac[n-k] %MOD *invfac[k]%MOD;
+void clean(){
+	forn(i,n+2)
+	forn(j,m+2)
+	ft[i][j] = 0;
 }
-ll add(ll a, ll b){
-	return (a%MOD + MOD + b%MOD + MOD)%MOD;
-}
-ll mul(ll a, ll b){
-	return (a%MOD * b%MOD)%MOD;
-}
-	
 
 void so(int test){
-	int n,k;
-	cin >> n >> k;
-	fill(crib,crib+n+1,0);
-	fill(fre,fre+n+1,0);
-	fill(cnt,cnt+n+1,0);
-	forn(i,n){
-		int x;
-		cin >> x;
-		fre[x]++;
-	}
-	vi primos;
-	forsn(i,2,n+1){
-		if(crib[i])continue;
-		int con = 0;
-		for(int j = i ; j < n+1; j += i){
-			con += fre[j];
-			crib[j] = 1;
-		}
-		cnt[i] = con;
-		if(con > 0)
-			primos.push_back(i);
-	}
-	ll ans = 0;
-	//cout << "===============\n";
-	for(auto x : primos){
-		//cout << x << ' ' << C(n,k) << ' ' << C(n - cnt[x],k) << '\n';
-		//cout << add(C(n,k), -C(n - cnt[x],k)) << '\n';
-		ans = add(ans , mul(x,add(C(n,k), -C(n - cnt[x],k))));
-	}
-	//cout << '\n';
-	cout << ans << '\n';
-}
+	cin >> n >> m;
+	clean();
+	forsn(i,1,n+1) cin >> a[i];
+	forsn(i,1,m+1) cin >> b[i];
 
+	updt(0,1,0);
+	updt(1,-1,0);
+
+	for(int j = 0 ; j < m ;j++){
+		for(int i = 0 ; i <= n ;i++){
+			ll cur = query(i,j);
+			//cout << cur << " \n"[i == n];
+			if(cur == 0)continue;
+			if(a[i+1] == b[j+1]){
+				updt(i+1,1,j+1);
+				updt(i+2,-1,j+1);
+			}
+			if(i + b[j+1] <= n)
+				updt(i+b[j+1],1,j+1);
+		}
+	}
+	cout << (query(n,m) > 0 ? "YES\n" : "NO\n") ;
+
+}
 
 int main(){
         ios::sync_with_stdio(false);
         cin.tie(0);
         int tt = 1;
-	init();
 	cin >> tt;
         int test = 1;
         while(tt--) so(test++);

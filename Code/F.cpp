@@ -1,58 +1,92 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-#define sz(v) ((int)(v).size())
-#define all(v) (v).begin(),(v).end()
-#define rall(v) (v).rbegin(),(v).rend()
-#define ln '\n'
-#define ll long long
-#define pb push_back
-#define ii pair<int,int>
-#define vii vector<ii>  
-#define vi vector<int>  
-#define fi first
-#define se second
+#define all(x) x.begin(), x.end()
+#define sz(x) (int)x.size()
 
+using ll = long long;
 
-void so(){
-    int n;
-    cin >> n;
-    double w,l,x,y;
-    cin >> w >> l >> x >> y;
-    vector<double> aa,bb;
-    for(int i = 0 ; i < n ; i++){
-        double a,b;
-        cin >> a >> b;
-        double ga = sqrt((y-b)*(double)(y-b) + (x-a)*(double)(x-a));
-        aa.pb(ga);
+int S(int x) {
+    int sa = 0;
+    for (char c : to_string(x)) {
+        sa += c - '0';
     }
-    for(int i = 0 ; i < n ; i++){
-        double a,b;
-        cin >> a >> b;
-        double ga = sqrt((y-b)*(double)(y-b) + (x-a)*(double)(x-a));
-        bb.pb(ga);
+    return sa;
+}
+
+string simulate(int x) {
+    string t;
+    while(x > 9) {
+        t += to_string(x);
+        x = S(x);
     }
-    sort(all(aa));
-    sort(all(bb));
-    if(aa[0] < bb[0]){
-        cout << "A ";
-        int u= upper_bound(all(aa),bb[0])-aa.begin();
-        cout << u;
-    } else {
-        cout << "R ";
-        int u= upper_bound(all(bb),aa[0])-bb.begin();
-        cout << u;
+    t += to_string(x);
+    return t;
+}
+
+vector<int> get_freq(string s) {
+    vector<int> f(10);
+    for (char c : s) {
+        f[c - '0'] += 1; 
     }
+    return f;
+}
+
+string solve() {
+    string s; cin >> s; 
+    vector<int> F = get_freq(s);
+    int lmt = 9 * sz(s);
+    for (int s = 1; s <= lmt; s++) {
+        string t = simulate(s);
+        vector<int> freq = get_freq(t);
+
+        if (freq == F) return t;
+
+        vector<int> other(F);
+        
+        bool ok = 1;
+        for (int x = 0; x <= 9; x++) {
+            if (F[x] >= freq[x]) {
+                F[x] -= freq[x];
+            } else {
+                ok = 0;
+            }
+        }
+        if (ok) {
+            ok = 0;
+            int sa = 0;
+            for (int x = 9; x >= 0; x--) {
+                sa += F[x] * x;
+                if (F[x] and x != 0) ok = 1; // has initial character?
+            }
+            ok = ok and (sa == s);
+            
+            if (ok) {
+                string res;
+                for (int x = 9; x >= 0; x--) {
+                    if (F[x] == 0) continue;
+                    while(F[x]--) {
+                        res.push_back('0' + x);
+                    }
+                }
+                return res + t;
+            }
+            
+        }
+
+        F = other;
+    }
+    assert(false);
+    return "waaa";
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-
-    int tt = 1;
-    while (tt--){
-        so();
+    cin.tie(0) -> sync_with_stdio(0);
+    int t; cin >> t;
+    while(t--) {
+        cout << solve() << '\n';
     }
     return 0;
 }
+
+
